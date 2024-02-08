@@ -1,14 +1,52 @@
-import { Grid, GridItem } from "@chakra-ui/react";
-import Navbar from "./components/Navbar";
+import { Grid, GridItem, ResponsiveValue, Show } from "@chakra-ui/react";
 import Main from "./components/Main";
+import Navbar from "./components/Navbar";
+import TopBar from "./components/TopBar";
+
+enum gridAreas {
+  sidebar = "sidebar",
+  mainarea = "mainarea",
+  topbar = "topbar",
+}
+
+const templateAreas: ResponsiveValue<string> = {
+  base: `
+    "${gridAreas.topbar}"
+    "${gridAreas.mainarea}"
+  `,
+  lg: `
+    "${gridAreas.sidebar} ${gridAreas.mainarea}"
+`,
+};
+
+const gridTemplateColumns = {
+  base: "1fr",
+  lg: "18rem 1fr",
+};
+
+const gridTemplateRows = {
+  base: "3rem 1fr",
+  lg: "1fr",
+};
 
 function App() {
   return (
-    <Grid templateAreas={`"nav main"`} gridTemplateColumns={"180px 1fr"}>
-      <GridItem area="nav">
-        <Navbar />
-      </GridItem>
-      <GridItem area="main">
+    <Grid
+      templateAreas={templateAreas}
+      gridTemplateColumns={gridTemplateColumns}
+      gridTemplateRows={gridTemplateRows}
+    >
+      <Show below="lg">
+        <GridItem area="topbar">
+          <TopBar />
+        </GridItem>
+      </Show>
+      <Show above="lg">
+        <GridItem area="sidebar">
+          <Navbar />
+        </GridItem>
+      </Show>
+      <GridItem area="mainarea">
         <Main />
       </GridItem>
     </Grid>
