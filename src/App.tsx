@@ -1,5 +1,5 @@
 import { Grid, GridItem, ResponsiveValue, Show } from "@chakra-ui/react";
-import Main from "./components/Main";
+import Canvas from "./components/Canvas";
 import Navbar from "./components/Navbar";
 import TopBar from "./components/TopBar";
 
@@ -47,7 +47,7 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="mainarea">
-        <Main />
+        <Canvas />
       </GridItem>
     </Grid>
   );
