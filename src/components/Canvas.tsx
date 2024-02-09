@@ -1,15 +1,19 @@
-import { Box, Card, CardBody } from "@chakra-ui/react";
+import { Card } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 
 const Canvas = () => {
   return (
-    <Box boxShadow="md">
-      <Card height="calc(100vh - 2em)" my="1em" mr="1em">
-        <CardBody>
-          <Outlet />
-        </CardBody>
-      </Card>
-    </Box>
+    // TODO: move position styles to layout
+    <Card
+      borderRadius="xl"
+      boxShadow="2xl"
+      height="calc(100vh - 6em)"
+      my="3em"
+      mr="2em"
+      p={0}
+    >
+      <Outlet />
+    </Card>
   );
 };
 

@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./pages/Layout";
-import About from "./pages/About";
+import AboutPage from "./pages/AboutPage";
 
 const routes = createBrowserRouter([
   {
@@ -9,7 +9,7 @@ const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <About />,
+        element: <AboutPage />,
       },
     ],
   },
