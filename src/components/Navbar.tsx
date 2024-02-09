@@ -1,14 +1,18 @@
 import { Box } from "@chakra-ui/react";
-import NavbarItem from "./NavbarItem";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import NavbarItem from "./NavbarItem";
 
 const Sections = ["About", "Skills", "Experience", "Projects"];
+const routePaths = ["/", "/skills", "/experience", "/projects"];
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const navigate = useNavigate();
 
   const handleClick = (tabIndex: number) => {
     setActiveTab(tabIndex);
+    navigate(routePaths[tabIndex]);
   };
 
   return (
