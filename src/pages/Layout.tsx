@@ -1,10 +1,10 @@
 import { ResponsiveValue, Grid, Show, GridItem } from "@chakra-ui/react";
 import Canvas from "../components/Canvas";
-import Navbar from "../components/Navbar";
+import SectionsList from "../components/SectionsList";
 import TopBar from "../components/TopBar";
 
 enum gridAreas {
-  sidebar = "sidebar",
+  sidepanel = "sidepanel",
   mainarea = "mainarea",
   topbar = "topbar",
 }
@@ -15,7 +15,7 @@ const templateAreas: ResponsiveValue<string> = {
       "${gridAreas.mainarea}"
     `,
   lg: `
-      "${gridAreas.sidebar} ${gridAreas.mainarea}"
+      "${gridAreas.sidepanel} ${gridAreas.mainarea}"
   `,
 };
 
@@ -32,21 +32,22 @@ const gridTemplateRows = {
 const Layout = () => {
   return (
     <Grid
+      height="100vh"
       templateAreas={templateAreas}
       gridTemplateColumns={gridTemplateColumns}
       gridTemplateRows={gridTemplateRows}
     >
       <Show below="lg">
-        <GridItem area="topbar">
+        <GridItem area={gridAreas.topbar}>
           <TopBar />
         </GridItem>
       </Show>
       <Show above="lg">
-        <GridItem area="sidebar">
-          <Navbar />
+        <GridItem area={gridAreas.sidepanel} pl={10} pt={24}>
+          <SectionsList />
         </GridItem>
       </Show>
-      <GridItem area="mainarea">
+      <GridItem area={gridAreas.mainarea} py={14} pr={10}>
         <Canvas />
       </GridItem>
     </Grid>
