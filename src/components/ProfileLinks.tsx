@@ -1,7 +1,7 @@
 import { HStack, Icon, Link, useColorMode } from "@chakra-ui/react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
-const IconList = () => {
+const ProfileLinks = () => {
   const { colorMode } = useColorMode();
 
   const icons = [
@@ -32,4 +32,4 @@ const IconList = () => {
   );
 };
 
-export default IconList;
+export default ProfileLinks;
