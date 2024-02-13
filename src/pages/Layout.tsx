@@ -1,7 +1,8 @@
-import { ResponsiveValue, Grid, Show, GridItem } from "@chakra-ui/react";
+import { ResponsiveValue, Grid, Show, GridItem, Box } from "@chakra-ui/react";
 import Canvas from "../components/Canvas";
 import SectionsList from "../components/SectionsList";
 import TopBar from "../components/TopBar";
+import Profile from "../components/Profile";
 
 enum gridAreas {
   sidepanel = "sidepanel",
@@ -44,6 +45,9 @@ const Layout = () => {
       </Show>
       <Show above="lg">
         <GridItem area={gridAreas.sidepanel} pl={10} pt={24}>
+          <Box mb={10}>
+            <Profile />
+          </Box>
           <SectionsList />
         </GridItem>
       </Show>
