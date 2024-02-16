@@ -2,7 +2,7 @@ import { Switch, useColorMode } from "@chakra-ui/react";
 
 const styleText = document.createTextNode(
   `html * { 
-      transition: color, background-color 0.3s ease-out!important 
+      transition: all 0.3s ease-out!important;
   }`
 );
 
