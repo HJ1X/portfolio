@@ -54,7 +54,7 @@ const CanvasAttachedCard = ({
 
   return (
     <Card
-      zIndex="2"
+      zIndex="docked"
       borderLeftRadius="xl"
       boxShadow="0 25px 50px -12px rgba(0, 0, 0, 0.25)"
       clipPath="inset(-50px 0px -50px -50px)"

@@ -26,6 +26,7 @@ const ColorModeSwitch = () => {
 
   return (
     <Switch
+      zIndex="docked"
       colorScheme="green"
       isChecked={colorMode === "dark"}
       onChange={handleColorModeChange}
