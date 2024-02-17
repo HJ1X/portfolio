@@ -1,15 +1,31 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
+import { ExperienceDetail } from "./Experience";
+import styles from "./ExperienceTimeline.module.css";
 
-const ExperienceTimeline = () => {
+interface ExperienceTimelineProps {
+  experienceDetails: ExperienceDetail[];
+  updateExperienceDataIndex: (index: number) => void;
+}
+
+const ExperienceTimeline = ({
+  experienceDetails,
+  updateExperienceDataIndex,
+}: ExperienceTimelineProps) => {
   return (
-    <Grid
-      templateAreas={`"timeline experienceSummary"`}
-      templateRows={"1fr"}
-      templateColumns={"0.5rem 1fr"}
-    >
-      <GridItem area="timeline"></GridItem>
-      <GridItem area="experienceSummary"></GridItem>
-    </Grid>
+    <Box className={styles.timeline}>
+      {experienceDetails.map((experience, index) => (
+        <Box
+          className={styles.experienceSummary}
+          key={experience.role + index}
+          onClick={() => updateExperienceDataIndex(index)}
+        >
+          <Box ml={3}>
+            <Text>{experience.role}</Text>
+            <Text>{experience.company}</Text>
+          </Box>
+        </Box>
+      ))}
+    </Box>
   );
 };
 

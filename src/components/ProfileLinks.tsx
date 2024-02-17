@@ -22,10 +22,9 @@ const ProfileLinks = () => {
   return (
     <HStack spacing={4} pl={4}>
       {icons.map(({ icon, link }) => (
-        <Link href={link} isExternal>
+        <Link href={link} isExternal key={icon.toString()}>
           <Icon
             as={icon}
-            key={icon.toString()}
             // needs to be updated as per theme
             color={colorMode === "light" ? "white" : "grey"}
             fontSize="2xl"
