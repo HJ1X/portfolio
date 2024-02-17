@@ -9,10 +9,11 @@ import {
 interface LinkProps {
   children?: string;
   leftIcon?: IconType;
+  rightIcon?: IconType;
   handleClick: () => void;
 }
 
-const Link = ({ children, leftIcon, handleClick }: LinkProps) => {
+const Link = ({ children, leftIcon, rightIcon, handleClick }: LinkProps) => {
   if (!children) return;
 
   const fontColor = useColorModeValue(
@@ -47,8 +48,9 @@ const Link = ({ children, leftIcon, handleClick }: LinkProps) => {
       }}
       onClick={handleClick}
     >
-      <Icon as={leftIcon} mr={2} />
+      {leftIcon && <Icon as={leftIcon} mr={2} />}
       <Text as="b">{children}</Text>
+      {rightIcon && <Icon as={rightIcon} ml={2} />}
     </HStack>
   );
 };
