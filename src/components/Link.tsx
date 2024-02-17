@@ -1,4 +1,10 @@
-import { HStack, Icon, Text, useColorModeValue } from "@chakra-ui/react";
+import {
+  HStack,
+  Icon,
+  SystemProps,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import {
   DARK_MODE_DEFAULT_TEXT,
@@ -6,14 +12,20 @@ import {
   TRANSITION_SLOWER,
 } from "../consts";
 
-interface LinkProps {
+interface LinkProps extends SystemProps {
   children?: string;
   leftIcon?: IconType;
   rightIcon?: IconType;
   handleClick: () => void;
 }
 
-const Link = ({ children, leftIcon, rightIcon, handleClick }: LinkProps) => {
+const Link = ({
+  children,
+  leftIcon,
+  rightIcon,
+  handleClick,
+  ...chakraSystemProps
+}: LinkProps) => {
   if (!children) return;
 
   const fontColor = useColorModeValue(
@@ -46,6 +58,7 @@ const Link = ({ children, leftIcon, rightIcon, handleClick }: LinkProps) => {
         transformOrigin: "bottom center",
         transition: TRANSITION_SLOWER,
       }}
+      {...chakraSystemProps}
       onClick={handleClick}
     >
       {leftIcon && <Icon as={leftIcon} mr={2} />}
