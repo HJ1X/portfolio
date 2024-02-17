@@ -1,8 +1,12 @@
-import { HStack, Icon, Link, useColorMode } from "@chakra-ui/react";
+import { HStack, Icon, Link, useColorModeValue } from "@chakra-ui/react";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { DARK_MODE_DEFAULT_BG, LIGHT_MODE_DEFAULT_BG } from "../consts";
 
 const ProfileLinks = () => {
-  const { colorMode } = useColorMode();
+  const iconColor = useColorModeValue(
+    LIGHT_MODE_DEFAULT_BG,
+    DARK_MODE_DEFAULT_BG
+  );
 
   const icons = [
     {
@@ -22,14 +26,9 @@ const ProfileLinks = () => {
   return (
     <HStack spacing={4} pl={4}>
       {icons.map(({ icon, link }) => (
-        <Link href={link} isExternal key={icon.toString()}>
-          <Icon
-            as={icon}
-            // needs to be updated as per theme
-            color={colorMode === "light" ? "white" : "grey"}
-            fontSize="2xl"
-          ></Icon>
-        </Link>
+
+        <Link href={link} isExternal key={link}>
+          <Icon as={icon} color={iconColor} fontSize="2xl"></Icon>
       ))}
     </HStack>
   );
