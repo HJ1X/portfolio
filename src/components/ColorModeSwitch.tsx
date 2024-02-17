@@ -1,8 +1,9 @@
 import { Switch, useColorMode } from "@chakra-ui/react";
+import { TRANSITION_DEFAULT } from "../consts";
 
 const styleText = document.createTextNode(
   `html * { 
-      transition: all 0.3s ease-out!important;
+      transition: ${TRANSITION_DEFAULT}!important;
   }`
 );
 
