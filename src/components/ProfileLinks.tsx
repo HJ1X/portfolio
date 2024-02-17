@@ -26,9 +26,9 @@ const ProfileLinks = () => {
   return (
     <HStack spacing={4} pl={4}>
       {icons.map(({ icon, link }) => (
+
         <Link href={link} isExternal key={link}>
           <Icon as={icon} color={iconColor} fontSize="2xl"></Icon>
-        </Link>
       ))}
     </HStack>
   );
