@@ -2,14 +2,9 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import ExperienceTimeline from "./ExperienceTimeline";
 import { useState } from "react";
 import ExperienceDetails from "./ExperienceDetails";
+import { Experience as IExperience } from "../consts";
 
-export interface ExperienceDetail {
-  role: string;
-  company: string;
-  description: string;
-}
-
-const experienceDetails: ExperienceDetail[] = [
+const experienceDetails: IExperience[] = [
   {
     role: "Product Engineer",
     company: "Tata Consultancy Services",
@@ -31,9 +26,9 @@ const experienceDetails: ExperienceDetail[] = [
 ];
 
 const Experience = () => {
-  const [currentExperienceDataIndex, updateExperienceDataIndex] = useState<
-    undefined | number
-  >(undefined);
+  const [currentExperience, setExperience] = useState<undefined | IExperience>(
+    undefined
+  );
 
   return (
     <Grid
@@ -41,18 +36,17 @@ const Experience = () => {
       templateRows={"1fr"}
       templateColumns={"20rem 1fr"}
       height="100%"
+      p={5}
     >
-      <GridItem area="timeline" p={5}>
+      <GridItem area="timeline">
         <ExperienceTimeline
           experienceDetails={experienceDetails}
-          updateExperienceDataIndex={updateExperienceDataIndex}
+          setExperience={setExperience}
         />
       </GridItem>
+
       <GridItem area="experienceDetails">
-        <ExperienceDetails
-          details={experienceDetails}
-          index={currentExperienceDataIndex}
-        />
+        <ExperienceDetails experienceDetails={currentExperience} />
       </GridItem>
     </Grid>
   );
