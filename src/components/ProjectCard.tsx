@@ -44,7 +44,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       }}
     >
       <CardHeader>
-        <Heading as="h2" size="lg">
+        <Heading as="h2" size="lg" mb={1}>
           {project.name}
         </Heading>
         <Heading as="h3" size="sm" color={subHeadingColor}>
