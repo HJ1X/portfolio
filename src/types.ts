@@ -13,4 +13,5 @@ export interface Project {
   detailedDescription: string;
   link?: string;
   linkRepo?: string;
+  coverImage?: string;
 }

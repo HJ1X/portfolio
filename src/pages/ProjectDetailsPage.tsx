@@ -3,15 +3,11 @@ import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 import Link from "../components/Link";
 import UserService from "../services/user-service";
+import ProjectDetails from "../components/ProjectDetails";
 
 const ProjectDetailsPage = () => {
   const { projectId } = useParams();
-
-  if (!projectId) return;
-
   const project = UserService.getProject(projectId);
-
-  if (!project) return;
 
   const navigate = useNavigate();
   const handleBack = () => {
@@ -19,10 +15,11 @@ const ProjectDetailsPage = () => {
   };
 
   return (
-    <Box p={10} pr={28}>
-      <Link leftIcon={FaArrowLeft} handleClick={handleBack}>
+    <Box p={10}>
+      <Link mb={6} leftIcon={FaArrowLeft} handleClick={handleBack}>
         Back to Projects
       </Link>
+      <ProjectDetails project={project} />
     </Box>
   );
 };

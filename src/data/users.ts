@@ -1,8 +1,12 @@
 import { User } from "../types";
+import coverImage from "../assets/cover-image.jpg";
+import coverImage2 from "../assets/cover-image-2.webp";
 
 interface Users {
   [userName: string]: User;
 }
+
+const randomCoverImage = Math.random() < 0.5 ? coverImage : coverImage2;
 
 const users: Users = {
   arpit: {
@@ -20,6 +24,7 @@ const users: Users = {
         description:
           "A transparent crowdfunding platform built over the blockchain",
         detailedDescription: "",
+        coverImage: randomCoverImage,
       },
       {
         name: "Edwiser",
@@ -27,6 +32,7 @@ const users: Users = {
         type: "Web Application",
         description: "A one-on-one curated councelling platform",
         detailedDescription: "",
+        coverImage: randomCoverImage,
       },
       {
         name: "Project 3",
@@ -35,6 +41,7 @@ const users: Users = {
         description:
           "lorem ipsum dolere olleo dolor lorem ipsum dolere olleo dolor",
         detailedDescription: "",
+        coverImage: randomCoverImage,
       },
       {
         name: "Project 4",
@@ -43,6 +50,7 @@ const users: Users = {
         description:
           "lorem ipsum dolere olleo dolor lorem ipsum dolere olleo dolor",
         detailedDescription: "",
+        coverImage: randomCoverImage,
       },
       {
         name: "Project 5",
@@ -51,6 +59,7 @@ const users: Users = {
         description:
           "lorem ipsum dolere olleo dolor lorem ipsum dolere olleo dolor",
         detailedDescription: "",
+        coverImage: randomCoverImage,
       },
     ],
   },

@@ -19,7 +19,7 @@ class UserService {
     return UserService.user.projects;
   }
 
-  public static getProject(projectId: string) {
+  public static getProject(projectId?: string) {
     if (!UserService.user) return;
     return UserService.user.projects?.find(
       (project) => project.id === projectId
