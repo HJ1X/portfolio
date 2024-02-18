@@ -1,16 +1,6 @@
-import {
-  HStack,
-  Icon,
-  SystemProps,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { HStack, Icon, SystemProps, Text, theme } from "@chakra-ui/react";
 import { IconType } from "react-icons";
-import {
-  DARK_MODE_DEFAULT_TEXT,
-  LIGHT_MODE_DEFAULT_TEXT,
-  TRANSITION_SLOWER,
-} from "../consts";
+import { TRANSITION_SLOWER } from "../consts";
 
 interface LinkProps extends SystemProps {
   children?: string;
@@ -28,17 +18,13 @@ const Link = ({
 }: LinkProps) => {
   if (!children) return;
 
-  const fontColor = useColorModeValue(
-    LIGHT_MODE_DEFAULT_TEXT,
-    DARK_MODE_DEFAULT_TEXT
-  );
-
   return (
     <HStack
       fontSize="xl"
       alignItems="center"
       display="inline-flex"
       position="relative"
+      color={theme.colors.blue[400]}
       _hover={{
         cursor: "pointer",
         _after: {
@@ -54,7 +40,7 @@ const Link = ({
         height: "2px",
         bottom: "-0.1rem",
         left: 0,
-        backgroundColor: fontColor,
+        backgroundColor: theme.colors.blue[400],
         transformOrigin: "bottom center",
         transition: TRANSITION_SLOWER,
       }}
