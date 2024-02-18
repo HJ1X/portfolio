@@ -8,7 +8,9 @@ const Canvas = () => {
       <Box position="absolute" right={0} mt={4} mr={5}>
         <ColorModeSwitch />
       </Box>
-      <Outlet />
+      <Box mt={10}>
+        <Outlet />
+      </Box>
     </Card>
   );
 };
