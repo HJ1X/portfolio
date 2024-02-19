@@ -5,6 +5,7 @@ import SkillsPage from "./pages/SkillsPage";
 import ExperiencePage from "./pages/ExperiencePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
+import ProjectDetailsPage from "./pages/ProjectDetailsPage";
 
 const routes = createBrowserRouter([
   {
@@ -24,8 +25,17 @@ const routes = createBrowserRouter([
         element: <ExperiencePage />,
       },
       {
-        path: "projects",
-        element: <ProjectsPage />,
+        path: "projects/",
+        children: [
+          {
+            index: true,
+            element: <ProjectsPage />,
+          },
+          {
+            path: ":projectId",
+            element: <ProjectDetailsPage />,
+          },
+        ],
       },
       {
         path: "contact",

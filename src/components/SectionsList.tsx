@@ -1,12 +1,26 @@
 import { Box } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import sections, { Section } from "../data/sections";
 import SectionItem from "./SectionItem";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
+const getActiveSection = (urlPath: string) => {
+  const sectionDerivedFromPath = sections.find((section) =>
+    urlPath.substring(1).includes(section.id)
+  );
+
+  if (!sectionDerivedFromPath) return sections[0];
+  return sectionDerivedFromPath;
+};
 
 const SectionsList = () => {
   const navigate = useNavigate();
-  const [activeSection, setActiveSection] = useState(sections[0]);
+  const { pathname: urlPath } = useLocation();
+  const [activeSection, setActiveSection] = useState(getActiveSection(urlPath));
+
+  useEffect(() => {
+    setActiveSection(getActiveSection(urlPath));
+  }, [urlPath]);
 
   const handleClick = (section: Section) => {
     setActiveSection(section);

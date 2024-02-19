@@ -1,6 +1,10 @@
-import { Card, Box, useColorModeValue, Text } from "@chakra-ui/react";
-import { LIGHT_MODE_DEFAULT_BG, DARK_MODE_DEFAULT_BG } from "../consts";
+import { Box, Card, Text, useColorModeValue } from "@chakra-ui/react";
 import { ReactNode } from "react";
+import {
+  DARK_MODE_CARD_BG,
+  LIGHT_MODE_CARD_BG,
+  TRANSITION_DEFAULT,
+} from "../consts";
 
 interface CanvasAttachedCardProps {
   isActive: boolean;
@@ -12,8 +16,8 @@ const CanvasAttachedCard = ({
   children,
 }: CanvasAttachedCardProps) => {
   const defaultBGColor = useColorModeValue(
-    LIGHT_MODE_DEFAULT_BG,
-    DARK_MODE_DEFAULT_BG
+    LIGHT_MODE_CARD_BG,
+    DARK_MODE_CARD_BG
   );
 
   const getAttachedCurveStyleElement = (
@@ -44,8 +48,8 @@ const CanvasAttachedCard = ({
         color={defaultBGColor}
         boxShadow=""
         p={4}
-        transition="all 100ms ease-out"
-        _hover={{ fontSize: "2xl", padding: "3.5" }}
+        transition={TRANSITION_DEFAULT}
+        _hover={{ fontSize: "2xl" }}
       >
         <Text fontWeight="semibold">{children}</Text>
       </Card>
@@ -54,7 +58,7 @@ const CanvasAttachedCard = ({
 
   return (
     <Card
-      zIndex="2"
+      zIndex="docked"
       borderLeftRadius="xl"
       boxShadow="0 25px 50px -12px rgba(0, 0, 0, 0.25)"
       clipPath="inset(-50px 0px -50px -50px)"
