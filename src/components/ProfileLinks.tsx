@@ -1,4 +1,4 @@
-import { HStack, Icon, Link, useColorModeValue } from "@chakra-ui/react";
+import { Stack, Icon, Link, useColorModeValue } from "@chakra-ui/react";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { DARK_MODE_DEFAULT_BG, LIGHT_MODE_DEFAULT_BG } from "../consts";
 
@@ -24,13 +24,13 @@ const ProfileLinks = () => {
   ];
 
   return (
-    <HStack spacing={4} pl={4}>
+    <Stack spacing={4}>
       {icons.map(({ icon, link }) => (
         <Link href={link} isExternal key={link}>
           <Icon as={icon} color={iconColor} fontSize="2xl"></Icon>
         </Link>
       ))}
-    </HStack>
+    </Stack>
   );
 };
 
