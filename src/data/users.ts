@@ -63,6 +63,10 @@ const users: Users = {
       },
     ],
   },
+  abhimaanyu: {
+    name: "Abhimaanyu Vashishth",
+    email: "abhi.vashishth99@gmail.com",
+  },
 };
 
 export default users;
