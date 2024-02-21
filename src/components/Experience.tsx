@@ -1,8 +1,9 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import ExperienceTimeline from "./ExperienceTimeline";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import ExperienceDetails from "./ExperienceDetails";
 import { Experience as IExperience } from "../consts";
+import ExperienceContext from "../state-management/context/ExperienceContext";
 
 const experiences: IExperience[] = [
   {
@@ -41,25 +42,29 @@ const Experience = () => {
     undefined | IExperience
   >(undefined);
 
-  return (
-    <Grid
-      templateAreas={`"timeline experienceDetails"`}
-      templateRows={"1fr"}
-      templateColumns={"20rem 1fr"}
-      height="100%"
-      p={5}
-    >
-      <GridItem area="timeline">
-        <ExperienceTimeline
-          experiences={experiences}
-          onExperienceChange={setCurrentExperience}
-        />
-      </GridItem>
+  const experienceContextValue = useMemo(
+    () => ({ currentExperience, setCurrentExperience }),
+    [currentExperience]
+  );
 
-      <GridItem area="experienceDetails">
-        <ExperienceDetails experienceDetails={currentExperience} />
-      </GridItem>
-    </Grid>
+  return (
+    <ExperienceContext.Provider value={experienceContextValue}>
+      <Grid
+        templateAreas={`"timeline experienceDetails"`}
+        templateRows={"1fr"}
+        templateColumns={"20rem 1fr"}
+        height="100%"
+        p={5}
+      >
+        <GridItem area="timeline">
+          <ExperienceTimeline experiences={experiences} />
+        </GridItem>
+
+        <GridItem area="experienceDetails">
+          <ExperienceDetails experienceDetails={currentExperience} />
+        </GridItem>
+      </Grid>
+    </ExperienceContext.Provider>
   );
 };
 
