@@ -12,6 +12,7 @@ const experiences: IExperience[] = [
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. A molestiae, nihil libero incidunt saepe quas quam vitae, sapiente non sed consequatur aut placeat molestias itaque cupiditate fugiat ipsa quidem aliquam.Provident, quibusdam doloribus! Ipsum sunt, ab aperiam natus a atque excepturi impedit rem praesentium? Aliquam, doloremque harum doloribus, optio voluptatem, consequuntur temporibus minima dolores accusamus eligendi ducimus nemo possimus magnam.Numquam earum aspernatur porro explicabo, quis quam rem autem. Dicta architecto deserunt necessitatibus incidunt nesciunt exercitationem earum, aliquam magnam similique officia quos repellendus iusto, quaerat harum dignissimos, nemo dolorum. Pariatur.Maxime libero harum itaque velit unde ipsa quisquam esse perferendis eaque accusantium? Quo repellendus, nihil quibusdam aut error fugiat saepe itaque consequuntur placeat velit quam labore porro ad molestiae vel?",
     startDate: "Aug 2022",
+    technology: ["React", "Java"],
   },
   {
     id: 1,
@@ -21,6 +22,7 @@ const experiences: IExperience[] = [
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. A molestiae, nihil libero incidunt saepe quas quam vitae, sapiente non sed consequatur aut placeat molestias itaque cupiditate fugiat ipsa quidem aliquam.Provident, quibusdam doloribus! Ipsum sunt, ab aperiam natus a atque excepturi impedit rem praesentium? Aliquam, doloremque harum doloribus, optio voluptatem, consequuntur temporibus minima dolores accusamus eligendi ducimus nemo possimus magnam.Numquam earum aspernatur porro explicabo, quis quam rem autem. Dicta architecto deserunt necessitatibus incidunt nesciunt exercitationem earum, aliquam magnam similique officia quos repellendus iusto, quaerat harum dignissimos, nemo dolorum. Pariatur.Maxime libero harum itaque velit unde ipsa quisquam esse perferendis eaque accusantium? Quo repellendus, nihil quibusdam aut error fugiat saepe itaque consequuntur placeat velit quam labore porro ad molestiae vel?",
     startDate: "Jun 2022",
     endData: "Jul 2022",
+    technology: ["React", "Java"],
   },
   {
     id: 2,
@@ -30,6 +32,7 @@ const experiences: IExperience[] = [
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. A molestiae, nihil libero incidunt saepe quas quam vitae, sapiente non sed consequatur aut placeat molestias itaque cupiditate fugiat ipsa quidem aliquam.Provident, quibusdam doloribus! Ipsum sunt, ab aperiam natus a atque excepturi impedit rem praesentium? Aliquam, doloremque harum doloribus, optio voluptatem, consequuntur temporibus minima dolores accusamus eligendi ducimus nemo possimus magnam.Numquam earum aspernatur porro explicabo, quis quam rem autem. Dicta architecto deserunt necessitatibus incidunt nesciunt exercitationem earum, aliquam magnam similique officia quos repellendus iusto, quaerat harum dignissimos, nemo dolorum. Pariatur.Maxime libero harum itaque velit unde ipsa quisquam esse perferendis eaque accusantium? Quo repellendus, nihil quibusdam aut error fugiat saepe itaque consequuntur placeat velit quam labore porro ad molestiae vel?",
     startDate: "Sep 2020",
     endData: "Nov 2020",
+    technology: ["React", "Java"],
   },
 ];
 
