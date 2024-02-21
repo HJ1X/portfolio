@@ -61,10 +61,11 @@ const Experience = () => {
         </ExperienceContext.Provider>
       </GridItem>
 
-      <GridItem area="experienceDetails">
-        <ExperienceDetails experienceDetails={currentExperience} />
-      </GridItem>
-    </Grid>
+        <GridItem area="experienceDetails">
+          <ExperienceDetails experienceDetails={currentExperience} />
+        </GridItem>
+      </Grid>
+    </ExperienceContext.Provider>
   );
 };
 
