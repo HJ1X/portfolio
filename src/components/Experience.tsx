@@ -62,7 +62,7 @@ const Experience = () => {
       </GridItem>
 
       <GridItem area="experienceDetails">
-        <ExperienceDetails experienceDetails={currentExperience} />
+        <ExperienceDetails experience={currentExperience} />
       </GridItem>
     </Grid>
   );

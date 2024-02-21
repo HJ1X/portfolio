@@ -3,16 +3,16 @@ import { Experience } from "../consts";
 import TechStack from "./TechStack";
 
 interface ExperienceDetailsProps {
-  experienceDetails?: Experience;
+  experience?: Experience;
 }
 
-const ExperienceDetails = ({ experienceDetails }: ExperienceDetailsProps) => {
-  if (experienceDetails === undefined) return;
+const ExperienceDetails = ({ experience }: ExperienceDetailsProps) => {
+  if (experience === undefined) return;
   return (
     <>
-      <Text mb={1}>{experienceDetails.description}</Text>
+      <Text mb={1}>{experience.description}</Text>
       <Text mb={2}>Technologies:</Text>
-      <TechStack technologies={experienceDetails.technology} />
+      <TechStack technologies={experience.technology} />
     </>
   );
 };
