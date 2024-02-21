@@ -8,13 +8,9 @@ import ExperienceTimelineContainer from "./ExperienceTimelineContainer";
 
 interface ExperienceTimelineProps {
   experiences: Experience[];
-  onExperienceChange: (experience: Experience) => void;
 }
 
-const ExperienceTimeline = ({
-  experiences,
-  onExperienceChange,
-}: ExperienceTimelineProps) => {
+const ExperienceTimeline = ({ experiences }: ExperienceTimelineProps) => {
   const timelineColor = useColorModeValue(
     LIGHT_MODE_TIMELINE_BG,
     DARK_MODE_SUBTLE_TEXT
@@ -35,7 +31,6 @@ const ExperienceTimeline = ({
       {experiences.map((experience) => (
         <ExperienceTimelineContainer
           experience={experience}
-          onExperienceChange={onExperienceChange}
           key={experience.id}
         />
       ))}

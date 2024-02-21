@@ -9,10 +9,11 @@ import {
   LIGHT_MODE_TIMELINE_DOT_COLOR,
 } from "../consts";
 import ExperienceTimelineContent from "./ExperienceTimelineContent";
+import { useContext } from "react";
+import ExperienceContext from "../state-management/context/ExperienceContext";
 
 interface ExperienceTimelineContainerProps {
   experience: Experience;
-  onExperienceChange: (experience: Experience) => void;
 }
 
 const getPseudoElementStyles = (isHovered: boolean, colorMode: ColorMode) => {
@@ -52,37 +53,61 @@ const getPseudoElementStyles = (isHovered: boolean, colorMode: ColorMode) => {
       };
 };
 
-const timelineContentStyles = (colorMode: ColorMode): BoxProps => {
-  return {
-    position: "relative",
-    mb: "2rem",
-    transition: "font-size ease-in-out 0.2s",
-    fontSize: "1.3rem",
-    color:
-      colorMode === "dark" ? DARK_MODE_SUBTLE_TEXT : LIGHT_MODE_SUBTLE_TEXT,
-    pl: "2",
-    _hover: {
-      fontSize: "1.6rem",
-      color:
-        colorMode === "dark" ? DARK_MODE_DEFAULT_TEXT : LIGHT_MODE_DEFAULT_TEXT,
-      cursor: "pointer",
-      _before: getPseudoElementStyles(true, colorMode),
-    },
-    _before: getPseudoElementStyles(false, colorMode),
-  };
+const timelineContentStyles = (
+  colorMode: ColorMode,
+  experienceId: number,
+  currentExperienceId?: number
+): BoxProps => {
+  return experienceId === currentExperienceId
+    ? {
+        position: "relative",
+        mb: "2rem",
+        transition: "font-size ease-in-out 0.2s",
+        fontSize: "1.6rem",
+        color:
+          colorMode === "dark"
+            ? DARK_MODE_DEFAULT_TEXT
+            : LIGHT_MODE_DEFAULT_TEXT,
+        pl: "2",
+        _before: getPseudoElementStyles(true, colorMode),
+      }
+    : {
+        position: "relative",
+        mb: "2rem",
+        transition: "font-size ease-in-out 0.2s",
+        fontSize: "1.3rem",
+        color:
+          colorMode === "dark" ? DARK_MODE_SUBTLE_TEXT : LIGHT_MODE_SUBTLE_TEXT,
+        pl: "2",
+        _hover: {
+          fontSize: "1.6rem",
+          color:
+            colorMode === "dark"
+              ? DARK_MODE_DEFAULT_TEXT
+              : LIGHT_MODE_DEFAULT_TEXT,
+          cursor: "pointer",
+          _before: getPseudoElementStyles(true, colorMode),
+        },
+        _before: getPseudoElementStyles(false, colorMode),
+      };
 };
 
 const ExperienceTimelineContainer = ({
   experience,
-  onExperienceChange,
 }: ExperienceTimelineContainerProps) => {
   const { colorMode } = useColorMode();
+  const { currentExperience, setCurrentExperience } =
+    useContext(ExperienceContext);
 
   return (
     <Box
       key={experience.id}
-      onClick={() => onExperienceChange(experience)}
-      {...timelineContentStyles(colorMode)}
+      onClick={() => setCurrentExperience(experience)}
+      {...timelineContentStyles(
+        colorMode,
+        experience.id,
+        currentExperience?.id
+      )}
     >
       <ExperienceTimelineContent experience={experience} />
     </Box>
