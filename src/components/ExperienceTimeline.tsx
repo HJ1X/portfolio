@@ -36,6 +36,7 @@ const ExperienceTimeline = ({
         <ExperienceTimelineContainer
           experience={experience}
           onExperienceChange={onExperienceChange}
+          key={experience.id}
         />
       ))}
     </Box>
