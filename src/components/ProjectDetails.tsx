@@ -36,7 +36,11 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
     <Grid px={6} templateColumns="0.8fr 1.2fr" gap={10}>
       <GridItem>
         {definitionItems.map((definitionItem) => (
-          <DefinitionItem mb={6} term={definitionItem.name}>
+          <DefinitionItem
+            key={definitionItem.name}
+            mb={6}
+            term={definitionItem.name}
+          >
             {definitionItem.description}
           </DefinitionItem>
         ))}
