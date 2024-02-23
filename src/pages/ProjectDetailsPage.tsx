@@ -1,26 +1,51 @@
-import { Box } from "@chakra-ui/react";
-import { FaArrowLeft } from "react-icons/fa";
-import { useNavigate, useParams } from "react-router-dom";
-import Link from "../components/Link";
-import UserService from "../services/user-service";
+import { Box, Flex, Heading, Text, useColorModeValue } from "@chakra-ui/react";
+import { useParams } from "react-router-dom";
+import ProjectCover from "../components/ProjectCover";
 import ProjectDetails from "../components/ProjectDetails";
+import ProjectDetailsPageContainer from "../components/ProjectDetailsPageContainer";
+import UserService from "../services/user-service";
+import { DARK_MODE_SUBTLE_TEXT, LIGHT_MODE_SUBTLE_TEXT } from "../consts";
 
 const ProjectDetailsPage = () => {
   const { projectId } = useParams();
   const project = UserService.getProject(projectId);
 
-  const navigate = useNavigate();
-  const handleBack = () => {
-    navigate("/projects");
-  };
+  const projectDescriptionColor = useColorModeValue(
+    LIGHT_MODE_SUBTLE_TEXT,
+    DARK_MODE_SUBTLE_TEXT
+  );
+
+  if (!project) {
+    return (
+      <ProjectDetailsPageContainer>
+        <Flex mt={4} justifyContent="center">
+          <Text w="80%" align="center" fontWeight="bolder" fontSize="4xl">
+            Cannot find the project you are looking for. We might be working on
+            it later. Stay tuned.
+          </Text>
+        </Flex>
+      </ProjectDetailsPageContainer>
+    );
+  }
 
   return (
-    <Box p={10}>
-      <Link mb={6} leftIcon={FaArrowLeft} handleClick={handleBack}>
-        Back to Projects
-      </Link>
-      <ProjectDetails project={project} />
-    </Box>
+    <ProjectDetailsPageContainer>
+      <ProjectCover coverImage={project.coverImage} />
+      <Box px={20} pos="relative" top={-10}>
+        <Heading as="h1" size="2xl" mb={8}>
+          {project.name}
+        </Heading>
+        <Heading
+          fontStyle="italic"
+          color={projectDescriptionColor}
+          size="lg"
+          mb={12}
+        >
+          {project.description}
+        </Heading>
+        <ProjectDetails project={project} />
+      </Box>
+    </ProjectDetailsPageContainer>
   );
 };
 
