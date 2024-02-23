@@ -1,18 +1,8 @@
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  Heading,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
-import {
-  DARK_MODE_SUBTLE_TEXT,
-  LIGHT_MODE_SUBTLE_TEXT,
-  TRANSITION_DEFAULT,
-} from "../consts";
-import { Project } from "../types";
+import { Card, CardBody, CardHeader, Heading, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { TRANSITION_DEFAULT } from "../consts";
+import useColorVariable from "../hooks/useColorVariable";
+import { Project } from "../types";
 
 interface ProjectCardProps {
   project: Project;
@@ -21,10 +11,7 @@ interface ProjectCardProps {
 const ProjectCard = ({ project }: ProjectCardProps) => {
   const navigate = useNavigate();
 
-  const subHeadingColor = useColorModeValue(
-    LIGHT_MODE_SUBTLE_TEXT,
-    DARK_MODE_SUBTLE_TEXT
-  );
+  const subHeadingColor = useColorVariable("SUBTLE_TEXT");
 
   const handleCardClick = () => {
     navigate(`/projects/${project.id}`);

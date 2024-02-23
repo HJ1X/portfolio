@@ -1,19 +1,16 @@
-import { Box, Flex, Heading, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import ProjectCover from "../components/ProjectCover";
 import ProjectDetails from "../components/ProjectDetails";
 import ProjectDetailsPageContainer from "../components/ProjectDetailsPageContainer";
+import useColorVariable from "../hooks/useColorVariable";
 import UserService from "../services/user-service";
-import { DARK_MODE_SUBTLE_TEXT, LIGHT_MODE_SUBTLE_TEXT } from "../consts";
 
 const ProjectDetailsPage = () => {
   const { projectId } = useParams();
   const project = UserService.getProject(projectId);
 
-  const projectDescriptionColor = useColorModeValue(
-    LIGHT_MODE_SUBTLE_TEXT,
-    DARK_MODE_SUBTLE_TEXT
-  );
+  const projectDescriptionColor = useColorVariable("SUBTLE_TEXT");
 
   if (!project) {
     return (

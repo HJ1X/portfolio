@@ -1,13 +1,10 @@
-import { Image, useColorModeValue } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/react";
 import userImage from "../assets/user-image.avif";
-import { DARK_MODE_DEFAULT_BG, LIGHT_MODE_DEFAULT_BG } from "../consts";
+import useColorVariable from "../hooks/useColorVariable";
 import UserService from "../services/user-service";
 
 const DisplayPicture = () => {
-  const borderColor = useColorModeValue(
-    LIGHT_MODE_DEFAULT_BG,
-    DARK_MODE_DEFAULT_BG
-  );
+  const borderColor = useColorVariable("DEFAULT_BACKGROUND");
 
   return (
     <>
