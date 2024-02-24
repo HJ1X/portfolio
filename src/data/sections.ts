@@ -26,7 +26,7 @@ const sections: Section[] = [
     route: "/skills",
   },
   {
-    name: "Contact Us",
+    name: "Contact Me",
     id: "contact",
     route: "/contact",
   },
