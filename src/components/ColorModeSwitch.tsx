@@ -12,7 +12,6 @@ const styleText = document.createTextNode(
 
 const ColorModeSwitch = () => {
   const { toggleColorMode, colorMode } = useColorMode();
-
   const iconColor = useColorVariable("COLOR_MODE_SWITCH");
 
   const handleColorModeChange = () => {
