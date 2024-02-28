@@ -1,19 +1,17 @@
-import { Box, BoxProps, ColorMode, useColorMode } from "@chakra-ui/react";
+import { Box, BoxProps, ColorMode, Text, useColorMode } from "@chakra-ui/react";
 import {
   DARK_MODE_DEFAULT_TEXT,
   DARK_MODE_SUBTLE_TEXT,
-  DARK_MODE_TIMELINE_DOT_COLOR,
+  DARK_MODE_TIMELINE_DOT_HOVER_COLOR,
   Experience,
   LIGHT_MODE_DEFAULT_TEXT,
   LIGHT_MODE_SUBTLE_TEXT,
-  LIGHT_MODE_TIMELINE_DOT_COLOR,
 } from "../consts";
-import ExperienceTimelineContent from "./ExperienceTimelineContent";
-import { useContext } from "react";
-import ExperienceContext from "../state-management/context/ExperienceContext";
 
-interface ExperienceTimelineContainerProps {
+interface TimelineElementProps {
   experience: Experience;
+  currentActiveExperience?: Experience;
+  onChangeExperience: (experience: Experience) => void;
 }
 
 const getPseudoElementStyles = (isHovered: boolean, colorMode: ColorMode) => {
@@ -21,17 +19,17 @@ const getPseudoElementStyles = (isHovered: boolean, colorMode: ColorMode) => {
     ? {
         content: `""`,
         position: "absolute",
-        width: "0.8rem",
-        height: "0.8rem",
-        top: "0.85rem",
-        left: "-0.325rem",
+        width: "1.3rem",
+        height: "1.3rem",
+        top: "1.2rem",
+        left: "-0.57rem",
         borderRadius: "50%",
         zIndex: "1",
         background:
           colorMode === "dark"
-            ? DARK_MODE_TIMELINE_DOT_COLOR
-            : LIGHT_MODE_TIMELINE_DOT_COLOR,
-        transition: "all 0.3s ease-in-out",
+            ? DARK_MODE_TIMELINE_DOT_HOVER_COLOR
+            : LIGHT_MODE_DEFAULT_TEXT,
+        transition: "all 0.2s ease-in-out",
         cursor: "pointer",
       }
     : {
@@ -44,11 +42,9 @@ const getPseudoElementStyles = (isHovered: boolean, colorMode: ColorMode) => {
         borderRadius: "50%",
         zIndex: "1",
         background:
-          colorMode === "dark"
-            ? DARK_MODE_TIMELINE_DOT_COLOR
-            : LIGHT_MODE_TIMELINE_DOT_COLOR,
+          colorMode === "dark" ? DARK_MODE_SUBTLE_TEXT : LIGHT_MODE_SUBTLE_TEXT,
         display: "inline-block",
-        transition: "all 0.3s ease-in-out",
+        transition: "all 0.2s ease-in-out",
         cursor: "pointer",
       };
 };
@@ -63,7 +59,7 @@ const timelineContentStyles = (
         position: "relative",
         mb: "2rem",
         transition: "font-size ease-in-out 0.2s",
-        fontSize: "1.6rem",
+        fontSize: "2.5rem",
         color:
           colorMode === "dark"
             ? DARK_MODE_DEFAULT_TEXT
@@ -80,7 +76,7 @@ const timelineContentStyles = (
           colorMode === "dark" ? DARK_MODE_SUBTLE_TEXT : LIGHT_MODE_SUBTLE_TEXT,
         pl: "2",
         _hover: {
-          fontSize: "1.6rem",
+          fontSize: "2.5rem",
           color:
             colorMode === "dark"
               ? DARK_MODE_DEFAULT_TEXT
@@ -92,26 +88,34 @@ const timelineContentStyles = (
       };
 };
 
-const ExperienceTimelineContainer = ({
+const TimelineElement = ({
   experience,
-}: ExperienceTimelineContainerProps) => {
+  currentActiveExperience,
+  onChangeExperience,
+}: TimelineElementProps) => {
   const { colorMode } = useColorMode();
-  const { currentExperience, setCurrentExperience } =
-    useContext(ExperienceContext);
 
   return (
     <Box
       key={experience.id}
-      onClick={() => setCurrentExperience(experience)}
+      onClick={() => onChangeExperience(experience)}
       {...timelineContentStyles(
         colorMode,
         experience.id,
-        currentExperience?.id
+        currentActiveExperience?.id
       )}
     >
-      <ExperienceTimelineContent experience={experience} />
+      <Box ml={3}>
+        <Text>{experience.role}</Text>
+        <Text fontSize="1rem">{experience.company}</Text>
+        <Text fontSize="0.8rem">
+          {`${experience.startDate} - ${
+            experience.endData ? experience.endData : "Present"
+          }`}
+        </Text>
+      </Box>
     </Box>
   );
 };
 
-export default ExperienceTimelineContainer;
+export default TimelineElement;
