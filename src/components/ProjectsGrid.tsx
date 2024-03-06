@@ -8,7 +8,7 @@ const ProjectsGrid = () => {
   if (!projects) return null;
 
   return (
-    <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={12} mb={5}>
+    <SimpleGrid columns={{ sm: 1, md: 2, xl: 3 }} spacing={10} mb={5}>
       {projects.map((project) => (
         <ProjectCard key={project.name} project={project} />
       ))}

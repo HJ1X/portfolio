@@ -1,12 +1,9 @@
-import { Stack, Icon, Link, useColorModeValue } from "@chakra-ui/react";
+import { Icon, Link, Stack } from "@chakra-ui/react";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
-import { DARK_MODE_DEFAULT_BG, LIGHT_MODE_DEFAULT_BG } from "../consts";
+import useColorVariable from "../hooks/useColorVariable";
 
 const ProfileLinks = () => {
-  const iconColor = useColorModeValue(
-    LIGHT_MODE_DEFAULT_BG,
-    DARK_MODE_DEFAULT_BG
-  );
+  const iconColor = useColorVariable("DEFAULT_BACKGROUND");
 
   const icons = [
     {
