@@ -7,7 +7,8 @@ type COLOR_VARIABLES =
   | "CARD_BACKGROUND"
   | "SUBTLE_BACKGROUND"
   | "PLACEHOLDER"
-  | "COLOR_MODE_SWITCH";
+  | "COLOR_MODE_SWITCH"
+  | "SCROLLBAR_THEME";
 
 const useColorVariable = (colorVariable: COLOR_VARIABLES) => {
   switch (colorVariable) {
@@ -40,6 +41,9 @@ const useColorVariable = (colorVariable: COLOR_VARIABLES) => {
         theme.colors.gray[800],
         theme.colors.yellow[300]
       );
+    case "SCROLLBAR_THEME":
+      // scrollbar theme name leveraged from documentaion -https://kingsora.github.io/OverlayScrollbars/
+      return useColorModeValue("os-theme-dark", "os-theme-light");
   }
 };
 
