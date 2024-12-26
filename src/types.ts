@@ -14,4 +14,11 @@ export interface Project {
   link?: string;
   linkRepo?: string;
   coverImage?: string;
+  projectImages?: {
+    desktop: string;
+    tab: string;
+    mobile: string;
+  };
+  year?: string;
+  tools?: string[];
 }

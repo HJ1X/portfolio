@@ -1,13 +1,10 @@
-import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
-import DisplayPicture from "./DisplayPicture";
+import { Flex, Text } from "@chakra-ui/react";
+import useColorVariable from "../hooks/useColorVariable";
 import UserService from "../services/user-service";
-import { DARK_MODE_DEFAULT_BG, LIGHT_MODE_DEFAULT_BG } from "../consts";
+import DisplayPicture from "./DisplayPicture";
 
 const Profile = () => {
-  const textColor = useColorModeValue(
-    LIGHT_MODE_DEFAULT_BG,
-    DARK_MODE_DEFAULT_BG
-  );
+  const textColor = useColorVariable("DEFAULT_BACKGROUND");
 
   return (
     <Flex alignItems="center" direction="column" w="100%">

@@ -1,11 +1,8 @@
-import { Icon, useColorMode, useColorModeValue } from "@chakra-ui/react";
-import { MdSunny } from "react-icons/md";
+import { Icon, useColorMode } from "@chakra-ui/react";
 import { FaMoon } from "react-icons/fa";
-import {
-  DARK_MODE_BUTTON_COLOR,
-  LIGHT_MODE_BUTTON_COLOR,
-  TRANSITION_DEFAULT,
-} from "../consts";
+import { MdSunny } from "react-icons/md";
+import { TRANSITION_DEFAULT } from "../consts";
+import useColorVariable from "../hooks/useColorVariable";
 
 const styleText = document.createTextNode(
   `html * { 
@@ -15,11 +12,7 @@ const styleText = document.createTextNode(
 
 const ColorModeSwitch = () => {
   const { toggleColorMode, colorMode } = useColorMode();
-
-  const iconColor = useColorModeValue(
-    LIGHT_MODE_BUTTON_COLOR,
-    DARK_MODE_BUTTON_COLOR
-  );
+  const iconColor = useColorVariable("COLOR_MODE_SWITCH");
 
   const handleColorModeChange = () => {
     toggleColorMode();
