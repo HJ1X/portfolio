@@ -7,7 +7,9 @@ type COLOR_VARIABLES =
   | "CARD_BACKGROUND"
   | "SUBTLE_BACKGROUND"
   | "PLACEHOLDER"
-  | "COLOR_MODE_SWITCH";
+  | "COLOR_MODE_SWITCH"
+  | "BLUE"
+  | "LIGHT_GRAY";
 
 const useColorVariable = (colorVariable: COLOR_VARIABLES) => {
   switch (colorVariable) {
@@ -40,6 +42,12 @@ const useColorVariable = (colorVariable: COLOR_VARIABLES) => {
         theme.colors.gray[800],
         theme.colors.yellow[300]
       );
+
+    case "BLUE":
+      return theme.colors.blue[400];
+
+    case "LIGHT_GRAY":
+      return useColorModeValue(theme.colors.gray[300], theme.colors.gray[500]);
   }
 };
 
