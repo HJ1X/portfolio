@@ -1,6 +1,7 @@
 import { HStack, Icon, SystemProps, Text, theme } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import { TRANSITION_SLOWER } from "../consts";
+import useColorVariable from "../hooks/useColorVariable";
 
 interface LinkProps extends SystemProps {
   children?: string;
@@ -18,13 +19,15 @@ const Link = ({
 }: LinkProps) => {
   if (!children) return;
 
+  const linkColor = useColorVariable("BLUE");
+
   return (
     <HStack
       fontSize="xl"
       alignItems="center"
       display="inline-flex"
       position="relative"
-      color={theme.colors.blue[400]}
+      color={linkColor}
       _hover={{
         cursor: "pointer",
         _after: {
@@ -40,7 +43,7 @@ const Link = ({
         height: "2px",
         bottom: "-0.1rem",
         left: 0,
-        backgroundColor: theme.colors.blue[400],
+        backgroundColor: linkColor,
         transformOrigin: "bottom center",
         transition: TRANSITION_SLOWER,
       }}

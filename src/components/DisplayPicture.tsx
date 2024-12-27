@@ -7,17 +7,15 @@ const DisplayPicture = () => {
   const borderColor = useColorVariable("DEFAULT_BACKGROUND");
 
   return (
-    <>
-      <Image
-        border={`0.3rem solid ${borderColor}`}
-        boxShadow="lg"
-        borderRadius="full"
-        boxSize="10rem"
-        src={userImage}
-        alt={UserService.getUserName() || "user-image"}
-        objectFit="cover"
-      />
-    </>
+    <Image
+      border={`0.3rem solid ${borderColor}`}
+      boxShadow="lg"
+      borderRadius="full"
+      boxSize="10rem"
+      src={userImage}
+      alt={UserService.getUserName() ?? "user-image"}
+      objectFit="cover"
+    />
   );
 };
 

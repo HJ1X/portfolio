@@ -1,4 +1,5 @@
 import { Card } from "@chakra-ui/react";
+import { useRef } from "react";
 import { Outlet } from "react-router-dom";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 import useColorVariable from "../hooks/useColorVariable";

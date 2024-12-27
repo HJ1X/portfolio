@@ -8,6 +8,8 @@ type COLOR_VARIABLES =
   | "SUBTLE_BACKGROUND"
   | "PLACEHOLDER"
   | "COLOR_MODE_SWITCH"
+  | "BLUE"
+  | "LIGHT_GRAY";
   | "SCROLLBAR_THEME";
 
 const themeColor: {
@@ -48,6 +50,15 @@ const useColorVariable = (colorVariable: COLOR_VARIABLES) => {
       break;
 
     case "COLOR_MODE_SWITCH":
+      return useColorModeValue(
+        theme.colors.gray[800],
+        theme.colors.yellow[300]
+      );
+
+    case "BLUE":
+      return theme.colors.blue[400];
+
+    case "LIGHT_GRAY":
       themeColor.light = theme.colors.gray[800];
       themeColor.dark = theme.colors.yellow[300];
       break;

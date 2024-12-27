@@ -33,7 +33,7 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
   ];
 
   return (
-    <Grid px={6} templateColumns="0.8fr 1.2fr" gap={10}>
+    <Grid templateColumns="0.8fr 1.2fr" gap={10}>
       <GridItem>
         {definitionItems.map((definitionItem) => (
           <DefinitionItem
