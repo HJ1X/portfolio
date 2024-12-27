@@ -1,19 +1,18 @@
 import { Card } from "@chakra-ui/react";
 import { useRef } from "react";
 import { Outlet } from "react-router-dom";
+import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
+import useColorVariable from "../hooks/useColorVariable";
 
 const Canvas = () => {
-  const canvasRef = useRef<HTMLDivElement>(null);
+  const scrollbarTheme_ = useColorVariable("SCROLLBAR_THEME");
   return (
-    <Card
-      ref={canvasRef}
-      borderRadius="xl"
-      boxShadow="2xl"
-      height="100%"
-      overflow="auto"
-      p={0}
-    >
-      <Outlet context={{ canvasRef }} />
+    <Card borderRadius="xl" boxShadow="2xl" height="100%" overflow="auto" p={0}>
+      <OverlayScrollbarsComponent
+        options={{ scrollbars: { autoHide: "move", theme: scrollbarTheme_ } }}
+      >
+        <Outlet />
+      </OverlayScrollbarsComponent>
     </Card>
   );
 };

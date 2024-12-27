@@ -10,32 +10,44 @@ type COLOR_VARIABLES =
   | "COLOR_MODE_SWITCH"
   | "BLUE"
   | "LIGHT_GRAY";
+  | "SCROLLBAR_THEME";
+
+const themeColor: {
+  light?: string;
+  dark?: string;
+} = {};
 
 const useColorVariable = (colorVariable: COLOR_VARIABLES) => {
   switch (colorVariable) {
     case "DEFAULT_TEXT":
-      return useColorModeValue(
-        theme.colors.gray[800],
-        theme.colors.whiteAlpha[900]
-      );
+      themeColor.light = theme.colors.gray[800];
+      themeColor.dark = theme.colors.whiteAlpha[900];
+      break;
 
     case "SUBTLE_TEXT":
-      return useColorModeValue(theme.colors.gray[600], theme.colors.gray[400]);
+      themeColor.light = theme.colors.gray[600];
+      themeColor.dark = theme.colors.gray[400];
+      break;
 
     case "DEFAULT_BACKGROUND":
-      return useColorModeValue(theme.colors.white, theme.colors.gray[800]);
+      themeColor.light = theme.colors.white;
+      themeColor.dark = theme.colors.gray[800];
+      break;
 
     case "CARD_BACKGROUND":
-      return useColorModeValue(theme.colors.white, theme.colors.gray[700]);
+      themeColor.light = theme.colors.white;
+      themeColor.dark = theme.colors.gray[700];
+      break;
 
     case "SUBTLE_BACKGROUND":
-      return useColorModeValue(theme.colors.gray[100], theme.colors.gray[700]);
+      themeColor.light = theme.colors.gray[100];
+      themeColor.dark = theme.colors.gray[700];
+      break;
 
     case "PLACEHOLDER":
-      return useColorModeValue(
-        theme.colors.gray[500],
-        theme.colors.whiteAlpha[400]
-      );
+      themeColor.light = theme.colors.gray[500];
+      themeColor.dark = theme.colors.whiteAlpha[400];
+      break;
 
     case "COLOR_MODE_SWITCH":
       return useColorModeValue(
@@ -47,8 +59,17 @@ const useColorVariable = (colorVariable: COLOR_VARIABLES) => {
       return theme.colors.blue[400];
 
     case "LIGHT_GRAY":
-      return useColorModeValue(theme.colors.gray[300], theme.colors.gray[500]);
+      themeColor.light = theme.colors.gray[800];
+      themeColor.dark = theme.colors.yellow[300];
+      break;
+
+    case "SCROLLBAR_THEME":
+      // scrollbar theme name leveraged from documentaion -https://kingsora.github.io/OverlayScrollbars/
+      themeColor.light = "os-theme-dark";
+      themeColor.dark = "os-theme-light";
+      break;
   }
+  return useColorModeValue(themeColor.light, themeColor.dark);
 };
 
 export default useColorVariable;
