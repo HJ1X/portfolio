@@ -1,5 +1,5 @@
 function App() {
-  return <div className="">new</div>;
+  return <div className="flex h-screen justify-center items-center">new</div>;
 }
 
 export default App;
