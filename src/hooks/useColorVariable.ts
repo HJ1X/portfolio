@@ -9,7 +9,7 @@ type COLOR_VARIABLES =
   | "PLACEHOLDER"
   | "COLOR_MODE_SWITCH"
   | "BLUE"
-  | "LIGHT_GRAY";
+  | "LIGHT_GRAY"
   | "SCROLLBAR_THEME";
 
 const themeColor: {
@@ -49,11 +49,11 @@ const useColorVariable = (colorVariable: COLOR_VARIABLES) => {
       themeColor.dark = theme.colors.whiteAlpha[400];
       break;
 
-    case "COLOR_MODE_SWITCH":
-      return useColorModeValue(
-        theme.colors.gray[800],
-        theme.colors.yellow[300]
-      );
+    // case "COLOR_MODE_SWITCH":
+    //   return useColorModeValue(
+    //     theme.colors.gray[800],
+    //     theme.colors.yellow[300]
+    //   );
 
     case "BLUE":
       return theme.colors.blue[400];
@@ -68,6 +68,7 @@ const useColorVariable = (colorVariable: COLOR_VARIABLES) => {
       themeColor.light = "os-theme-dark";
       themeColor.dark = "os-theme-light";
       break;
+      
   }
   return useColorModeValue(themeColor.light, themeColor.dark);
 };

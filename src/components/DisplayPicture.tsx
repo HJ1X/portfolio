@@ -8,10 +8,10 @@ const DisplayPicture = () => {
 
   return (
     <Image
-      border={`0.3rem solid ${borderColor}`}
+      border={`0.1rem solid ${borderColor}`}
       boxShadow="lg"
       borderRadius="full"
-      boxSize="10rem"
+      boxSize="4rem"
       src={userImage}
       alt={UserService.getUserName() ?? "user-image"}
       objectFit="cover"

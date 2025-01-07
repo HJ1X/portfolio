@@ -10,7 +10,7 @@ interface SectionItem {
 
 const SectionItem = ({ isActive, section, onClick }: SectionItem) => {
   return (
-    <Box onClick={onClick} cursor="pointer">
+    <Box onClick={onClick} cursor="pointer" px={8}>
       <CanvasAttachedCard isActive={isActive}>
         {section.name}
       </CanvasAttachedCard>

@@ -1,27 +1,22 @@
-import { Box, useColorModeValue } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { ReactElement } from "react";
-import { DARK_MODE_TIMELINE_BG, LIGHT_MODE_TIMELINE_BG } from "../consts";
 
 interface TimelineProps {
   contents: ReactElement[];
 }
 
 const Timeline = ({ contents }: TimelineProps) => {
-  const timelineColor = useColorModeValue(
-    LIGHT_MODE_TIMELINE_BG,
-    DARK_MODE_TIMELINE_BG
-  );
-
   return (
-    <Box
+    <Box display="flex" flexDirection="column" justifyContent="center"
       position="relative"
-      _after={{
-        content: `""`,
-        position: "absolute",
-        width: "0.2rem",
-        background: timelineColor,
-        top: 0,
-        bottom: 0,
+      height="100%"
+      sx={{
+        "& > :last-child": {
+          borderLeft: "3px solid transparent",
+        },
+        "& > *:last-child > *:last-child": {
+          paddingBottom: 0,
+        }
       }}
     >
       {[...contents]}

@@ -3,6 +3,10 @@ export interface User {
   email: string;
   photo?: string;
   projects?: Project[];
+  about?: {
+    coverImage?: string;
+    description?: string;
+  };
 }
 
 export interface Project {

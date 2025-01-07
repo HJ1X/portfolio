@@ -59,7 +59,7 @@ const ExperiencePage = () => {
       templateRows={"1fr"}
       templateColumns={"28rem 1fr"}
       height="100%"
-      p={5}
+      p={20}
     >
       <GridItem area="timeline">
         <Timeline contents={experienceContainerElements} />

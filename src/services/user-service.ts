@@ -14,6 +14,16 @@ class UserService {
     return UserService.user.email;
   }
 
+  public static getPhoto() {
+    if (!UserService.user) return;
+    return UserService.user.photo;
+  }
+
+  public static getAbout() {
+    if (!UserService.user) return;
+    return UserService.user.about;
+  }
+
   public static getProjects() {
     if (!UserService.user) return;
     return UserService.user.projects;

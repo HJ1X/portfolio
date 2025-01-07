@@ -7,6 +7,7 @@ import {
   LIGHT_MODE_DEFAULT_TEXT,
   LIGHT_MODE_SUBTLE_TEXT,
 } from "../consts";
+import useColorVariable from "../hooks/useColorVariable";
 
 interface TimelineElementProps {
   experience: Experience;
@@ -37,8 +38,8 @@ const getPseudoElementStyles = (isHovered: boolean, colorMode: ColorMode) => {
         position: "absolute",
         width: "0.8rem",
         height: "0.8rem",
-        top: "0.5em",
-        left: "-0.32rem",
+        top: "0rem",
+        left: "-0.47rem",
         borderRadius: "50%",
         zIndex: "1",
         background:
@@ -52,7 +53,8 @@ const getPseudoElementStyles = (isHovered: boolean, colorMode: ColorMode) => {
 const timelineContentStyles = (
   colorMode: ColorMode,
   experienceId: number,
-  currentExperienceId?: number
+  currentExperienceId?: number,
+  borderColor?: string
 ): BoxProps => {
   return experienceId === currentExperienceId
     ? {
@@ -66,6 +68,7 @@ const timelineContentStyles = (
             : LIGHT_MODE_DEFAULT_TEXT,
         pl: "2",
         _before: getPseudoElementStyles(true, colorMode),
+        borderLeft: `2px solid ${borderColor}`,
       }
     : {
         position: "relative",
@@ -85,6 +88,7 @@ const timelineContentStyles = (
           _before: getPseudoElementStyles(true, colorMode),
         },
         _before: getPseudoElementStyles(false, colorMode),
+        borderLeft: `3px solid ${borderColor}`,
       };
 };
 
@@ -94,7 +98,7 @@ const TimelineElement = ({
   onChangeExperience,
 }: TimelineElementProps) => {
   const { colorMode } = useColorMode();
-
+  const borderColor = useColorVariable("DEFAULT_TEXT");
   return (
     <Box
       key={experience.id}
@@ -102,10 +106,13 @@ const TimelineElement = ({
       {...timelineContentStyles(
         colorMode,
         experience.id,
-        currentActiveExperience?.id
+        currentActiveExperience?.id,
+        borderColor
       )}
+      marginBottom="0"
+      pos="relative"
     >
-      <Box ml={3}>
+      <Box ml={3} pb={20} pos="relative" top="-0.5rem">
         <Text>{experience.role}</Text>
         <Text fontSize="1rem">{experience.company}</Text>
         <Text fontSize="0.8rem">

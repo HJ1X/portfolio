@@ -4,6 +4,7 @@ import coverImage2 from "../assets/cover-image-2.webp";
 import projectImageDesktop from "../assets/project-image-desktop.jpeg";
 import projectImageTab from "../assets/project-image-tab.png";
 import projectImageMobile from "../assets/project-image-mobile.jpg";
+import arpitCoverImg from "../assets/arpit.jpg";
 
 interface Users {
   [userName: string]: User;
@@ -15,6 +16,11 @@ const users: Users = {
   arpit: {
     name: "Arpit Das",
     email: "arpitdas118@gmail.com",
+    about: {
+      coverImage: arpitCoverImg,
+      description:
+        "Software Engineer with 2 years of hands-on experience in web development. I have contributed to designing and developing applications across various technologies and programming languages. I am passionate about crafting beautiful, high-performing user interfaces that adhere to industry best practices.I am seeking a role where I can leverage my skills and expertise to create exceptional software solutions.",
+    },
   },
   himanshu: {
     name: "Himanshu Jaroli",
