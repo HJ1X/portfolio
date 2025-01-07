@@ -17,7 +17,7 @@ const ProjectDetailsPage = () => {
 
   const [isScrolledDown, setIsScrolledDown] = useState(false);
 
-  const canvasRef = useCanvasRef();
+  // const canvasRef = useCanvasRef();
 
   const projectDescriptionColor = useColorVariable("SUBTLE_TEXT");
   const iconBackgroundColor = useColorVariable("BLUE");
@@ -43,8 +43,8 @@ const ProjectDetailsPage = () => {
 
     if (
       isScrolledDown &&
-      event.deltaY < 0 &&
-      canvasRef.current?.scrollTop === 0
+      event.deltaY < 0 
+      // && canvasRef.current?.scrollTop === 0
     ) {
       setIsScrolledDown(false);
     }
