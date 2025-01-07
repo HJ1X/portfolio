@@ -8,9 +8,9 @@ function ThemeToggleButton() {
   return (
     <Button>
       {colorMode === "light" ? (
-        <BsEmojiSmileFill onClick={toggleColorMode} />
-      ) : (
         <BsEmojiSunglassesFill onClick={toggleColorMode} />
+      ) : (
+        <BsEmojiSmileFill onClick={toggleColorMode} />
       )}
     </Button>
   );
