@@ -5,9 +5,11 @@ import Navbar from "@/components/function/Navbar";
 function Layout() {
   return (
     <Container>
-      <Flex direction="column" className="px-8 py-6">
+      <Flex direction="column" className="px-8 py-6 h-screen">
         <Navbar />
-        <Outlet />
+        <Flex className="h-1 flex-grow">
+          <Outlet />
+        </Flex>
       </Flex>
     </Container>
   );
