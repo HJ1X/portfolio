@@ -1,3 +1,5 @@
-@tailwind base;
+/* Commenting out tailwind's base layer to use chakra's base layer */
+/* @tailwind base;  */
+
 @tailwind components;
 @tailwind utilities;
