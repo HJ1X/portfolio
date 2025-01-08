@@ -1,18 +1,18 @@
-import { Button } from "@/components/ui/button";
 import { useColorMode } from "@/components/ui/color-mode";
-import { BsEmojiSmileFill, BsEmojiSunglassesFill } from "react-icons/bs";
+import { IconButton } from "@chakra-ui/react";
+import { FaMoon, FaSun } from "react-icons/fa6";
 
 function ThemeToggleButton() {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Button>
+    <IconButton size="lg" variant="ghost" rounded="full">
       {colorMode === "light" ? (
-        <BsEmojiSunglassesFill onClick={toggleColorMode} />
+        <FaMoon onClick={toggleColorMode} />
       ) : (
-        <BsEmojiSmileFill onClick={toggleColorMode} />
+        <FaSun onClick={toggleColorMode} color="yellow" />
       )}
-    </Button>
+    </IconButton>
   );
 }
 
