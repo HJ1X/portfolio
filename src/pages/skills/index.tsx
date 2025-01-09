@@ -1,6 +1,6 @@
 import Badge from "@/components/ui/Badge";
 import { ProgressBar, ProgressRoot } from "@/components/ui/progress";
-import { Box, Flex, Text, GridItem, Heading } from "@chakra-ui/react";
+import { Box, Flex, GridItem, Heading } from "@chakra-ui/react";
 import { AiOutlineDatabase } from "react-icons/ai";
 import { VscJson } from "react-icons/vsc";
 
@@ -40,8 +40,8 @@ const skillSections = [
 
 const Skills = () => {
   return (
-    <Box className="mt-16 w-full">
-      <Flex direction="column" gap="20" className="w-3/5">
+    <Box className="w-full h-full">
+      <Flex direction="column" gap="20" justify="center" className="w-3/5 h-full">
         {skillSections.map((section) => (
           <GridItem key={section.label}>
             <Flex align="end" mb="8">
