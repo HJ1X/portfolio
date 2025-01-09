@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router";
 import Layout from "./Layout";
-import AboutMe from "./pages/AboutMe";
-import Skills from "./pages/skills";
+import AboutPage from "./pages/about";
+import ExperiencePage from "./pages/experience";
+import SkillsPage from "./pages/skills";
 
 const router = createBrowserRouter([
   {
@@ -10,15 +11,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <AboutMe />,
+        element: <AboutPage />,
       },
       {
         path: "/experience",
-        element: <div>Experience</div>,
+        element: <ExperiencePage />,
       },
       {
         path: "/skills",
-        element: <Skills />
+        element: <SkillsPage />
       }
     ],
   },

@@ -37,7 +37,7 @@ const skillSections = [
   },
 ];
 
-const Skills = () => {
+const SkillsPage = () => {
   return (
     <Box className="w-full h-full">
       <Flex direction="column" gap="20" justify="center" className="w-3/5 h-full">
@@ -51,4 +51,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default SkillsPage;
