@@ -5,7 +5,7 @@ const config = defineConfig({
     tokens: {
       colors: {
         // theme based purple color code
-        purple: "purple",
+        purple: "#644ED2",
       },
     },
     semanticTokens: {
