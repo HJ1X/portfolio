@@ -3,7 +3,7 @@ import Layout from "./Layout";
 import AboutPage from "./pages/about";
 import ExperiencePage from "./pages/experience";
 import SkillsPage from "./pages/skills";
-import Projects from "./pages/Projects";
+import Projects from "./pages/projects";
 
 const router = createBrowserRouter([
   {
