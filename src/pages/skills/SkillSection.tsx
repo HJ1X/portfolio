@@ -1,5 +1,6 @@
+import Badge from "@/components/ui/Badge";
 import { ProgressBar } from "@/components/ui/progress";
-import { Badge, Box, Flex, Heading, ProgressRoot } from "@chakra-ui/react";
+import { Box, Flex, Heading, ProgressRoot } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 interface SkillSectionProps {
@@ -24,6 +25,7 @@ const SkillSection = ({ data }: SkillSectionProps) => {
           <ProgressRoot
             shape="full"
             variant="subtle"
+            animated={true}
             className="w-full"
             value={data.value}
           >

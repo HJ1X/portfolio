@@ -1,17 +1,17 @@
-import { Grid, GridItem } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
+import EducationHistory from './education-history'
+import WorkExperience from './work-experience'
 
 const ExperiencePage = () => {
   return (
-    <Grid templateColumns="repeat(2, 1fr)" gap="16">
-      <GridItem width="60%">
-        work ex
-        {/* <WorkExperience /> */}
-      </GridItem>
-      <GridItem width="40%">
-        ed ex
-        {/* <EducationExperience /> */}
-      </GridItem>
-    </Grid>
+    <Flex gap="10" className='w-full h-full pt-6'>
+      <Box width="70%" height="full">
+        <WorkExperience />
+      </Box>
+      <Box width="30%">
+        <EducationHistory />
+      </Box>
+    </Flex>
   )
 }
 

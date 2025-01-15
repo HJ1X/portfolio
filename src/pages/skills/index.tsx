@@ -6,7 +6,7 @@ import SkillSection from "./SkillSection";
 const skillSections = [
   {
     label: "Frontend Development",
-    icon: <VscJson size="48" />,
+    icon: <VscJson size="48" color="var(--chakra-colors-primary)" fontWeight="bold" />,
     value: 80,
     skills: [
       "HTML",
@@ -22,7 +22,7 @@ const skillSections = [
   },
   {
     label: "Backend Development",
-    icon: <AiOutlineDatabase size="48" />,
+    icon: <AiOutlineDatabase size="48" color="var(--chakra-colors-primary)" fontWeight="bold" />,
     value: 65,
     skills: [
       "Node.js",
