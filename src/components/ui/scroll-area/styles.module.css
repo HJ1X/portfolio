@@ -1,0 +1,35 @@
+.scrollArea {
+  overflow-y: auto;
+  visibility: hidden;
+}
+
+.scrollContentArea {
+  height: 100%;
+  padding-right: 0.4rem;
+}
+
+.scrollContentArea,
+.scrollArea:hover,
+.scrollArea:focus {
+  visibility: visible;
+}
+
+.scrollArea::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+.scrollArea::-webkit-scrollbar-track {
+  cursor: pointer;
+  border-radius: 0.4rem;
+  border: 1px solid transparent;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.scrollArea::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 0.4rem;
+  border: 0.2rem solid transparent;
+  background-color: var(--chakra-colors-border-emphasized);
+  background-clip: content-box;
+}
