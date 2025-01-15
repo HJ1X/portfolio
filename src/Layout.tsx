@@ -5,8 +5,10 @@ import Navbar from "@/components/function/Navbar";
 function Layout() {
   return (
     <Container>
-      <Flex direction="column" className="px-8 py-6 h-screen">
-        <Navbar />
+      <Flex direction="column" className="px-8 h-screen overflow-hidden">
+        <Flex height="20" align="center">
+          <Navbar />
+        </Flex>
         <Flex className="h-1 flex-grow">
           <Outlet />
         </Flex>

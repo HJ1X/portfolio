@@ -4,7 +4,7 @@ import ThemeToggleButton from "./ThemeToggleButton";
 
 const navItems = [
   {
-    label: "About Me",
+    label: "About",
     link: "/",
   },
   {
@@ -45,7 +45,7 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <Flex justify="space-between" align="center">
+    <Flex width="full" justify="space-between" align="center">
       <Heading size="4xl">Himanshu J.</Heading>
       <Flex as="nav" align="center" gap="5">
         <Flex as="ul" gap="6" align="center">
