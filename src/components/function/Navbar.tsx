@@ -1,5 +1,5 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
-import { Link, useLocation } from "react-router";
+import { Button, Flex, Heading, Text } from "@chakra-ui/react";
+import { Link, useLocation, useNavigate } from "react-router";
 import ThemeToggleButton from "./ThemeToggleButton";
 
 const navItems = [
@@ -42,6 +42,7 @@ const NavItem = ({ label, link, selected }: NavItemProps) => {
 };
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const location = useLocation();
 
   return (
@@ -58,8 +59,13 @@ const Navbar = () => {
               />
             </li>
           ))}
+          <li>
+            <Button onClick={() => navigate("/contact")} size="sm" bg="primary">
+              Contact
+            </Button>
+          </li>
         </Flex>
-          <ThemeToggleButton />
+        <ThemeToggleButton />
       </Flex>
     </Flex>
   );
