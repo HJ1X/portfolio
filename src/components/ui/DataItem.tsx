@@ -4,13 +4,13 @@ import { ReactNode } from "react";
 interface DataItemProps {
   title: string;
   value: ReactNode;
-  gap?: number;
+  gap?: string;
 }
 
 const DataItem = ({ title, value, gap }: DataItemProps) => {
   return (
-    <Flex direction="column" gap={gap || 2}>
-      <Heading as="dt">{title}</Heading>
+    <Flex direction="column" gap={gap ?? "1.5"}>
+      <Heading as="dt" size="md">{title}</Heading>
       {value}
     </Flex>
   );

@@ -1,15 +1,20 @@
-import { Flex } from "@chakra-ui/react";
-import { PropsWithChildren } from "react";
+import { Flex, FlexProps } from "@chakra-ui/react";
+import { ReactNode } from "react";
 
-const Badge = ({ children }: PropsWithChildren) => {
+interface BadgeProps extends FlexProps {
+  children: ReactNode;
+}
+
+const Badge = ({ children, ...rest }: BadgeProps) => {
   return (
     <Flex
-      borderColor="border"
+      borderColor="fg"
       borderWidth="1px"
       borderRadius="md"
       className="px-3 py-2"
       justify="center"
       align="center"
+      {...rest}
     >
       {children}
     </Flex>
