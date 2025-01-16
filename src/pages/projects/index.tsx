@@ -18,7 +18,7 @@ const projects = [
   },
 ];
 
-function Projects() {
+function ProjectPage() {
   const [selectedProject, setSelectedProject] = useState(projects[0]);
 
   return (
@@ -59,4 +59,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default ProjectPage;
