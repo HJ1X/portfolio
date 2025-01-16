@@ -10,10 +10,13 @@ const config = defineConfig({
     },
     semanticTokens: {
       colors: {
-        primary: { 
+        primary: {
           DEFAULT: { value: "{colors.purple}" },
           lighter: { value: "{colors.blue.subtle}" },
-          light: { value: "{colors.blue.emphasized}" }
+          light: { value: "{colors.blue.emphasized}" },
+        },
+        secondary: {
+          DEFAULT: { value: "{colors.yellow.400}" },
         },
       },
     },
