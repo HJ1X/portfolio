@@ -1,18 +1,37 @@
-import { Box, Flex } from '@chakra-ui/react'
-import EducationHistory from './education-history'
-import WorkExperience from './work-experience'
+import { Box, Flex } from "@chakra-ui/react";
+import Timeline from "./Timeline";
+import ExperienceDetails from "./ExperienceDetails";
+import { profileTimeline } from "@/data/experienceData";
+import { useState } from "react";
 
 const ExperiencePage = () => {
+  const defaultProfile = {
+    companyNumber: profileTimeline[0].number,
+    profileNumber: profileTimeline[0].profiles[0].number,
+  };
+  const [selectedProfile, setSelectedProfile] = useState(defaultProfile);
+
   return (
-    <Flex gap="10" className='w-full h-full pt-6'>
-      <Box width="70%" height="full">
-        <WorkExperience />
+    <Flex gap="28" height="full" width="full" align="start">
+      <Box width="full" pt="32">
+        <Timeline
+          selectedProfile={selectedProfile}
+          onProfileChange={(companyNumber: number, profileNumber: number) => {
+            setSelectedProfile({
+              companyNumber,
+              profileNumber,
+            });
+          }}
+        />
       </Box>
-      <Box width="30%">
-        <EducationHistory />
+      <Box pt="20">
+        <ExperienceDetails
+          companyNumber={selectedProfile.companyNumber}
+          profileNumber={selectedProfile.profileNumber}
+        />
       </Box>
     </Flex>
-  )
-}
+  );
+};
 
-export default ExperiencePage
+export default ExperiencePage;
