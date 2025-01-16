@@ -1,5 +1,5 @@
 import { Box, Image } from "@chakra-ui/react";
-import Img from "@/assets/project-images/my-pic.png";
+import Img from "@/assets/images/project-images/my-pic.png";
 
 const ProfileImage = () => {
   return (
