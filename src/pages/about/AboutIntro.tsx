@@ -10,7 +10,7 @@ const AboutIntro = () => {
       >
         <Heading size="3xl">
           Hi, I'm
-          <Heading size="5xl">Arpit Das,</Heading>
+          <Heading ml="3" as="span" size="5xl" color="primary">Arpit Das,</Heading>
           <Heading size="3xl" className="capitalize leading-relaxed" color="primary">
             Full Stack Developer
           </Heading>
