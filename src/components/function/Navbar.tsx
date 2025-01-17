@@ -21,8 +21,8 @@ const navItems = [
     link: "/skills",
   },
   {
-    label: "Testimonials",
-    link: "/testimonials",
+    label: "Recognitions",
+    link: "/recognitions",
   },
 ];
 
