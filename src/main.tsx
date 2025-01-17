@@ -1,5 +1,5 @@
-import { ColorModeProvider } from "@/components/ui/color-mode.tsx";
-import { Provider } from "@/components/ui/provider.tsx";
+import { ColorModeProvider } from "@/components/ui/chakra/color-mode.tsx";
+import { Provider } from "@/components/ui/chakra/provider.tsx";
 import { ChakraProvider } from "@chakra-ui/react";
 import { RouterProvider } from "react-router";
 import { StrictMode } from "react";

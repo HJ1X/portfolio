@@ -1,5 +1,5 @@
-import Badge from "@/components/ui/Badge";
-import { ProgressBar } from "@/components/ui/progress";
+import { ProgressBar } from "@/components/ui/chakra/progress";
+import Badge from "@/components/ui/custom/Badge";
 import { Box, Flex, Heading, ProgressRoot } from "@chakra-ui/react";
 import { ReactNode } from "react";
 

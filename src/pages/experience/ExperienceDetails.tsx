@@ -1,19 +1,6 @@
-import Badge from "@/components/ui/Badge";
-import DataItem from "@/components/ui/DataItem";
-import ScrollArea from "@/components/ui/scroll-area";
-import {
-  Box,
-  Card,
-  Em,
-  Flex,
-  Grid,
-  Heading,
-  Icon,
-  List,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import Badge from "@/components/ui/custom/Badge";
 import { experienceDetails } from "@/data/experienceData";
+import { Em, Flex, Heading, Icon, List, Stack, Text } from "@chakra-ui/react";
 import { RiArrowRightLine } from "react-icons/ri";
 
 interface ExperienceDetailsProps {

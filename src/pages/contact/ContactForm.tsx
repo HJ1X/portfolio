@@ -1,4 +1,4 @@
-import { Field } from "@/components/ui/field";
+import { Field } from "@/components/ui/chakra/field";
 import { Button, Input, Stack, Text, Textarea } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { RiArrowRightLine } from "react-icons/ri";

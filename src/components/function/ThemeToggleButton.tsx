@@ -1,6 +1,6 @@
-import { useColorMode } from "@/components/ui/color-mode";
 import { IconButton } from "@chakra-ui/react";
 import { FaMoon, FaSun } from "react-icons/fa6";
+import { useColorMode } from "../ui/chakra/color-mode";
 
 function ThemeToggleButton() {
   const { colorMode, toggleColorMode } = useColorMode();
