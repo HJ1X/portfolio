@@ -23,11 +23,13 @@ const Button = ({
   if (!showIcon) {
     return (
       <ChakraButton
+        border="none"
         className="group"
         bg={theme === "primary" ? "fg.primary" : "fg.secondary"}
         _before={{
           content: `""`,
           position: "absolute",
+          rounded: "sm",
           top: 0,
           left: "0",
           width: "0",
@@ -52,6 +54,7 @@ const Button = ({
 
   return (
     <ChakraButton
+      border="none"
       position="relative"
       className="group"
       bg={theme === "primary" ? "fg.primary" : "fg.secondary"}
@@ -61,6 +64,7 @@ const Button = ({
       _before={{
         content: `""`,
         position: "absolute",
+        rounded: "sm",
         top: 0,
         left: "0",
         width: "0",
