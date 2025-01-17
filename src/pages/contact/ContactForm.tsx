@@ -1,7 +1,7 @@
 import { Field } from "@/components/ui/chakra/field";
-import { Button, Input, Stack, Text, Textarea } from "@chakra-ui/react";
+import Button from "@/components/ui/custom/Button";
+import { Input, Stack, Text, Textarea } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import { RiArrowRightLine } from "react-icons/ri";
 
 interface FormValues {
   name: string;
@@ -68,9 +68,7 @@ const ContactForm = () => {
             {...register("message", { required: "Bio is required" })}
           />
         </Field>
-        <Button size="lg" type="submit" bg="primary">
-          Send Message <RiArrowRightLine />
-        </Button>
+        <Button label="Send Message" size="lg" type="submit" theme="primary" />
       </Stack>
     </form>
   );

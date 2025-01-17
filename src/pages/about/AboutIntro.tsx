@@ -1,6 +1,6 @@
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
+import Button from "@/components/ui/custom/Button";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { HiDownload } from "react-icons/hi";
-import { RiArrowRightLine } from "react-icons/ri";
 
 const AboutIntro = () => {
   return (
@@ -31,12 +31,12 @@ const AboutIntro = () => {
           exceptional user experiences.
         </Text>
         <Flex pt="8" gap="3">
-          <Button bg="primary" color="white">
-            Contact Me <RiArrowRightLine />
-          </Button>
-          <Button borderColor="fg" variant="outline">
-            Download Resume <HiDownload />
-          </Button>
+          <Button label="Contact Me" />
+          <Button
+            theme="secondary"
+            label="Download Resume"
+            icon={<HiDownload />}
+          />
         </Flex>
       </Flex>
     </Box>
