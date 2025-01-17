@@ -35,7 +35,7 @@ interface NavItemProps {
 const NavItem = ({ label, link, selected }: NavItemProps) => {
   return (
     <Link to={link}>
-      <Text fontWeight="medium" color={selected ? "primary" : ""}>
+      <Text fontWeight="bold" color={selected ? "fg.primary" : ""}>
         {label}
       </Text>
     </Link>
@@ -48,8 +48,14 @@ const Navbar = () => {
 
   return (
     <Flex width="full" justify="space-between" align="center">
-      <Heading size="4xl">Himanshu J.</Heading>
-      <Flex as="nav" align="center" gap="5">
+      <Heading
+        size="4xl"
+        onClick={() => navigate("/")}
+        className="cursor-pointer select-none"
+      >
+        Himanshu J.
+      </Heading>
+      <Flex as="nav" align="center" gap="4">
         <Flex as="ul" gap="6" align="center">
           {navItems.map((navItem) => (
             <li key={navItem.label}>
@@ -62,6 +68,7 @@ const Navbar = () => {
           ))}
           <li>
             <Button
+              ml="1"
               label="Contact"
               onClick={() => navigate("/contact")}
               size="sm"
