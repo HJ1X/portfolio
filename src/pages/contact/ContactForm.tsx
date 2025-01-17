@@ -1,5 +1,5 @@
 import { Field } from "@/components/ui/chakra/field";
-import Button from "@/components/ui/custom/Button";
+import FancyButton from "@/components/ui/custom/FancyButton";
 import { Input, Stack, Text, Textarea } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 
@@ -68,7 +68,7 @@ const ContactForm = () => {
             {...register("message", { required: "Bio is required" })}
           />
         </Field>
-        <Button label="Send Message" size="lg" type="submit" theme="primary" />
+        <FancyButton label="Send Message" size="lg" type="submit" theme="primary" />
       </Stack>
     </form>
   );

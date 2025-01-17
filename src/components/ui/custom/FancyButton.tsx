@@ -6,20 +6,20 @@ import {
 import { ReactNode } from "react";
 import { RiArrowRightLine } from "react-icons/ri";
 
-interface ButtonProps extends ChakraButtonProps {
+interface FancyButtonProps extends ChakraButtonProps {
   label: string;
   theme?: "primary" | "secondary";
   icon?: ReactNode;
   showIcon?: boolean;
 }
 
-const Button = ({
+const FancyButton = ({
   label,
   theme = "primary",
   showIcon = true,
   icon = <RiArrowRightLine />,
   ...rest
-}: ButtonProps) => {
+}: FancyButtonProps) => {
   if (!showIcon) {
     return (
       <ChakraButton
@@ -111,4 +111,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default FancyButton;
