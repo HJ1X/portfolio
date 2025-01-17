@@ -53,11 +53,6 @@ export const experienceDetails = [
     location: "Pune",
     profile: "Software Engineer",
     years: "Dec 2023 - Present",
-    description: `project description Lorem ipsum dolor sit amet consectetur adipisicing eit.
-          Exercitationem mollitia deleniti error a soluta officiis dicta vero
-          dolore rerum eos magnam neque iste aspernatur et, aperiam quidem quasi
-          corrupti porro voluptatem earum provident tempora. Unde laborum
-          debitis voluptate! Nihil tempore excepturi`,
     skills: ["React", "Java", "AWS", "Azure", "Amgular"],
     keyPoints: [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumenda.",

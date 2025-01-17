@@ -12,8 +12,8 @@ const ExperiencePage = () => {
   const [selectedProfile, setSelectedProfile] = useState(defaultProfile);
 
   return (
-    <Flex gap="28" height="full" width="full" align="start">
-      <Box width="full" pt="32">
+    <Flex gap="8" height="full" width="full" align="start">
+      <Box width="full" pt="10%">
         <Timeline
           selectedProfile={selectedProfile}
           onProfileChange={(companyNumber: number, profileNumber: number) => {
@@ -24,12 +24,12 @@ const ExperiencePage = () => {
           }}
         />
       </Box>
-      <Box pt="20">
+      <Flex align="center" height="full" pb="5%">
         <ExperienceDetails
           companyNumber={selectedProfile.companyNumber}
           profileNumber={selectedProfile.profileNumber}
         />
-      </Box>
+      </Flex>
     </Flex>
   );
 };

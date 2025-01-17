@@ -4,6 +4,7 @@ import ScrollArea from "@/components/ui/scroll-area";
 import {
   Box,
   Card,
+  Em,
   Flex,
   Grid,
   Heading,
@@ -35,50 +36,37 @@ const ExperienceDetails = ({
   }
 
   return (
-    <Stack direction="column" pb="5">
+    <Stack direction="column">
       <Heading size="5xl">{detail.profile}</Heading>
       <Flex direction="column" gap="1" mt="-1" mb="6">
         <Text fontSize="sm" color="fg.muted">
-          {detail.company}, {detail.location}
+          <Em>
+            {detail.company}, {detail.location}
+          </Em>
         </Text>
         <Text fontSize="sm" color="fg.muted">
-          {detail.years}
+          <Em>{detail.years}</Em>
         </Text>
       </Flex>
-      <Flex direction="column" position="relative" overflow="visible">
-        <Card.Root width="4/5" bg="primary" border="none">
-          <Card.Body>
-            <Flex direction="column" gap="6">
-              <Text fontWeight="medium" fontSize="sm" color="gray.50">
-                {detail.description}
-              </Text>
-              <Flex gap="3" wrap="wrap" width="3/5">
-                {detail.skills.map((skill) => (
-                  <Badge key={skill} bgColor="bg" border="none">
-                    <Text fontSize="sm">{skill}</Text>
-                  </Badge>
-                ))}
-              </Flex>
-            </Flex>
-          </Card.Body>
-        </Card.Root>
-        <Flex position="absolute" top="40" width="full" justify="right">
-          <Card.Root width="1/2" right="0" bg="secondary" border="none">
-            <Card.Body>
-              <List.Root gap="2" listStyle="outside" variant="plain">
-                {detail.keyPoints.map((point) => (
-                  <List.Item fontSize="sm" key={point}>
-                    <List.Indicator>
-                      <Icon>
-                        <RiArrowRightLine />
-                      </Icon>
-                    </List.Indicator>
-                    {point}
-                  </List.Item>
-                ))}
-              </List.Root>
-            </Card.Body>
-          </Card.Root>
+      <Flex direction="column" position="relative" overflow="visible" gap="10">
+        <List.Root gap="2" listStyle="outside" variant="plain">
+          {detail.keyPoints.map((point) => (
+            <List.Item fontSize="sm" key={point}>
+              <List.Indicator>
+                <Icon>
+                  <RiArrowRightLine />
+                </Icon>
+              </List.Indicator>
+              {point}
+            </List.Item>
+          ))}
+        </List.Root>
+        <Flex gap="3" wrap="wrap" pl="5">
+          {detail.skills.map((skill) => (
+            <Badge key={skill}>
+              <Text fontSize="sm">{skill}</Text>
+            </Badge>
+          ))}
         </Flex>
       </Flex>
     </Stack>
