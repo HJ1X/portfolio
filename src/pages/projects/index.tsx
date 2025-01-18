@@ -1,61 +1,78 @@
-import { Box, Card, Grid, Heading, Text } from "@chakra-ui/react";
-import { useState } from "react";
-
-const projects = [
-  {
-    id: 1,
-    title: "Project 1",
-    summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed",
-    description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae id illo optio repellat necessitatibus facilis eum maxime qui enim laborum, ipsam debitis deserunt illum pariatur doloremque amet dolores consectetur cumque corporis reiciendis unde iste nostrum! Adipisci sequi voluptatibus velit a hic obcaecati in quia aliquid architecto, consequatur fugiat, illum libero et sit non incidunt esse modi repudiandae mollitia est corrupti! Rerum ea veniam natus officia incidunt facere inventore laboriosam sequi nisi optio error, necessitatibus excepturi praesentium quaerat doloremque dicta quos, nihil aliquid corrupti reiciendis culpa vel, ad perspiciatis sapiente? Deleniti, laudantium! Veritatis debitis hic facere blanditiis corporis. Odit quis, alias dolores nemo corrupti ducimus odio excepturi perspiciatis, minima veritatis amet recusandae vero id consequuntur modi inventore. Sint cupiditate distinctio dignissimos at consequuntur eveniet a, facilis veritatis rerum quis dolore esse blanditiis. Quia expedita ex porro at assumenda. Illo, quis. Praesentium aut tempora saepe perspiciatis. Officia veniam illo, ad harum cum blanditiis, voluptate magnam sapiente aspernatur ratione modi enim! Ipsa perspiciatis suscipit corrupti autem necessitatibus? A possimus temporibus tenetur eius vero repellat porro alias, voluptatem incidunt, facilis voluptate veritatis doloribus molestiae unde quam libero perferendis ut saepe esse quia quos? Exercitationem necessitatibus, quam numquam veritatis aliquam quae placeat error a harum.",
-  },
-  {
-    id: 2,
-    title: "Project 2",
-    summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed",
-    description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae id illo optio repellat necessitatibus facilis eum maxime qui enim laborum, ipsam debitis deserunt illum pariatur doloremque amet dolores consectetur cumque corporis reiciendis unde iste nostrum! Adipisci sequi voluptatibus velit a hic obcaecati in quia aliquid architecto, consequatur fugiat, illum libero et sit non incidunt esse modi repudiandae mollitia est corrupti! Rerum ea veniam natus officia incidunt facere inventore laboriosam sequi nisi optio error, necessitatibus excepturi praesentium quaerat doloremque dicta quos, nihil aliquid corrupti reiciendis culpa vel, ad perspiciatis sapiente? Deleniti, laudantium! Veritatis debitis hic facere blanditiis corporis. Odit quis, alias dolores nemo corrupti ducimus odio excepturi perspiciatis, minima veritatis amet recusandae vero id consequuntur modi inventore. Sint cupiditate distinctio dignissimos at consequuntur eveniet a, facilis veritatis rerum quis dolore esse blanditiis. Quia expedita ex porro at assumenda. Illo, quis. Praesentium aut tempora saepe perspiciatis. Officia veniam illo, ad harum cum blanditiis, voluptate magnam sapiente aspernatur ratione modi enim! Ipsa perspiciatis suscipit corrupti autem necessitatibus? A possimus temporibus tenetur eius vero repellat porro alias, voluptatem incidunt, facilis voluptate veritatis doloribus molestiae unde quam libero perferendis ut saepe esse quia quos? Exercitationem necessitatibus, quam numquam veritatis aliquam quae placeat error a harum.",
-  },
-];
+import { Box, Grid, Heading } from "@chakra-ui/react";
+import ProjectCard from "./ProjectCard";
 
 function ProjectPage() {
-  const [selectedProject, setSelectedProject] = useState(projects[0]);
+  const properties = [
+    {
+      boxHeight: "10/12",
+      boxWidth: "9/12",
+      pos: {
+        bottom: "0",
+        right: "0",
+      },
+      headingText: "1",
+    },
+    {
+      boxHeight: "8/12",
+      boxWidth: "10/12",
+      pos: {
+        bottom: "0",
+        left: "0",
+      },
+      headingText: "2",
+    },
+    {
+      boxHeight: "63%",
+      boxWidth: "7/12",
+      pos: {
+        top: "0",
+        right: "0",
+      },
+      headingText: "3",
+    },
+    {
+      boxHeight: "9/12",
+      boxWidth: "8/12",
+      pos: {
+        top: "0",
+        left: "0",
+      },
+      headingText: "4",
+    },
+  ];
 
   return (
-    <Box w="100%" h="100%" py={10}>
-      <Grid templateRows="repeat(1, 1fr)" templateColumns="30% 1fr" gap="10">
-        <Box display="flex" flexDirection="column" gap="8">
-          {projects.map((project) => (
-            <Card.Root
-              variant="elevated"
-              key={project.id}
-              cursor="pointer"
-              onClick={() => setSelectedProject(project)}
-              className="shadow-[var(--shadow-color)]"
-              // adding custom box shadow as only updating the shadow color is not getting applied in box shadow color
-              boxShadow={
-                selectedProject.id === project.id
-                  ? `0px 4px 8px 
-                  color-mix(in srgb, var(--chakra-colors-primary) 20%, transparent), 0px 0px 1px 
-                  color-mix(in srgb, var(--chakra-colors-primary) 30%, transparent)`
-                  : `0px 0px 1px 
-                      color-mix(in srgb, var(--chakra-colors-primary) 100%, transparent)`
-              }
+    <Grid
+      height="full"
+      width="full"
+      templateRows="repeat(2, 1fr)"
+      templateColumns="repeat(2, 1fr)"
+      gap="3"
+    >
+      {properties.map((property, index) => (
+        <Box key={property.headingText} position="relative">
+          <Box
+            position="absolute"
+            height={property.boxHeight}
+            width={property.boxWidth}
+            {...property.pos}
+          >
+            <Heading
+              position="absolute"
+              fontWeight="bolder"
+              top="5"
+              right="5"
+              size="5xl"
+              color="white"
+              zIndex="docked"
             >
-              <Card.Body>
-                <Card.Title pb="2">{project.title}</Card.Title>
-                <Card.Description>{project.summary}</Card.Description>
-              </Card.Body>
-            </Card.Root>
-          ))}
+              {property.headingText}
+            </Heading>
+            <ProjectCard id={index + 1} />
+          </Box>
         </Box>
-
-        <Box px={10} display="flex" flexDirection="column" gap="5">
-          <Heading size="5xl">{selectedProject.title}</Heading>
-          <Text>{selectedProject.description}</Text>
-        </Box>
-      </Grid>
-    </Box>
+      ))}
+    </Grid>
   );
 }
 
