@@ -21,7 +21,7 @@ const FancyCard = ({ selected = true, children, ...rest }: FancyCardProps) => {
         height: "full",
         rounded: "md",
         zIndex: "base",
-        bg: "gray.100",
+        bg: "gray.subtle",
         transitionProperty: "all",
         transitionDuration: "slow",
         transitionTimingFunction: "ease-in",
