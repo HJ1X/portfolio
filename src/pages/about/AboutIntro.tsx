@@ -5,7 +5,12 @@ import { HiDownload } from "react-icons/hi";
 
 const AboutIntro = () => {
   return (
-    <Flex className="w-full h-full" mt="-10" direction="column" justifyContent="center">
+    <Flex
+      className="w-full h-full"
+      mt="-10"
+      direction="column"
+      justifyContent="center"
+    >
       <Flex align="baseline" className="select-none">
         <Heading size="3xl" className="select-none">
           Hey, I'm
@@ -14,13 +19,15 @@ const AboutIntro = () => {
           Arpit Das
         </FancyHeading>
       </Flex>
-      <FancyHeading
-        size="4xl"
-        className="select-none capitalize"
-        theme="secondary"
-      >
-        Full Stack Developer
-      </FancyHeading>
+      <Flex>
+        <FancyHeading
+          size="4xl"
+          className="select-none capitalize"
+          theme="secondary"
+        >
+          Full Stack Developer
+        </FancyHeading>
+      </Flex>
       <Text className="pt-5 select-none" fontSize="md">
         Software Engineer with 2+ years of experience in developing and
         delivering industry standard web applications. I have a passion for

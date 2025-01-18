@@ -3,10 +3,12 @@ import AboutIntro from "./AboutIntro";
 import ProfileImage from "./ProfileImage";
 
 const AboutPage = () => {
-  return <Grid w="100%" h="100%" templateColumns="55% 1fr">
-    <AboutIntro />
-    <ProfileImage />
-  </Grid>;
+  return (
+    <Grid w="100%" h="100%" templateColumns="45% 1fr" gap="20">
+      <AboutIntro />
+      <ProfileImage />
+    </Grid>
+  );
 };
 
 export default AboutPage;
