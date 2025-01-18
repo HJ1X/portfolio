@@ -23,7 +23,7 @@ const FancyCard = ({ selected = true, children, ...rest }: FancyCardProps) => {
         zIndex: "base",
         bg: "gray.subtle",
         transitionProperty: "all",
-        transitionDuration: "slow",
+        transitionDuration: "moderate",
         transitionTimingFunction: "ease-in",
       }}
       _after={{
@@ -37,7 +37,7 @@ const FancyCard = ({ selected = true, children, ...rest }: FancyCardProps) => {
         zIndex: "base",
         bg: "bg.primary",
         transitionProperty: "all",
-        transitionDuration: "slow",
+        transitionDuration: "moderate",
         transitionTimingFunction: "ease-in",
       }}
       _hover={{
