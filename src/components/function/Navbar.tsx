@@ -1,7 +1,8 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
 import { Link, useLocation, useNavigate } from "react-router";
-import ThemeToggleButton from "./ThemeToggleButton";
 import FancyButton from "../ui/custom/FancyButton";
+import FancyLink from "../ui/custom/FancyLink";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 const navItems = [
   {
@@ -34,10 +35,8 @@ interface NavItemProps {
 
 const NavItem = ({ label, link, selected }: NavItemProps) => {
   return (
-    <Link to={link}>
-      <Text fontWeight="bold" color={selected ? "fg.primary" : ""}>
-        {label}
-      </Text>
+    <Link className="inline-flex items-center" to={link}>
+      <FancyLink selected={selected}>{label}</FancyLink>
     </Link>
   );
 };
@@ -73,7 +72,6 @@ const Navbar = () => {
               onClick={() => navigate("/contact")}
               size="sm"
               theme="primary"
-              showIcon={false}
             />
           </li>
         </Flex>
