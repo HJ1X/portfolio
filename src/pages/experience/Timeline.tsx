@@ -1,3 +1,4 @@
+import FancyCard from "@/components/ui/custom/FancyCard";
 import { profileTimeline } from "@/data/experienceData";
 import {
   Card,
@@ -9,7 +10,7 @@ import {
   TimelineItem,
   TimelineRoot,
   TimelineSeparator,
-  TimelineTitle,
+  TimelineTitle
 } from "@chakra-ui/react";
 
 interface TimelineProps {
@@ -46,22 +47,18 @@ const Timeline = ({ selectedProfile, onProfileChange }: TimelineProps) => {
               <Heading size="2xl">{item.company}</Heading>
             </TimelineTitle>
             {item.profiles.map((profile) => (
-              <Card.Root
+              <FancyCard
                 key={profile.years}
                 size="sm"
                 width="2xs"
                 cursor="pointer"
-                transition="all"
-                bg={
-                  isSelectedProfile(item.number, profile.number)
-                    ? "primary"
-                    : ""
-                }
-                _hover={{ borderColor: "primary" }}
+                selected={isSelectedProfile(item.number, profile.number)}
                 onClick={() => onProfileChange(item.number, profile.number)}
               >
                 <Card.Body>
                   <Card.Title
+                    transitionDuration="slow"
+                    transitionProperty="all"
                     color={
                       isSelectedProfile(item.number, profile.number)
                         ? "gray.50"
@@ -71,6 +68,8 @@ const Timeline = ({ selectedProfile, onProfileChange }: TimelineProps) => {
                     {profile.title}
                   </Card.Title>
                   <Card.Description
+                    transitionDuration="slow"
+                    transitionProperty="all"
                     color={
                       isSelectedProfile(item.number, profile.number)
                         ? "gray.200"
@@ -80,7 +79,7 @@ const Timeline = ({ selectedProfile, onProfileChange }: TimelineProps) => {
                     {profile.years}
                   </Card.Description>
                 </Card.Body>
-              </Card.Root>
+              </FancyCard>
             ))}
           </TimelineContent>
         </TimelineItem>
