@@ -37,7 +37,7 @@ const FancyLink = ({ selected, children, ...rest }: FancyLinkProps) => {
         width: selected ? "full" : 0,
         height: 0.5,
         rounded: "2xs",
-        bg: "fg.primary",
+        bg: selected ? "fg.primary.darker" : "fg.primary",
         transitionProperty: "all",
         transitionDuration: "slow",
         transitionTimingFunction: "ease-in",
