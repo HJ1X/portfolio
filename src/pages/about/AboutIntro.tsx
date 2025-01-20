@@ -1,6 +1,8 @@
 import FancyButton from "@/components/ui/custom/FancyButton";
 import FancyHeading from "@/components/ui/custom/FancyHeading";
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { MotionFlex, MotionText } from "@/components/ui/Motion";
+import { revealFromBottom, revealFromLeft } from "@/utils/animation";
+import { Flex, Heading } from "@chakra-ui/react";
 import { HiDownload } from "react-icons/hi";
 
 const AboutIntro = () => {
@@ -11,15 +13,19 @@ const AboutIntro = () => {
       direction="column"
       justifyContent="center"
     >
-      <Flex align="baseline" className="select-none">
+      <MotionFlex
+        align="baseline"
+        className="select-none"
+        animate={revealFromBottom}
+      >
         <Heading size="3xl" className="select-none">
           Hey, I'm
         </Heading>
         <FancyHeading ml="4" size="7xl">
           Arpit Das
         </FancyHeading>
-      </Flex>
-      <Flex>
+      </MotionFlex>
+      <MotionFlex animate={revealFromBottom}>
         <FancyHeading
           size="4xl"
           className="select-none capitalize"
@@ -27,22 +33,32 @@ const AboutIntro = () => {
         >
           Full Stack Developer
         </FancyHeading>
-      </Flex>
-      <Text className="pt-5 select-none" fontSize="md">
+      </MotionFlex>
+      <MotionText
+        className="pt-5 select-none"
+        fontSize="md"
+        animate={revealFromBottom}
+        transition={{ delay: 0.2 }}
+      >
         Software Engineer with 2+ years of experience in developing and
         delivering industry standard web applications. I have a passion for
         crafting scalable and user-centric softwares. My focus lies in writing
         clean, maintainable code, optimizing performance, and delivering
         exceptional user experiences.
-      </Text>
-      <Flex pt="8" gap="3">
+      </MotionText>
+      <MotionFlex
+        pt="8"
+        gap="3"
+        animate={revealFromLeft}
+        transition={{ delay: 0.4 }}
+      >
         <FancyButton label="Contact Me" />
         <FancyButton
           theme="secondary"
           label="Download Resume"
           icon={<HiDownload />}
         />
-      </Flex>
+      </MotionFlex>
     </Flex>
   );
 };
