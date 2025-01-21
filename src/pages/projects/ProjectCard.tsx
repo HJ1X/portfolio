@@ -41,7 +41,7 @@ const ProjectCard = ({ id }: ProjectCardProps) => {
           transitionTimingFunction: "ease-in",
         },
         "& .slide-left-to-right": {
-          transform: "translateX(-100%)",
+          transform: "translateX(-1rem)",
           opacity: 0,
           transitionProperty: "all",
           transitionDuration: "slower",
