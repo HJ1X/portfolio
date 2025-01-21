@@ -1,10 +1,9 @@
 import { revealFromLeft } from "@/utils/animation";
 import { Flex } from "@chakra-ui/react";
-import { motion } from "motion/react";
 import { Link, useLocation, useNavigate } from "react-router";
 import FancyButton from "../ui/custom/FancyButton";
 import FancyLink from "../ui/custom/FancyLink";
-import { MotionHeading } from "../ui/Motion";
+import { MotionFlex, MotionHeading } from "../ui/Motion";
 import ThemeToggleButton from "./ThemeToggleButton";
 
 const navItems = [
@@ -54,20 +53,27 @@ const Navbar = () => {
         size="4xl"
         onClick={() => navigate("/")}
         className="cursor-pointer select-none"
-        animate={revealFromLeft}
+        {...revealFromLeft}
+        transition={{ delay: 0.2 }}
       >
         Himanshu J.
       </MotionHeading>
-      <Flex as="nav" align="center" gap="4">
+      <MotionFlex
+        as="nav"
+        align="center"
+        gap="4"
+        {...revealFromLeft}
+        transition={{ delay: 0.2 }}
+      >
         <Flex as="ul" gap="6" align="center">
           {navItems.map((navItem) => (
-            <motion.li key={navItem.label} animate={revealFromLeft}>
+            <li key={navItem.label}>
               <NavItem
                 label={navItem.label}
                 link={navItem.link}
                 selected={location.pathname === navItem.link}
               />
-            </motion.li>
+            </li>
           ))}
           <li>
             <FancyButton
@@ -80,7 +86,7 @@ const Navbar = () => {
           </li>
         </Flex>
         <ThemeToggleButton />
-      </Flex>
+      </MotionFlex>
     </Flex>
   );
 };

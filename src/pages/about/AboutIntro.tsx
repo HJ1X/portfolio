@@ -16,7 +16,7 @@ const AboutIntro = () => {
       <MotionFlex
         align="baseline"
         className="select-none"
-        animate={revealFromBottom}
+        {...revealFromBottom}
       >
         <Heading size="3xl" className="select-none">
           Hey, I'm
@@ -25,7 +25,7 @@ const AboutIntro = () => {
           Arpit Das
         </FancyHeading>
       </MotionFlex>
-      <MotionFlex animate={revealFromBottom}>
+      <MotionFlex {...revealFromBottom}>
         <FancyHeading
           size="4xl"
           className="select-none capitalize"
@@ -37,7 +37,7 @@ const AboutIntro = () => {
       <MotionText
         className="pt-5 select-none"
         fontSize="md"
-        animate={revealFromBottom}
+        {...revealFromBottom}
         transition={{ delay: 0.2 }}
       >
         Software Engineer with 2+ years of experience in developing and
@@ -49,7 +49,7 @@ const AboutIntro = () => {
       <MotionFlex
         pt="8"
         gap="3"
-        animate={revealFromLeft}
+        {...revealFromLeft}
         transition={{ delay: 0.4 }}
       >
         <FancyButton label="Contact Me" />
