@@ -45,9 +45,62 @@ export const profileTimeline = [
   },
 ];
 
-export const experienceDetails = [
+export interface ExperienceDetails {
+  companyNumber: number;
+  profileNumber: number;
+  company: string;
+  location: string;
+  profile: string;
+  years: string;
+  skills: string[];
+  keyPoints: string[];
+}
+
+export const experienceDetails: ExperienceDetails[] = [
   {
     companyNumber: 3,
+    profileNumber: 2,
+    company: "Tata Consultancy Services",
+    location: "Pune",
+    profile: "Software Engineer",
+    years: "Dec 2023 - Present",
+    skills: ["React", "Java", "AWS", "Azure", "Amgular"],
+    keyPoints: [
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumenda.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumefsfsdfnda.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumenda.",
+    ],
+  },
+  {
+    companyNumber: 3,
+    profileNumber: 1,
+    company: "Tata Consultancy Services",
+    location: "Pune",
+    profile: "Product Engineer",
+    years: "Aug 2022 - Nov 2023",
+    skills: ["React", "Java", "Gen AI", "RAG", "GPT-4o", "Amgular"],
+    keyPoints: [
+      "Lorem ipsum dolor sit amet consectetur adipisdfsfdfing elit. Nihil, assusdfenda.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumenda. Lorem ipsum dolor.",
+      "Lorem ipsum dolor sit amet consectetur adng elit. Nihil, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumenda.",
+    ],
+  },
+  {
+    companyNumber: 2,
+    profileNumber: 1,
+    company: "Tata Consultancy Services",
+    location: "Pune",
+    profile: "Software Engineer",
+    years: "Dec 2023 - Present",
+    skills: ["React", "Java", "AWS", "Azure", "Amgular"],
+    keyPoints: [
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumenda.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumenda.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, assumenda.",
+    ],
+  },
+  {
+    companyNumber: 1,
     profileNumber: 1,
     company: "Tata Consultancy Services",
     location: "Pune",

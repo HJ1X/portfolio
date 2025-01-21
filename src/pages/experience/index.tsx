@@ -1,8 +1,10 @@
-import { Box, Flex } from "@chakra-ui/react";
-import Timeline from "./Timeline";
-import ExperienceDetails from "./ExperienceDetails";
-import { profileTimeline } from "@/data/experienceData";
+import { MotionHeading } from "@/components/ui/Motion";
+import { profileTimeline, experienceDetails } from "@/data/experienceData";
+import { revealFromBottom, revealFromLeft } from "@/utils/animation";
+import { Box, Flex, Grid } from "@chakra-ui/react";
 import { useState } from "react";
+import ExperienceDetails from "./ExperienceDetails";
+import Timeline from "./Timeline";
 
 const ExperiencePage = () => {
   const defaultProfile = {
@@ -11,26 +13,50 @@ const ExperiencePage = () => {
   };
   const [selectedProfile, setSelectedProfile] = useState(defaultProfile);
 
+  const details = experienceDetails.find(
+    (detail) =>
+      detail.companyNumber === selectedProfile.companyNumber &&
+      detail.profileNumber === selectedProfile.profileNumber
+  );
+
   return (
-    <Flex gap="8" height="full" width="full" align="center">
-      <Box width="full" mt="-10">
-        <Timeline
-          selectedProfile={selectedProfile}
-          onProfileChange={(companyNumber: number, profileNumber: number) => {
-            setSelectedProfile({
-              companyNumber,
-              profileNumber,
-            });
-          }}
-        />
-      </Box>
-      <Flex align="center" height="full" mt="-10">
-        <ExperienceDetails
-          companyNumber={selectedProfile.companyNumber}
-          profileNumber={selectedProfile.profileNumber}
-        />
+    <>
+      <Flex position="absolute" top="20%" left="-5%">
+        {"Experience".split("").map((char, i) => (
+          <MotionHeading
+            key={char}
+            fontSize="9rem"
+            color="gray"
+            {...revealFromBottom}
+            animate={{
+              ...revealFromBottom.animate,
+              opacity: 0.2,
+            }}
+            transition={{
+              delay: 0.05 * i,
+            }}
+          >
+            {char}
+          </MotionHeading>
+        ))}
       </Flex>
-    </Flex>
+      <Grid h="full" templateColumns="repeat(2, 1fr)" alignItems="center">
+        <Box width="full" mt="-10">
+          <Timeline
+            selectedProfile={selectedProfile}
+            onProfileChange={(companyNumber: number, profileNumber: number) => {
+              setSelectedProfile({
+                companyNumber,
+                profileNumber,
+              });
+            }}
+          />
+        </Box>
+        <Flex align="center" height="full" mt="-10">
+          <ExperienceDetails details={details} />
+        </Flex>
+      </Grid>
+    </>
   );
 };
 

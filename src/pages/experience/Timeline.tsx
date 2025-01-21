@@ -1,5 +1,7 @@
 import FancyCard from "@/components/ui/custom/FancyCard";
+import { MotionFancyCard } from "@/components/ui/Motion";
 import { profileTimeline } from "@/data/experienceData";
+import { revealFromBottom, revealFromLeft } from "@/utils/animation";
 import {
   Card,
   Heading,
@@ -10,8 +12,9 @@ import {
   TimelineItem,
   TimelineRoot,
   TimelineSeparator,
-  TimelineTitle
+  TimelineTitle,
 } from "@chakra-ui/react";
+import { motion } from "motion/react";
 
 interface TimelineProps {
   selectedProfile: {
@@ -20,6 +23,10 @@ interface TimelineProps {
   };
   onProfileChange: (companyNumber: number, profileNumber: number) => void;
 }
+
+const MotionTimelineRoot = motion.create(TimelineRoot, {
+  forwardMotionProps: true,
+});
 
 const Timeline = ({ selectedProfile, onProfileChange }: TimelineProps) => {
   const isSelectedProfile = (companyNumber: number, profileNumber: number) => {
@@ -30,7 +37,7 @@ const Timeline = ({ selectedProfile, onProfileChange }: TimelineProps) => {
   };
 
   return (
-    <TimelineRoot size="xl">
+    <MotionTimelineRoot size="xl" {...revealFromLeft}>
       {profileTimeline.map((item) => (
         <TimelineItem key={item.number}>
           <TimelineConnector>
@@ -47,11 +54,13 @@ const Timeline = ({ selectedProfile, onProfileChange }: TimelineProps) => {
               <Heading size="2xl">{item.company}</Heading>
             </TimelineTitle>
             {item.profiles.map((profile) => (
-              <FancyCard
+              <MotionFancyCard
                 key={profile.years}
                 size="sm"
                 width="2xs"
                 cursor="pointer"
+                {...revealFromBottom}
+                transition={{ delay: 0.2 }}
                 selected={isSelectedProfile(item.number, profile.number)}
                 onClick={() => onProfileChange(item.number, profile.number)}
               >
@@ -79,12 +88,12 @@ const Timeline = ({ selectedProfile, onProfileChange }: TimelineProps) => {
                     {profile.years}
                   </Card.Description>
                 </Card.Body>
-              </FancyCard>
+              </MotionFancyCard>
             ))}
           </TimelineContent>
         </TimelineItem>
       ))}
-    </TimelineRoot>
+    </MotionTimelineRoot>
   );
 };
 
