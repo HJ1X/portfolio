@@ -2,85 +2,61 @@ import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
 
 const config = defineConfig({
   theme: {
+    tokens: {
+      colors: {
+        primary: {
+          50: { value: "#e1f5fd" },
+          100: { value: "#b3e5f9" },
+          200: { value: "#81d3f5" },
+          300: { value: "#51c2f1" },
+          400: { value: "#2db5ef" },
+          500: { value: "#0aa8ec" },
+          600: { value: "#059add" },
+          700: { value: "#0087ca" },
+          800: { value: "#0076b6" },
+          900: { value: "#005794" },
+        },
+        secondary: {
+          50: { value: "#e0f5f1" },
+          100: { value: "#b2e5db" },
+          200: { value: "#7fd5c4" },
+          300: { value: "#47c4ad" },
+          400: { value: "#00b69b" },
+          500: { value: "#00a889" },
+          600: { value: "#009a7c" },
+          700: { value: "#00896c" },
+          800: { value: "#00795d" },
+          900: { value: "#005c41" },
+        }
+    },
+  },
     semanticTokens: {
       colors: {
-        bg: {
-          primary: {
-            darker: {
-              70: { value: "#2D00F7B3" },
-              DEFAULT: { value: "#2D00F7CC" },
-              90: { value: "#2D00F7E6" },
-            },
-            dark: {
-              70: { value: "#6A00F4B3" },
-              DEFAULT: { value: "#6A00F4CC" },
-              90: { value: "#6A00F4E6" },
-            },
-            DEFAULT: {
-              70: { value: "#8900F2B3" },
-              DEFAULT: { value: "#8900F2CC" },
-              90: { value: "#8900F2E6" },
-            },
-            light: {
-              70: { value: "#A100F2B3" },
-              DEFAULT: { value: "#A100F2CC" },
-              90: { value: "#A100F2E6" },
-            },
-            lighter: {
-              70: { value: "#B100E8B3" },
-              DEFAULT: { value: "#B100E8CC" },
-              90: { value: "#B100E8E6" },
-            },
-            lightest: {
-              70: { value: "#BC00DDB3" },
-              DEFAULT: { value: "#BC00DDCC" },
-              90: { value: "#BC00DDE6" },
-            },
-          },
-          secondary: {
-            lighter: {
-              70: { value: "#EA698BB3" },
-              DEFAULT: { value: "#EA698BCC" },
-              90: { value: "#EA698BE6" },
-            },
-            light: {
-              70: { value: "#D55D92B3" },
-              DEFAULT: { value: "#D55D92CC" },
-              90: { value: "#D55D92E6" },
-            },
-            DEFAULT: {
-              70: { value: "#C05299B3" },
-              DEFAULT: { value: "#C05299CC" },
-              90: { value: "#C05299E6" },
-            },
-            dark: {
-              70: { value: "#AC46A1B3" },
-              DEFAULT: { value: "#AC46A1CC" },
-              90: { value: "#AC46A1E6" },
-            },
-            darker: {
-              70: { value: "#973AA8B3" },
-              DEFAULT: { value: "#973AA8CC" },
-              90: { value: "#973AA8E6" },
-            },
-          },
+        primary: {
+          solid: { value: "{colors.primary.500}" },
+          contrast: { value: "{colors.primary.100}" },
+          fg: { value: "{colors.primary.700}" },
+          muted: { value: "{colors.primary.100}" },
+          subtle: { value: "{colors.primary.200}" },
+          emphasized: { value: "{colors.primary.300}" },
+          focusRing: { value: "{colors.primary.500}" },
         },
-        fg: {
-          primary: {
-            darker: { value: "#2D00F7" },
-            dark: { value: "#6A00F4" },
-            DEFAULT: { value: "#8900F2" },
-            light: { value: "#A100F2" },
-            lighter: { value: "#B100E8" },
-            lightest: { value: "#BC00DD" },
-          },
-          secondary: {
-            lighter: { value: "#EA698B" },
-            light: { value: "#D55D92" },
-            DEFAULT: { value: "#C05299" },
-            dark: { value: "#AC46A1" },
-            darker: { value: "#973AA8" },
-          },
+        secondary: {
+          solid: { value: "{colors.secondary.500}" },
+          contrast: { value: "{colors.secondary.100}" },
+          fg: { value: "{colors.secondary.700}" },
+          muted: { value: "{colors.secondary.100}" },
+          subtle: { value: "{colors.secondary.200}" },
+          emphasized: { value: "{colors.secondary.300}" },
+          focusRing: { value: "{colors.secondary.500}" },
+        },
+      },
+      fonts: {
+        heading: {
+          value: "Montserrat, sans-serif",
+        },
+        body: {
+          value: "Montserrat, sans-serif",
         },
       },
     },
