@@ -1,4 +1,3 @@
-import FancyCard from "@/components/ui/custom/FancyCard";
 import { MotionFancyCard } from "@/components/ui/Motion";
 import { profileTimeline } from "@/data/experienceData";
 import { revealFromBottom, revealFromLeft } from "@/utils/animation";
@@ -66,24 +65,46 @@ const Timeline = ({ selectedProfile, onProfileChange }: TimelineProps) => {
               >
                 <Card.Body>
                   <Card.Title
+                    position="relative"
+                    _before={{
+                      content: `"${profile.title}"`,
+                      position: "absolute",
+                      overflow: "hidden",
+                      top: 0,
+                      left: "0",
+                      width: isSelectedProfile(item.number, profile.number)
+                        ? "full"
+                        : "0",
+                      color: "gray.contrast",
+                      whiteSpace: "nowrap",
+                      transitionProperty: "all",
+                      transitionDuration: "slow",
+                      transitionTimingFunction: "ease-in",
+                    }}
                     transitionDuration="slow"
                     transitionProperty="all"
-                    color={
-                      isSelectedProfile(item.number, profile.number)
-                        ? "gray.50"
-                        : ""
-                    }
                   >
                     {profile.title}
                   </Card.Title>
                   <Card.Description
+                    position="relative"
                     transitionDuration="slow"
                     transitionProperty="all"
-                    color={
-                      isSelectedProfile(item.number, profile.number)
-                        ? "gray.200"
-                        : ""
-                    }
+                    _before={{
+                      content: `"${profile.years}"`,
+                      position: "absolute",
+                      overflow: "hidden",
+                      top: 0,
+                      left: "0",
+                      width: isSelectedProfile(item.number, profile.number)
+                        ? "full"
+                        : "0",
+                      color: "gray.contrast",
+                      whiteSpace: "nowrap",
+                      transitionProperty: "all",
+                      transitionDuration: "slow",
+                      transitionTimingFunction: "ease-in",
+                    }}
                   >
                     {profile.years}
                   </Card.Description>

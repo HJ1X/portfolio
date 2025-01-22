@@ -1,4 +1,4 @@
-import FancyBadge from "@/components/ui/custom/FancyBadge";
+import Badge from "@/components/ui/custom/Badge";
 import { MotionBox, MotionFlex, MotionHeading } from "@/components/ui/Motion";
 import { ExperienceDetails as IExperienceDetails } from "@/data/experienceData";
 import { revealFromBottom, revealFromLeft } from "@/utils/animation";
@@ -64,30 +64,12 @@ const ExperienceDetails = ({ details }: ExperienceDetailsProps) => {
           key={getRandomKey()}
           gap="3"
           wrap="wrap"
-          pl="5"
+          pl="6"
           {...revealFromLeft}
           transition={{ delay: 0.2 + details.keyPoints.length * 0.1 }}
         >
           {details.skills.map((skill) => (
-            <FancyBadge
-              key={skill}
-              hoverContent={
-                <Flex direction="column" p="3">
-                  <Icon fontWeight="bold" size="2xl" mb="2">
-                    <FaReact />
-                  </Icon>
-                  <Text fontWeight="bold" fontSize="md">
-                    {skill}
-                  </Text>
-                  <Text fontSize="lg" fontWeight="bold">
-                    2+{" "}
-                    <Text as="span" fontSize="xs">
-                      years
-                    </Text>
-                  </Text>
-                </Flex>
-              }
-            >
+            <Badge key={skill}>
               <Flex gap="2" align="center">
                 <Icon fontWeight="bold">
                   <FaReact />
@@ -96,7 +78,7 @@ const ExperienceDetails = ({ details }: ExperienceDetailsProps) => {
                   {skill}
                 </Text>
               </Flex>
-            </FancyBadge>
+            </Badge>
           ))}
         </MotionFlex>
       </Flex>

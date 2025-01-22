@@ -7,10 +7,10 @@ const ContactPage = () => {
     <Flex className="h-full w-full items-center gap-16">
       <Flex align="start" width="full" gap="20">
         <Flex direction="column" width="55%">
-          <Heading size="7xl" color="fg.primary">
+          <Heading size="7xl" color="primary">
             Let's
           </Heading>
-          <Heading size="7xl" color="fg.primary" mt="-3">
+          <Heading size="7xl" color="primary" mt="-3">
             connect
           </Heading>
           <Text fontSize="sm" mt="3" ml="1" color="gray.500">

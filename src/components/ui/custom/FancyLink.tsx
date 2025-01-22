@@ -1,4 +1,4 @@
-import { Link, LinkProps } from "@chakra-ui/react";
+import { Box, Link, LinkProps } from "@chakra-ui/react";
 
 interface FancyLinkProps extends LinkProps {
   selected: boolean;
@@ -9,7 +9,6 @@ const FancyLink = ({ selected, children, ...rest }: FancyLinkProps) => {
     <Link
       fontWeight="bold"
       position="relative"
-      color={selected ? "fg.primary.darker" : ""}
       rounded="none"
       overflow="hidden"
       display="inline-block"
@@ -23,9 +22,9 @@ const FancyLink = ({ selected, children, ...rest }: FancyLinkProps) => {
         overflow: "hidden",
         top: 0,
         left: "0",
-        width: "0",
+        width: selected ? "full" : "0",
+        color: "primary.darker",
         whiteSpace: "nowrap",
-        color: "fg.primary",
         transitionProperty: "all",
         transitionDuration: "slow",
         transitionTimingFunction: "ease-in",
@@ -37,22 +36,34 @@ const FancyLink = ({ selected, children, ...rest }: FancyLinkProps) => {
         width: selected ? "full" : 0,
         height: 0.5,
         rounded: "2xs",
-        bg: selected ? "fg.primary.darker" : "fg.primary",
+        bg: "fg",
         transitionProperty: "all",
         transitionDuration: "slow",
         transitionTimingFunction: "ease-in",
       }}
       _hover={{
         textDecoration: "none",
-        _before: {
-          width: selected ? "0" : "full",
-        },
         _after: {
           width: "full",
         },
       }}
       {...rest}
     >
+      {/* underline transition on select */}
+      <Box
+        as="span"
+        position="absolute"
+        bottom="0"
+        left="0"
+        height="0.5"
+        rounded="2xs"
+        zIndex="docked"
+        bg="primary.darker"
+        width={selected ? "full" : "0"}
+        transitionProperty="all"
+        transitionDuration="slow"
+        transitionTimingFunction="ease-in"
+      ></Box>
       {children}
     </Link>
   );
