@@ -48,7 +48,7 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <Flex width="full" justify="space-between" align="center">
+    <Flex width="full" justify="space-between" align="center" zIndex="dropdown">
       <MotionHeading
         size="4xl"
         onClick={() => navigate("/")}
