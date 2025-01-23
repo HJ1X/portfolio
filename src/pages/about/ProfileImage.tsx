@@ -1,24 +1,107 @@
-import { Box, Image } from "@chakra-ui/react";
 import Img from "@/assets/images/project-images/my-pic.png";
+import { MotionFlex } from "@/components/ui/Motion";
+import { revealFromBottom } from "@/utils/animation";
+import { Box, Flex, Image } from "@chakra-ui/react";
+import { motion } from "motion/react";
+import { useLayoutEffect, useRef, useState } from "react";
+
+type Pos = { bottom: number; width: number };
 
 const ProfileImage = () => {
-  return (
-    <Box pos="relative">
-      <Box
-        backgroundImage="url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22sw-gradient%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%221%22%20y2%3D%220%22%3E%3Cstop%20id%3D%22stop1%22%20stop-color%3D%22%23644ED2%22%20offset%3D%220%25%22%2F%3E%3Cstop%20id%3D%22stop2%22%20stop-color%3D%22%23644ED2%22%20offset%3D%22100%25%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22url(%23sw-gradient)%22%20d%3D%22M19.9%2C12C12.9%2C23.6%2C-14.5%2C23.9%2C-21.2%2C12.4C-28%2C1%2C-14%2C-22.3%2C-0.3%2C-22.4C13.4%2C-22.6%2C26.9%2C0.4%2C19.9%2C12Z%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20transform%3D%22translate(50%2050)%22%20stroke-width%3D%220%22%20style%3D%22transition%3A%200.3s%3B%22%2F%3E%3C%2Fsvg%3E')"
-        w="125%"
-        h="125%"
-        top="-25%"
-        left="-15%"
-        backgroundSize="cover"
-        backgroundPosition="center"
-        transform="rotate(180deg)"
-        pos="absolute"
-        zIndex="-1"
-      ></Box>
+  const [img, setImg] = useState<Pos>({ bottom: 0, width: 0 });
+  const ref = useRef<SVGPathElement>(null);
 
-      <Image src={Img} />
-    </Box>
+  useLayoutEffect(() => {
+    if (ref.current) {
+      const viewPortHeight = window.innerHeight;
+      const { bottom, width } = ref.current.getBoundingClientRect();
+
+      setImg({
+        bottom: viewPortHeight - bottom + 2,
+        width: width,
+      });
+    }
+  }, []);
+
+  return (
+    <Flex pos="relative" h="full" align="center" zIndex="docked">
+      <motion.svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
+        style={{ transform: "scale(1.5) rotate(180deg)", position: "absolute" }}
+      >
+        <motion.path
+          transition={{
+            pathLength: {
+              delay: 0.1,
+            },
+            fill: {
+              delay: 0.7,
+            },
+          }}
+          initial={{ pathLength: 0, fill: "#0000" }}
+          animate={{
+            pathLength: 1,
+            fill: "var(--chakra-colors-primary)",
+          }}
+          xmlns="http://www.w3.org/2000/svg"
+          d="M 19.9 12 C 12.9 23.6 -14.5 23.9 -21.2 12.4 C -28 1 -14 -22.3 -0.3 -22.4 C 13.4 -22.6 26.9 0.4 19.9 12 L 20.4 12"
+          width="100%"
+          height="100%"
+          transform="translate(50 50)"
+          rotate="90deg"
+          stroke="var(--chakra-colors-primary)"
+          strokeWidth="0.5px"
+          style={{
+            transition: "0.3s",
+          }}
+        />
+      </motion.svg>
+      <motion.svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
+        style={{
+          transform: "scale(1.5) rotate(180deg)",
+          zIndex: 11,
+          position: "absolute",
+        }}
+      >
+        <motion.path
+          ref={ref}
+          xmlns="http://www.w3.org/2000/svg"
+          fill="var(--chakra-colors-bg)"
+          d="M 22 -0 C 18.1 -14.3 7.2 -22.6 -0.3 -22.4 C -10.5 -22.1 -20 -10 -22.9 0 L -25 0 L -25 -25 L 25 -25 L 25 -0 Z"
+          width="100%"
+          height="100%"
+          transform="translate(50 50)"
+          strokeWidth="0"
+        />
+      </motion.svg>
+      <Box
+        position="absolute"
+        bottom="0"
+        h={img.bottom}
+        w="full"
+        zIndex="dropdown"
+        bg="bg"
+      />
+      <MotionFlex
+        w={img.width}
+        left="0"
+        right="0"
+        mx="auto"
+        overflow="hidden"
+        position="absolute"
+        bottom={img.bottom}
+        justify="center"
+        {...revealFromBottom}
+        transition={{
+          delay: 0.8,
+        }}
+      >
+        <Image src={Img} h="auto" maxW="full" objectFit="cover" />
+      </MotionFlex>
+    </Flex>
   );
 };
 
