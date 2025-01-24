@@ -72,15 +72,15 @@ const ProjectCard = ({ id }: ProjectCardProps) => {
         },
       }}
     >
-      <Box id="project-card-cover" position="relative">
+      <Box id="project-card-cover" position="relative" overflow="hidden">
         <Box
           position="absolute"
           h="full"
           w="full"
           zIndex="docked"
-          className="bg-gradient-to-b from-transparent from-80% to-gray-600 to-100%"
+          className="bg-gradient-to-b from-transparent from-80% to-[var(--chakra-colors-gray-700)] to-100%"
         ></Box>
-        <Image src={data.cover} h="full" w="auto" />
+        <Image src={data.cover} h="full" w="auto" fit="cover" />
       </Box>
       <Card.Body>
         <Flex

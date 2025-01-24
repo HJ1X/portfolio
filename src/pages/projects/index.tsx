@@ -45,7 +45,11 @@ function ProjectPage() {
 
   return (
     <>
-      <Flex position="absolute" bottom="15%" left="-10%">
+      <Flex
+        position="absolute"
+        bottom="15%"
+        left={{ base: "-2", xl: "-5", "2xl": "-20" }}
+      >
         {"Projects".split("").map((char, i) => (
           <MotionHeading
             key={char}
@@ -57,7 +61,7 @@ function ProjectPage() {
               opacity: 0.2,
             }}
             transition={{
-              delay: 0.05 * i,
+              delay: 0.25 + 0.05 * i,
             }}
           >
             {char}
@@ -85,7 +89,7 @@ function ProjectPage() {
                 transform: property.transform,
                 opacity: [0, 1],
               }}
-              transition={{ delay: 0.2 * index}}
+              transition={{ delay: 0.2 * index }}
             >
               <ProjectCard id={index + 1} />
             </MotionBox>
