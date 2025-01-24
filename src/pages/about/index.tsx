@@ -11,7 +11,7 @@ const AboutPage = () => {
         direction="column"
         position="absolute"
         top="20%"
-        pl="56"
+        pl="28"
         left="0"
         right="0"
         mx="auto"
@@ -37,7 +37,7 @@ const AboutPage = () => {
             </MotionHeading>
           ))}
         </Flex>
-        <Flex>
+        <Flex justify="end">
           {"Das".split("").map((char, i) => (
             <MotionHeading
               key={char}

@@ -24,7 +24,7 @@ const ProfileImage = () => {
   }, []);
 
   return (
-    <Flex pos="relative" h="full" align="center" zIndex="docked">
+    <Flex pos="relative" h="full" align="center" zIndex="">
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 100 100"
@@ -89,6 +89,7 @@ const ProfileImage = () => {
         w={img.width}
         left="0"
         right="0"
+        h={{ lg: "5/6", "2xl": "auto" }}
         mx="auto"
         overflow="hidden"
         position="absolute"
