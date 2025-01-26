@@ -32,10 +32,10 @@ const ExperiencePage = () => {
 
   return (
     <>
-      <Flex
+      {/* <Flex
         position="absolute"
         top={`calc(${experienceTextTop}px - 2.5rem)`}
-        left={{ base: "-2", xl: "-5", "2xl": "-20" }}
+        right={{ base: "-2", xl: "-5", "2xl": "-20" }}
       >
         {"Experience".split("").map((char, i) => (
           <MotionHeading
@@ -54,7 +54,7 @@ const ExperiencePage = () => {
             {char}
           </MotionHeading>
         ))}
-      </Flex>
+      </Flex> */}
       <Grid h="full" templateColumns="repeat(2, 1fr)" alignItems="center">
         <Box width="full" mt="-10" ref={timelineRef}>
           <Timeline

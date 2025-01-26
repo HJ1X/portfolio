@@ -20,7 +20,7 @@ const ExperienceDetails = ({ details }: ExperienceDetailsProps) => {
   }
 
   return (
-    <Stack direction="column" width="5/6">
+    <Stack direction="column">
       <MotionHeading key={getRandomKey()} size="5xl" {...revealFromBottom}>
         {details.profile}
       </MotionHeading>
@@ -60,27 +60,28 @@ const ExperienceDetails = ({ details }: ExperienceDetailsProps) => {
             </MotionBox>
           ))}
         </List.Root>
-        <MotionFlex
-          key={getRandomKey()}
-          gap="3"
-          wrap="wrap"
-          pl="6"
-          {...revealFromLeft}
-          transition={{ delay: 0.2 + details.keyPoints.length * 0.1 }}
-        >
-          {details.skills.map((skill) => (
-            <Badge key={skill}>
-              <Flex gap="2" align="center">
-                <Icon fontWeight="bold">
-                  <FaReact />
-                </Icon>
-                <Text fontWeight="bold" fontSize="sm">
-                  {skill}
-                </Text>
-              </Flex>
-            </Badge>
+        <Flex gap="3" wrap="wrap" pl="6">
+          {details.skills.map((skill, i) => (
+            <MotionBox
+              key={getRandomKey()}
+              {...revealFromLeft}
+              transition={{
+                delay: 0.2 + details.keyPoints.length * 0.1 + 0.05 * i,
+              }}
+            >
+              <Badge>
+                <Flex gap="2" align="center">
+                  <Icon fontWeight="bold">
+                    <FaReact />
+                  </Icon>
+                  <Text fontWeight="bold" fontSize="sm">
+                    {skill}
+                  </Text>
+                </Flex>
+              </Badge>
+            </MotionBox>
           ))}
-        </MotionFlex>
+        </Flex>
       </Flex>
     </Stack>
   );
