@@ -7,6 +7,7 @@ interface FancyLinkProps extends LinkProps {
 const FancyLink = ({ selected, children, ...rest }: FancyLinkProps) => {
   return (
     <Link
+      as="span"
       fontWeight="bold"
       position="relative"
       rounded="none"
