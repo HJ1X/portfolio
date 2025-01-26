@@ -7,3 +7,21 @@
 :root {
   --navbar-height: var(--chakra-sizes-20);
 }
+
+@media screen and (min-width: 1576px) and (max-width: 1920px) {
+  :root {
+    font-size: 0.8vw;
+  }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1576px) {
+  :root {
+    font-size: 0.9vw;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+  :root {
+    font-size: 1vw;
+  }
+}
