@@ -2,12 +2,13 @@ import { Box, Flex, Grid } from "@chakra-ui/react";
 import ProjectCard from "./ProjectCard";
 import { MotionBox, MotionHeading } from "@/components/ui/Motion";
 import { revealFromBottom } from "@/utils/animation";
+import { useMediaQuery } from "@chakra-ui/media-query";
 
 function ProjectPage() {
   const properties = [
     {
-      boxHeight: "10/12",
-      boxWidth: "9/12",
+      boxWidth: "30rem",
+      aspectRatio: 1.4,
       pos: {
         bottom: "0",
         right: "0",
@@ -15,8 +16,8 @@ function ProjectPage() {
       transform: ["translate(-1rem, -1rem)", "translate(0, 0)"],
     },
     {
-      boxHeight: "8/12",
-      boxWidth: "10/12",
+      boxWidth: "34rem",
+      aspectRatio: 1.95,
       pos: {
         bottom: "0",
         left: "0",
@@ -24,8 +25,8 @@ function ProjectPage() {
       transform: ["translate(1rem, -1rem)", "translate(0, 0)"],
     },
     {
-      boxHeight: "63%",
-      boxWidth: "7/12",
+      boxWidth: "24rem",
+      aspectRatio: 1.45,
       pos: {
         top: "0",
         right: "0",
@@ -33,8 +34,8 @@ function ProjectPage() {
       transform: ["translate(-1rem, 1rem)", "translate(0, 0)"],
     },
     {
-      boxHeight: "9/12",
-      boxWidth: "8/12",
+      boxWidth: "28rem",
+      aspectRatio: 1.4,
       pos: {
         top: "0",
         left: "0",
@@ -45,7 +46,7 @@ function ProjectPage() {
 
   return (
     <>
-      <Flex
+      {/* <Flex
         position="absolute"
         bottom="15%"
         left={{ base: "-2", xl: "-5", "2xl": "-20" }}
@@ -67,7 +68,7 @@ function ProjectPage() {
             {char}
           </MotionHeading>
         ))}
-      </Flex>
+      </Flex> */}
       <Grid
         height="full"
         width="full"
@@ -79,8 +80,8 @@ function ProjectPage() {
           <Box key={"#" + index} position="relative">
             <MotionBox
               position="absolute"
-              height={property.boxHeight}
               width={property.boxWidth}
+              aspectRatio={property.aspectRatio}
               {...property.pos}
               initial={{
                 opacity: 0,
