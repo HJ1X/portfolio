@@ -1,5 +1,5 @@
-import Navbar from "@/components/function/Navbar";
-import { Box, Container, Flex } from "@chakra-ui/react";
+import Navbar from "@/components/function/navbar";
+import { Container, Flex } from "@chakra-ui/react";
 import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router";
@@ -21,7 +21,7 @@ function Layout() {
   // TODO: Add loading UI with animation. Currently blank screen appears on loading
 
   return (
-    <Box overflow="hidden">
+    <>
       <AnimatePresence>
         {loading && (
           <MotionBox
@@ -39,7 +39,7 @@ function Layout() {
       </AnimatePresence>
       {!loading && (
         <Container scrollBehavior="smooth">
-          <Flex direction="column" className="px-8 h-screen overflow-hidden">
+          <Flex direction="column" h="dvh" px="3">
             <Flex height="20" align="center">
               <Navbar />
             </Flex>
@@ -49,7 +49,7 @@ function Layout() {
           </Flex>
         </Container>
       )}
-    </Box>
+    </>
   );
 }
 
