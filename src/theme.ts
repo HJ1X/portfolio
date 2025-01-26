@@ -3,6 +3,11 @@ import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
 const config = defineConfig({
   theme: {
     tokens: {
+      breakpoints: {
+        "3xl": {
+          value: "1920px",
+        },
+      },
       colors: {
         primary: {
           50: { value: "#e1f5fd" },
@@ -27,9 +32,9 @@ const config = defineConfig({
           700: { value: "#00896c" },
           800: { value: "#00795d" },
           900: { value: "#005c41" },
-        }
+        },
+      },
     },
-  },
     semanticTokens: {
       colors: {
         primary: {
