@@ -21,7 +21,7 @@ const ExperienceDetails = ({ details }: ExperienceDetailsProps) => {
 
   return (
     <Stack direction="column">
-      <MotionHeading key={getRandomKey()} size="5xl" {...revealFromBottom}>
+      <MotionHeading key={getRandomKey()} size={{ base: "4xl", lg: "5xl" }} {...revealFromBottom}>
         {details.profile}
       </MotionHeading>
       <MotionFlex
@@ -49,7 +49,7 @@ const ExperienceDetails = ({ details }: ExperienceDetailsProps) => {
               {...revealFromBottom}
               transition={{ delay: 0.2 + index * 0.1 }}
             >
-              <List.Item fontSize="lg">
+              <List.Item fontSize={{ base: "md", lg: "lg" }}>
                 <List.Indicator>
                   <Icon>
                     <RiArrowRightLine />

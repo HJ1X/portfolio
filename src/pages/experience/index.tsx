@@ -5,6 +5,7 @@ import { Box, Flex, Grid } from "@chakra-ui/react";
 import { useLayoutEffect, useRef, useState } from "react";
 import ExperienceDetails from "./ExperienceDetails";
 import Timeline from "./Timeline";
+import ExperiencePageMobile from "./indexMobile";
 
 const defaultProfile = {
   companyNumber: profileTimeline[0].number,
@@ -55,22 +56,38 @@ const ExperiencePage = () => {
           </MotionHeading>
         ))}
       </Flex> */}
-      <Grid h="full" templateColumns="repeat(2, 1fr)" alignItems="center">
-        <Box width="full" mt="-10" ref={timelineRef}>
-          <Timeline
-            selectedProfile={selectedProfile}
-            onProfileChange={(companyNumber: number, profileNumber: number) => {
-              setSelectedProfile({
-                companyNumber,
-                profileNumber,
-              });
-            }}
-          />
-        </Box>
-        <Flex align="center" height="full" mt="-10">
-          <ExperienceDetails details={details} />
-        </Flex>
-      </Grid>
+      <Box h="full" hideBelow="lg">
+        <Grid h="full" templateColumns="repeat(2, 1fr)" alignItems="center">
+          <Box width="full" mt="-10" ref={timelineRef}>
+            <Timeline
+              selectedProfile={selectedProfile}
+              onProfileChange={(
+                companyNumber: number,
+                profileNumber: number
+              ) => {
+                setSelectedProfile({
+                  companyNumber,
+                  profileNumber,
+                });
+              }}
+            />
+          </Box>
+          <Flex align="center" height="full" mt="-10" hideBelow="lg">
+            <ExperienceDetails details={details} />
+          </Flex>
+        </Grid>
+      </Box>
+      <Box h="full" hideFrom="lg">
+        <ExperiencePageMobile
+          selectedProfile={selectedProfile}
+          onProfileChange={(companyNumber: number, profileNumber: number) => {
+            setSelectedProfile({
+              companyNumber,
+              profileNumber,
+            });
+          }}
+        />
+      </Box>
     </>
   );
 };
