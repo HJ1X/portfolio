@@ -1,8 +1,7 @@
+import { MotionBox } from "@/components/ui/Motion";
+import { revealFromBottom } from "@/utils/animation";
 import { Box, Flex, Grid } from "@chakra-ui/react";
 import ProjectCard from "./ProjectCard";
-import { MotionBox, MotionHeading } from "@/components/ui/Motion";
-import { revealFromBottom } from "@/utils/animation";
-import { useMediaQuery } from "@chakra-ui/media-query";
 
 function ProjectPage() {
   const properties = [
@@ -70,6 +69,7 @@ function ProjectPage() {
         ))}
       </Flex> */}
       <Grid
+        hideBelow="lg"
         height="full"
         width="full"
         templateRows="repeat(2, 1fr)"
@@ -97,6 +97,19 @@ function ProjectPage() {
           </Box>
         ))}
       </Grid>
+      <Flex direction="column" gap="4" h="fit" pb="6" hideFrom="lg">
+        {properties.map((_, index) => (
+          <MotionBox
+            w="full"
+            aspectRatio={1.3}
+            key={"#" + index}
+            {...revealFromBottom}
+            transition={{ delay: 0.1 + 0.2 * index }}
+          >
+            <ProjectCard id={index + 1} />
+          </MotionBox>
+        ))}
+      </Flex>
     </>
   );
 }
