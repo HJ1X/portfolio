@@ -1,4 +1,4 @@
-import FancyBadge from "@/components/ui/custom/FancyBadge";
+import Badge from "@/components/ui/custom/Badge";
 import { MotionBox, MotionFlex, MotionHeading } from "@/components/ui/Motion";
 import { ExperienceDetails as IExperienceDetails } from "@/data/experienceData";
 import { revealFromBottom, revealFromLeft } from "@/utils/animation";
@@ -20,8 +20,8 @@ const ExperienceDetails = ({ details }: ExperienceDetailsProps) => {
   }
 
   return (
-    <Stack direction="column" width="5/6">
-      <MotionHeading key={getRandomKey()} size="5xl" {...revealFromBottom}>
+    <Stack direction="column">
+      <MotionHeading key={getRandomKey()} size={{ base: "4xl", lg: "5xl" }} {...revealFromBottom}>
         {details.profile}
       </MotionHeading>
       <MotionFlex
@@ -49,7 +49,7 @@ const ExperienceDetails = ({ details }: ExperienceDetailsProps) => {
               {...revealFromBottom}
               transition={{ delay: 0.2 + index * 0.1 }}
             >
-              <List.Item fontSize="lg">
+              <List.Item fontSize={{ base: "md", lg: "lg" }}>
                 <List.Indicator>
                   <Icon>
                     <RiArrowRightLine />
@@ -60,45 +60,28 @@ const ExperienceDetails = ({ details }: ExperienceDetailsProps) => {
             </MotionBox>
           ))}
         </List.Root>
-        <MotionFlex
-          key={getRandomKey()}
-          gap="3"
-          wrap="wrap"
-          pl="5"
-          {...revealFromLeft}
-          transition={{ delay: 0.2 + details.keyPoints.length * 0.1 }}
-        >
-          {details.skills.map((skill) => (
-            <FancyBadge
-              key={skill}
-              hoverContent={
-                <Flex direction="column" p="3">
-                  <Icon fontWeight="bold" size="2xl" mb="2">
+        <Flex gap="3" wrap="wrap" pl="6">
+          {details.skills.map((skill, i) => (
+            <MotionBox
+              key={getRandomKey()}
+              {...revealFromLeft}
+              transition={{
+                delay: 0.2 + details.keyPoints.length * 0.1 + 0.05 * i,
+              }}
+            >
+              <Badge>
+                <Flex gap="2" align="center">
+                  <Icon fontWeight="bold">
                     <FaReact />
                   </Icon>
-                  <Text fontWeight="bold" fontSize="md">
+                  <Text fontWeight="bold" fontSize="sm">
                     {skill}
                   </Text>
-                  <Text fontSize="lg" fontWeight="bold">
-                    2+{" "}
-                    <Text as="span" fontSize="xs">
-                      years
-                    </Text>
-                  </Text>
                 </Flex>
-              }
-            >
-              <Flex gap="2" align="center">
-                <Icon fontWeight="bold">
-                  <FaReact />
-                </Icon>
-                <Text fontWeight="bold" fontSize="sm">
-                  {skill}
-                </Text>
-              </Flex>
-            </FancyBadge>
+              </Badge>
+            </MotionBox>
           ))}
-        </MotionFlex>
+        </Flex>
       </Flex>
     </Stack>
   );

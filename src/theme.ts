@@ -3,6 +3,11 @@ import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
 const config = defineConfig({
   theme: {
     tokens: {
+      breakpoints: {
+        "3xl": {
+          value: "1920px",
+        },
+      },
       colors: {
         primary: {
           50: { value: "#e1f5fd" },
@@ -27,13 +32,15 @@ const config = defineConfig({
           700: { value: "#00896c" },
           800: { value: "#00795d" },
           900: { value: "#005c41" },
-        }
+        },
+      },
     },
-  },
     semanticTokens: {
       colors: {
         primary: {
-          solid: { value: "{colors.primary.500}" },
+          DEFAULT: { value: "{colors.primary.500}" },
+          lighter: { value: "{colors.primary.400}" },
+          darker: { value: "{colors.primary.600}" },
           contrast: { value: "{colors.primary.100}" },
           fg: { value: "{colors.primary.700}" },
           muted: { value: "{colors.primary.100}" },
@@ -42,7 +49,9 @@ const config = defineConfig({
           focusRing: { value: "{colors.primary.500}" },
         },
         secondary: {
-          solid: { value: "{colors.secondary.500}" },
+          DEFAULT: { value: "{colors.secondary.500}" },
+          lighter: { value: "{colors.secondary.400}" },
+          darker: { value: "{colors.secondary.600}" },
           contrast: { value: "{colors.secondary.100}" },
           fg: { value: "{colors.secondary.700}" },
           muted: { value: "{colors.secondary.100}" },

@@ -13,7 +13,7 @@ const FancyHeading = forwardRef(
     return (
       <Heading
         ref={ref}
-        color={theme === "primary" ? "fg.primary" : "fg.secondary"}
+        color={theme === "primary" ? "primary" : "secondary"}
         position="relative"
         overflow="hidden"
         display="inline-block"
@@ -26,7 +26,7 @@ const FancyHeading = forwardRef(
           width: "0",
           whiteSpace: "nowrap",
           color:
-            theme === "primary" ? "fg.primary.darker" : "fg.secondary.darker",
+            theme === "primary" ? "primary.darker" : "secondary.darker",
           transitionProperty: "all",
           transitionDuration: "slow",
           transitionTimingFunction: "ease-in",

@@ -37,7 +37,7 @@ const FancyCard = forwardRef(
           height: "full",
           rounded: "md",
           zIndex: "base",
-          bg: "bg.primary",
+          bg: "primary",
           transitionProperty: "all",
           transitionDuration: "slow",
           transitionTimingFunction: "ease-in",

@@ -23,9 +23,10 @@ const FancyButton = ({
   if (!showIcon) {
     return (
       <ChakraButton
+        fontWeight="bold"
         border="none"
         className="group"
-        bg={theme === "primary" ? "fg.primary" : "fg.secondary"}
+        bg={theme === "primary" ? "primary" : "secondary"}
         _before={{
           content: `""`,
           position: "absolute",
@@ -34,7 +35,7 @@ const FancyButton = ({
           left: "0",
           width: "0",
           height: "100%",
-          bg: theme === "primary" ? "fg.primary.darker" : "fg.secondary.dark",
+          bg: theme === "primary" ? "primary.darker" : "secondary.darker",
           zIndex: "hide",
           transitionProperty: "all",
           transitionDuration: "slow",
@@ -54,10 +55,11 @@ const FancyButton = ({
 
   return (
     <ChakraButton
+      fontWeight="bold"
       border="none"
       position="relative"
       className="group"
-      bg={theme === "primary" ? "fg.primary" : "fg.secondary"}
+      bg={theme === "primary" ? "primary" : "secondary"}
       transitionProperty="all"
       transitionDuration="slow"
       transitionTimingFunction="ease-in"
@@ -69,7 +71,7 @@ const FancyButton = ({
         left: "0",
         width: "0",
         height: "100%",
-        bg: theme === "primary" ? "fg.primary.darker" : "fg.secondary.dark",
+        bg: theme === "primary" ? "primary.darker" : "secondary.darker",
         zIndex: "hide",
         transitionProperty: "all",
         transitionDuration: "slow",

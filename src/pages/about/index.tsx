@@ -1,4 +1,4 @@
-import { Flex, Grid } from "@chakra-ui/react";
+import { Box, Flex, Grid } from "@chakra-ui/react";
 import AboutIntro from "./AboutIntro";
 import ProfileImage from "./ProfileImage";
 import { MotionHeading } from "@/components/ui/Motion";
@@ -6,11 +6,17 @@ import { revealFromBottom } from "@/utils/animation";
 
 const AboutPage = () => {
   return (
-    <Grid w="100%" h="100%" templateColumns="45% 1fr" gap="20">
-      <AboutIntro />
-
-      {/* TODO: Fix positioning based on profile image */}
-      <Flex direction="column" position="relative" top="20%">
+    <Box h="full" overflow="hidden">
+      <Flex
+        direction="column"
+        position="absolute"
+        top="20%"
+        pl="28"
+        left="0"
+        right="0"
+        mx="auto"
+        w="fit"
+      >
         <Flex>
           {"Arpit".split("").map((char, i) => (
             <MotionHeading
@@ -31,7 +37,7 @@ const AboutPage = () => {
             </MotionHeading>
           ))}
         </Flex>
-        <Flex>
+        <Flex justify="end">
           {"Das".split("").map((char, i) => (
             <MotionHeading
               key={char}
@@ -43,7 +49,7 @@ const AboutPage = () => {
                 opacity: 0.2,
               }}
               transition={{
-                delay: 0.05 * i,
+                delay: 0.25 + 0.05 * i,
               }}
             >
               {char}
@@ -51,8 +57,11 @@ const AboutPage = () => {
           ))}
         </Flex>
       </Flex>
-      {/* <ProfileImage /> */}
-    </Grid>
+      <Grid w="full" h="full" templateColumns="45% 1fr" gap="20">
+        <AboutIntro />
+        <ProfileImage />
+      </Grid>
+    </Box>
   );
 };
 
