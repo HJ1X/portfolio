@@ -40,7 +40,7 @@ function Layout() {
       {!loading && (
         <Container scrollBehavior="smooth">
           <Flex direction="column" h="dvh" px="3">
-            <Flex height="20" align="center">
+            <Flex h={{ base: "24", lg: "20" }} align="center">
               <Navbar />
             </Flex>
             <Flex className="h-1 flex-grow">
