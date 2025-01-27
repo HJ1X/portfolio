@@ -14,7 +14,7 @@ const Skill = ({ skill }: SkillProps) => {
       gap="2"
       borderWidth="thin"
       rounded="md"
-      w="28"
+      w={{ base: "24", lg: "28" }}
       aspectRatio="square"
       p="4"
     >

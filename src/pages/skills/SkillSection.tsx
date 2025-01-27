@@ -19,11 +19,24 @@ const SkillSection = ({ title, skills, description }: SkillSectionProps) => {
         </MotionHeading>
         <MotionBox h="1" bg="primary" rounded="sm" {...grow} />
       </Flex>
-      <Flex w="full">
-        <MotionBox w="1/3" {...revealFromBottom} transition={{ delay: 0.2 }}>
+      <Flex
+        w="full"
+        direction={{ base: "column", lg: "row" }}
+        gap={{ base: "5", lg: "0" }}
+      >
+        <MotionBox
+          w={{ base: "full", lg: "1/3" }}
+          {...revealFromBottom}
+          transition={{ delay: 0.2 }}
+        >
           <Text>{description}</Text>
         </MotionBox>
-        <Flex wrap="wrap" w="2/3" gap="6" justify="end">
+        <Flex
+          wrap="wrap"
+          w={{ base: "full", lg: "2/3" }}
+          gap="6"
+          justify={{ base: "start", lg: "end" }}
+        >
           {skills.map((skill, i) => (
             <MotionBox
               key={skill.name}
