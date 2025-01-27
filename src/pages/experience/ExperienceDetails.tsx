@@ -1,14 +1,11 @@
 import Badge from "@/components/ui/custom/Badge";
 import { MotionBox, MotionFlex, MotionHeading } from "@/components/ui/Motion";
 import { ExperienceDetails as IExperienceDetails } from "@/data/experienceData";
-import { revealFromBottom, revealFromLeft } from "@/utils/animation";
+import { revealFromBottom, revealFromLeft } from "@/lib/animation";
+import { getRandomKey } from "@/lib/utils";
 import { Em, Flex, Icon, List, Stack, Text } from "@chakra-ui/react";
+import { BsArrowRightCircle } from "react-icons/bs";
 import { FaReact } from "react-icons/fa6";
-import { RiArrowRightLine } from "react-icons/ri";
-
-const getRandomKey = () => {
-  return Math.random().toFixed(4);
-};
 
 interface ExperienceDetailsProps {
   details: IExperienceDetails | undefined;
@@ -21,7 +18,11 @@ const ExperienceDetails = ({ details }: ExperienceDetailsProps) => {
 
   return (
     <Stack direction="column">
-      <MotionHeading key={getRandomKey()} size={{ base: "4xl", lg: "5xl" }} {...revealFromBottom}>
+      <MotionHeading
+        key={getRandomKey()}
+        size={{ base: "4xl", lg: "5xl" }}
+        {...revealFromBottom}
+      >
         {details.profile}
       </MotionHeading>
       <MotionFlex
@@ -51,8 +52,8 @@ const ExperienceDetails = ({ details }: ExperienceDetailsProps) => {
             >
               <List.Item fontSize={{ base: "md", lg: "lg" }}>
                 <List.Indicator>
-                  <Icon>
-                    <RiArrowRightLine />
+                  <Icon mt="-0.5" size="sm">
+                    <BsArrowRightCircle />
                   </Icon>
                 </List.Indicator>
                 {point}
