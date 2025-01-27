@@ -1,10 +1,9 @@
-"use client";
-
 import { Card, HStack, Stack, Text } from "@chakra-ui/react";
-import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
-import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Avatar } from "./chakra/avatar";
+import { getRandomKey } from "@/lib/utils";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import { AnimatePresence, motion } from "motion/react";
 
 type Testimonial = {
   quote: string;
@@ -35,23 +34,23 @@ export const AnimatedTestimonials = ({
 
   useEffect(() => {
     if (autoplay) {
-      const interval = setInterval(handleNext, 5000);
+      const interval = setInterval(handleNext, 3000);
       return () => clearInterval(interval);
     }
   }, [autoplay]);
 
   const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
+    return Math.floor(Math.random() * 20) - 10;
   };
   return (
     <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-10">
       <div className="relative gap-20">
         <div>
-          <div className="relative h-80 w-full flex justify-center">
+          <div className="relative h-72 w-full flex justify-center">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
-                  key={testimonial.src}
+                  key={getRandomKey()}
                   initial={{
                     opacity: 0,
                     scale: 0.9,
@@ -82,23 +81,29 @@ export const AnimatedTestimonials = ({
                 >
                   <Card.Root
                     key={testimonial.name + index}
+                    rounded="xl"
                     w="100%"
                     mt="6"
                     flexShrink={0}
-                    borderColor={isActive(index) ? "fg.primary" : ""}
-                    bg={isActive(index) ? "fg.primary" : "fg.secondary"}
-                    opacity={isActive(index) ? 1 : 0.7}
+                    border="none"
+                    bg="primary"
+                    opacity={isActive(index) ? 1 : 0.6}
                   >
                     <Card.Body>
-                      <Card.Description>{testimonial.quote}</Card.Description>
+                      <Card.Description
+                        color="gray.contrast"
+                        fontSize={{ base: "sm", lg: "md" }}
+                      >
+                        {testimonial.quote}
+                      </Card.Description>
                     </Card.Body>
 
                     <Card.Footer>
                       <HStack gap="4">
                         <Avatar src="https://www.cleanpng.com/png-india-login-computer-icons-emoticon-medicine-user-607865/" />
                         <Stack gap="0">
-                          <Text>{testimonial.name}</Text>
-                          <Text fontSize="xs" color="fg.muted">
+                          <Text color="gray.contrast">{testimonial.name}</Text>
+                          <Text fontSize="xs" color="fg.inverted">
                             @{testimonial.designation}
                           </Text>
                         </Stack>
@@ -115,13 +120,13 @@ export const AnimatedTestimonials = ({
               onClick={handlePrev}
               className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button hover:cursor-pointer"
             >
-              <IconArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
+              <FaArrowLeft size="1rem" className="text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
             </button>
             <button
               onClick={handleNext}
               className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button hover:cursor-pointer"
             >
-              <IconArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
+              <FaArrowRight size="1rem" className="text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
             </button>
           </div>
         </div>
