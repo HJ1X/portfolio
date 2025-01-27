@@ -86,10 +86,10 @@ const ProfileImage = () => {
         bg="bg"
       />
       <MotionFlex
-        w={img.width}
+        w={`calc(${img.width}px - 1rem)`}
         left="0"
         right="0"
-        h={{ lg: "5/6", "2xl": "auto" }}
+        // h={{ lg: "5/6", "2xl": "auto" }}
         mx="auto"
         overflow="hidden"
         position="absolute"

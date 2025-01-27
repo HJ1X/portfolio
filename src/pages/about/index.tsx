@@ -6,7 +6,7 @@ import { revealFromBottom } from "@/utils/animation";
 
 const AboutPage = () => {
   return (
-    <Box h="full">
+    <Box h="full" overflow="hidden">
       <Flex
         direction="column"
         position="absolute"
