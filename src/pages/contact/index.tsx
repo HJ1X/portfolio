@@ -1,4 +1,9 @@
-import { MotionFlex, MotionHeading, MotionText } from "@/components/ui/Motion";
+import {
+  MotionBox,
+  MotionFlex,
+  MotionHeading,
+  MotionText,
+} from "@/components/ui/Motion";
 import { revealFromBottom } from "@/lib/animation";
 import { Box, Em, Flex, Icon, Text } from "@chakra-ui/react";
 import { FiMail, FiMapPin } from "react-icons/fi";
@@ -82,18 +87,18 @@ const ContactPage = () => {
             </MotionFlex>
           </Em>
         </Flex>
-        <Box rounded="full" borderWidth="thin" my="auto" mx="auto">
-          <MotionFlex
-            minH="12"
-            minW="12"
-            align="center"
-            justify="center"
-            {...revealFromBottom}
-            transition={{ delay: 0.4 }}
-          >
+        <MotionBox
+          rounded="full"
+          borderWidth="thin"
+          my="auto"
+          mx="auto"
+          {...revealFromBottom}
+          transition={{ delay: 0.4 }}
+        >
+          <Flex minH="12" minW="12" align="center" justify="center">
             <Text color="gray">or</Text>
-          </MotionFlex>
-        </Box>
+          </Flex>
+        </MotionBox>
         <Flex width={{ base: "full", lg: "45%" }}>
           <ContactForm />
         </Flex>
