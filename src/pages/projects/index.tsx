@@ -1,5 +1,5 @@
 import { MotionBox } from "@/components/ui/Motion";
-import { revealFromBottom } from "@/utils/animation";
+import { revealFromBottom } from "@/lib/animation";
 import { Box, Flex, Grid } from "@chakra-ui/react";
 import ProjectCard from "./ProjectCard";
 

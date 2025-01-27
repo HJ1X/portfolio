@@ -1,5 +1,5 @@
 import { MotionFlex, MotionHeading, MotionText } from "@/components/ui/Motion";
-import { revealFromBottom } from "@/utils/animation";
+import { revealFromBottom } from "@/lib/animation";
 import { Box, Em, Flex, Icon, Text } from "@chakra-ui/react";
 import { FiMail, FiMapPin } from "react-icons/fi";
 import ContactForm from "./ContactForm";

@@ -8,7 +8,7 @@ import {
 import FancyButton from "@/components/ui/custom/FancyButton";
 import FancyLink from "@/components/ui/custom/FancyLink";
 import { MotionFlex } from "@/components/ui/Motion";
-import { revealFromLeft } from "@/utils/animation";
+import { revealFromLeft } from "@/lib/animation";
 import { Box, Flex, IconButton, Link as ChakraLink } from "@chakra-ui/react";
 import { IoMdMenu } from "react-icons/io";
 import { Link, useLocation, useNavigate } from "react-router";

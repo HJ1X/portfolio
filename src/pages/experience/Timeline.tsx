@@ -1,6 +1,6 @@
 import { MotionFancyCard } from "@/components/ui/Motion";
 import { profileTimeline } from "@/data/experienceData";
-import { revealFromBottom, revealFromLeft } from "@/utils/animation";
+import { revealFromBottom, revealFromLeft } from "@/lib/animation";
 import {
   Card,
   Heading,

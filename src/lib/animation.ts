@@ -1,5 +1,3 @@
-import { transform } from "motion";
-
 export const revealFromBottom = {
   initial: {
     opacity: 0,

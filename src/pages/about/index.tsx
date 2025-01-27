@@ -2,7 +2,7 @@ import { Box, Flex, Grid } from "@chakra-ui/react";
 import AboutIntro from "./AboutIntro";
 import ProfileImage from "./ProfileImage";
 import { MotionHeading } from "@/components/ui/Motion";
-import { revealFromBottom } from "@/utils/animation";
+import { revealFromBottom } from "@/lib/animation";
 
 const AboutPage = () => {
   return (

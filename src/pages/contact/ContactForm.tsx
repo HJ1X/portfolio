@@ -1,7 +1,7 @@
 import { Field } from "@/components/ui/chakra/field";
 import FancyButton from "@/components/ui/custom/FancyButton";
 import { MotionBox } from "@/components/ui/Motion";
-import { revealFromBottom } from "@/utils/animation";
+import { revealFromBottom } from "@/lib/animation";
 import { Input, Stack, Text, Textarea } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 

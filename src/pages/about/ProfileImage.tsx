@@ -1,6 +1,6 @@
 import Img from "@/assets/images/project-images/my-pic.png";
 import { MotionFlex } from "@/components/ui/Motion";
-import { revealFromBottom } from "@/utils/animation";
+import { revealFromBottom } from "@/lib/animation";
 import { Box, Flex, Image } from "@chakra-ui/react";
 import { motion } from "motion/react";
 import { useLayoutEffect, useRef, useState } from "react";

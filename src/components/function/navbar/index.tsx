@@ -1,5 +1,5 @@
 import { MotionHeading } from "@/components/ui/Motion";
-import { revealFromLeft } from "@/utils/animation";
+import { revealFromLeft } from "@/lib/animation";
 import { Flex } from "@chakra-ui/react";
 import { useNavigate } from "react-router";
 import NavLinks from "./NavLinks";

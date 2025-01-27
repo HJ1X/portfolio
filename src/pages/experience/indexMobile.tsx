@@ -1,12 +1,11 @@
-import { MotionBox, MotionFlex } from "@/components/ui/Motion";
+import { MotionFlex } from "@/components/ui/Motion";
 import { experienceDetails } from "@/data/experienceData";
-import { revealFromBottom } from "@/utils/animation";
+import { revealFromBottom } from "@/lib/animation";
 import { Box, Flex, IconButton } from "@chakra-ui/react";
 import { useState } from "react";
-import { FaArrowLeft } from "react-icons/fa6";
+import { IoMdClose } from "react-icons/io";
 import ExperienceDetails from "./ExperienceDetails";
 import Timeline from "./Timeline";
-import { IoMdClose } from "react-icons/io";
 
 interface ExperiencePageMobileProps {
   selectedProfile: {

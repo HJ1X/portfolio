@@ -1,8 +1,8 @@
 import Badge from "@/components/ui/custom/Badge";
 import { MotionBox, MotionHeading, MotionText } from "@/components/ui/Motion";
 import { Skill } from "@/data/skillsData";
-import { grow, revealFromBottom, revealFromLeft } from "@/utils/animation";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { grow, revealFromBottom, revealFromLeft } from "@/lib/animation";
+import { Flex, Text } from "@chakra-ui/react";
 
 interface ConceptsSectionProps {
   title: string;

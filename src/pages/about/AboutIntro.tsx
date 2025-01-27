@@ -1,7 +1,7 @@
 import FancyButton from "@/components/ui/custom/FancyButton";
 import FancyHeading from "@/components/ui/custom/FancyHeading";
 import { MotionFlex, MotionText } from "@/components/ui/Motion";
-import { revealFromBottom, revealFromLeft } from "@/utils/animation";
+import { revealFromBottom, revealFromLeft } from "@/lib/animation";
 import { Flex, Heading } from "@chakra-ui/react";
 import { HiDownload } from "react-icons/hi";
 

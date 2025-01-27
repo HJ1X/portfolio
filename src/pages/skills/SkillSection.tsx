@@ -1,8 +1,8 @@
-import Skill from "@/pages/skills/Skill";
 import { MotionBox, MotionHeading } from "@/components/ui/Motion";
 import { Skill as ISkill } from "@/data/skillsData";
-import { Box, Flex, Text } from "@chakra-ui/react";
-import { grow, revealFromBottom, revealFromLeft } from "@/utils/animation";
+import { grow, revealFromBottom, revealFromLeft } from "@/lib/animation";
+import Skill from "@/pages/skills/Skill";
+import { Flex, Text } from "@chakra-ui/react";
 
 interface SkillSectionProps {
   title: string;
