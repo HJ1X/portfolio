@@ -77,7 +77,7 @@ const ExperiencePage = () => {
           </Flex>
         </Grid>
       </Box>
-      <Box h="full" hideFrom="lg">
+      <Flex h="full" w="full" justify="center" hideFrom="lg">
         <ExperiencePageMobile
           selectedProfile={selectedProfile}
           onProfileChange={(companyNumber: number, profileNumber: number) => {
@@ -87,7 +87,7 @@ const ExperiencePage = () => {
             });
           }}
         />
-      </Box>
+      </Flex>
     </>
   );
 };
