@@ -38,11 +38,26 @@ function Layout() {
         )}
       </AnimatePresence>
       {!loading && (
-        <Container scrollBehavior="smooth">
-          <Flex direction="column" h="dvh" px="3">
-            <Flex h={{ base: "24", lg: "20" }} align="center">
-              <Navbar />
-            </Flex>
+        <Container scrollBehavior="smooth" position="relative">
+          <Flex
+            position="absolute"
+            w="full"
+            minH={{ base: "24", lg: "20" }}
+            h={{ base: "auto", lg: "20" }}
+            align="center"
+            px="7"
+            top="0"
+            left="0"
+          >
+            <Navbar />
+          </Flex>
+          <Flex
+            direction="column"
+            h="calc(100dvh - var(--navbar-height))"
+            position="relative"
+            top="var(--navbar-height)"
+            px="3"
+          >
             <Flex className="h-1 flex-grow">
               <Outlet />
             </Flex>
