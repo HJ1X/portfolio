@@ -11,16 +11,30 @@ import { useState } from "react";
 
 interface NavbarMobileProps {
   navItems: { label: string; link: string }[];
+  onOutletOverflowHidden: (value: boolean) => void;
 }
 
-const NavbarMobile = ({ navItems }: NavbarMobileProps) => {
+const NavbarMobile = ({
+  navItems,
+  onOutletOverflowHidden,
+}: NavbarMobileProps) => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const [showNav, setShowNav] = useState(false);
 
+  const handleNavOpen = () => {
+    setShowNav(true);
+    onOutletOverflowHidden(true);
+  };
+
+  const handleNavClose = () => {
+    setShowNav(false);
+    onOutletOverflowHidden(false);
+  };
+
   return (
-    <Box w="full" hideFrom="lg" zIndex="overlay">
+    <Box w="full" hideFrom="lg" zIndex="modal">
       <Flex w="full" h="24" justify="space-between" align="center">
         <MotionHeading
           size="3xl"
@@ -40,11 +54,13 @@ const NavbarMobile = ({ navItems }: NavbarMobileProps) => {
         >
           <ThemeToggleButton />
           <IconButton
-            onClick={() => setShowNav(!showNav)}
+            onClick={() => {
+              showNav ? handleNavClose() : handleNavOpen();
+            }}
             variant="outline"
             size="sm"
           >
-            <IoMdMenu />
+            {showNav ? <IoMdClose /> : <IoMdMenu />}
           </IconButton>
         </MotionFlex>
       </Flex>
@@ -76,7 +92,7 @@ const NavbarMobile = ({ navItems }: NavbarMobileProps) => {
               {navItems.map((navItem) => (
                 <li key={navItem.label}>
                   <NavItem
-                    onClick={() => setShowNav(false)}
+                    onClick={handleNavClose}
                     label={navItem.label}
                     link={navItem.link}
                     selected={location.pathname === navItem.link}
@@ -89,7 +105,7 @@ const NavbarMobile = ({ navItems }: NavbarMobileProps) => {
                   label="Contact"
                   onClick={() => {
                     navigate("/contact");
-                    setShowNav(false);
+                    handleNavClose();
                   }}
                   size={{ base: "lg", lg: "sm" }}
                   theme="primary"
@@ -105,7 +121,7 @@ const NavbarMobile = ({ navItems }: NavbarMobileProps) => {
                 variant="outline"
                 rounded="full"
                 size="xl"
-                onClick={() => setShowNav(false)}
+                onClick={handleNavClose}
               >
                 <IoMdClose />
               </IconButton>

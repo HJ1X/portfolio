@@ -30,7 +30,11 @@ const navItems = [
   },
 ];
 
-const Navbar = () => {
+interface NavbarProps {
+  onOutletOverflowHidden: (value: boolean) => void;
+}
+
+const Navbar = ({ onOutletOverflowHidden }: NavbarProps) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -82,7 +86,10 @@ const Navbar = () => {
           <ThemeToggleButton />
         </MotionFlex>
       </Flex>
-      <NavbarMobile navItems={navItems} />
+      <NavbarMobile
+        onOutletOverflowHidden={onOutletOverflowHidden}
+        navItems={navItems}
+      />
     </>
   );
 };

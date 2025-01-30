@@ -7,6 +7,7 @@ import { MotionBox } from "./components/ui/Motion";
 
 function Layout() {
   const [loading, setLoading] = useState(true);
+  const [outletOverflowHidden, setOutletOverflowHidden] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -39,28 +40,17 @@ function Layout() {
       </AnimatePresence>
       {!loading && (
         <Container scrollBehavior="smooth" position="relative">
-          <Flex
-            position="absolute"
-            w="full"
-            minH={{ base: "24", lg: "20" }}
-            h={{ base: "auto", lg: "20" }}
-            align="center"
-            px="7"
-            top="0"
-            left="0"
-          >
-            <Navbar />
+          <Flex w="full" h={{ base: "24", lg: "20" }} align="center" px="4">
+            <Navbar
+              onOutletOverflowHidden={(value) => setOutletOverflowHidden(value)}
+            />
           </Flex>
           <Flex
             direction="column"
-            h="calc(100dvh - var(--navbar-height))"
-            position="relative"
-            top="var(--navbar-height)"
-            px="3"
+            px={{ base: "4", lg: "0" }}
+            overflow={outletOverflowHidden ? "hidden" : "auto"}
           >
-            <Flex className="h-1 flex-grow">
-              <Outlet />
-            </Flex>
+            <Outlet />
           </Flex>
         </Container>
       )}
