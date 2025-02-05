@@ -1,5 +1,5 @@
-import Img from "@/assets/images/project-images/my-pic.png";
-import { MotionFlex } from "@/components/ui/Motion";
+import Img from "@/assets/images/profile/Himanshu.png";
+import { MotionFlex, MotionSVG } from "@/components/ui/Motion";
 import { revealFromBottom } from "@/lib/animation";
 import { Box, Flex, Image } from "@chakra-ui/react";
 import { motion } from "motion/react";
@@ -13,7 +13,8 @@ const ProfileImage = () => {
 
   useLayoutEffect(() => {
     if (ref.current) {
-      const viewPortHeight = window.innerHeight;
+      const viewPortHeight =
+        window.visualViewport?.height ?? window.innerHeight;
       const { bottom, width } = ref.current.getBoundingClientRect();
 
       setImg({
@@ -24,11 +25,21 @@ const ProfileImage = () => {
   }, []);
 
   return (
-    <Flex pos="relative" h="full" align="center" zIndex="">
-      <motion.svg
+    <Flex
+      pos="relative"
+      h={{ base: "calc(100svh - var(--navbar-height))", lg: "full" }}
+      align="center"
+      w="full"
+      overflow="hidden"
+    >
+      <MotionSVG
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 100 100"
-        style={{ transform: "scale(1.5) rotate(180deg)", position: "absolute" }}
+        position="absolute"
+        transform={{
+          base: "scale(2) rotate(180deg)",
+          lg: "scale(1.5) rotate(180deg)",
+        }}
       >
         <motion.path
           transition={{
@@ -56,27 +67,28 @@ const ProfileImage = () => {
             transition: "0.3s",
           }}
         />
-      </motion.svg>
-      <motion.svg
+      </MotionSVG>
+      <MotionSVG
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 100 100"
-        style={{
-          transform: "scale(1.5) rotate(180deg)",
-          zIndex: 11,
-          position: "absolute",
+        position="absolute"
+        zIndex="11"
+        transform={{
+          base: "scale(2) rotate(180deg)",
+          lg: "scale(1.5) rotate(180deg)",
         }}
       >
         <motion.path
           ref={ref}
           xmlns="http://www.w3.org/2000/svg"
           fill="var(--chakra-colors-bg)"
-          d="M 22 -0 C 18.1 -14.3 7.2 -22.6 -0.3 -22.4 C -10.5 -22.1 -20 -10 -22.9 0 L -25 0 L -25 -25 L 25 -25 L 25 -0 Z"
+          d="M 22 -0 C 17.8 -14.3 7.2 -22.6 -0.3 -22.4 C -10.5 -22.1 -20 -9.3 -22.9 0 L -25 0 L -25 -25 L 25 -25 L 25 -0 Z"
           width="100%"
           height="100%"
           transform="translate(50 50)"
           strokeWidth="0"
         />
-      </motion.svg>
+      </MotionSVG>
       <Box
         position="absolute"
         bottom="0"
@@ -89,7 +101,6 @@ const ProfileImage = () => {
         w={`calc(${img.width}px - 1rem)`}
         left="0"
         right="0"
-        // h={{ lg: "5/6", "2xl": "auto" }}
         mx="auto"
         overflow="hidden"
         position="absolute"
@@ -97,10 +108,16 @@ const ProfileImage = () => {
         justify="center"
         {...revealFromBottom}
         transition={{
-          delay: 0.8,
+          delay: 0.9,
         }}
       >
-        <Image src={Img} h="auto" maxW="full" objectFit="cover" />
+        <Image
+          src={Img}
+          h="auto"
+          maxW="full"
+          objectFit="cover"
+          filter="drop-shadow(0.2rem 0.4rem 0.8rem rgba(0, 0, 0, 0.5))"
+        />
       </MotionFlex>
     </Flex>
   );

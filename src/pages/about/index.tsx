@@ -1,67 +1,104 @@
-import { Box, Flex, Grid } from "@chakra-ui/react";
+import { Box, Flex, Grid, IconButton } from "@chakra-ui/react";
 import AboutIntro from "./AboutIntro";
 import ProfileImage from "./ProfileImage";
-import { MotionHeading } from "@/components/ui/Motion";
+import { MotionBox, MotionHeading } from "@/components/ui/Motion";
 import { revealFromBottom } from "@/lib/animation";
+import { useState } from "react";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 
 const AboutPage = () => {
+  const [showIntro, setShowIntro] = useState(false);
+
   return (
-    <Box h="full" overflow="hidden">
+    <>
+      <Box h="full" overflow="hidden" hideBelow="lg">
+        <Flex
+          direction="column"
+          position="absolute"
+          top="20%"
+          pl="28"
+          left="0"
+          right="0"
+          mx="auto"
+          w="fit"
+        >
+          <Flex>
+            {"Arpit".split("").map((char, i) => (
+              <MotionHeading
+                key={char}
+                h="9rem"
+                fontSize="9rem"
+                color="gray"
+                {...revealFromBottom}
+                animate={{
+                  ...revealFromBottom.animate,
+                  opacity: 0.2,
+                }}
+                transition={{
+                  delay: 0.05 * i,
+                }}
+              >
+                {char}
+              </MotionHeading>
+            ))}
+          </Flex>
+          <Flex justify="end">
+            {"Das".split("").map((char, i) => (
+              <MotionHeading
+                key={char}
+                fontSize="9rem"
+                color="gray"
+                {...revealFromBottom}
+                animate={{
+                  ...revealFromBottom.animate,
+                  opacity: 0.2,
+                }}
+                transition={{
+                  delay: 0.25 + 0.05 * i,
+                }}
+              >
+                {char}
+              </MotionHeading>
+            ))}
+          </Flex>
+        </Flex>
+        <Grid w="full" h="full" templateColumns="45% 1fr" gap="20">
+          <AboutIntro />
+          <ProfileImage />
+        </Grid>
+      </Box>
       <Flex
+        position="relative"
+        h="calc(100dvh - var(--navbar-height))"
+        w="full"
         direction="column"
-        position="absolute"
-        top="20%"
-        pl="28"
-        left="0"
-        right="0"
-        mx="auto"
-        w="fit"
+        hideFrom="lg"
+        gap="20"
       >
-        <Flex>
-          {"Arpit".split("").map((char, i) => (
-            <MotionHeading
-              key={char}
-              h="9rem"
-              fontSize="9rem"
-              color="gray"
-              {...revealFromBottom}
-              animate={{
-                ...revealFromBottom.animate,
-                opacity: 0.2,
-              }}
-              transition={{
-                delay: 0.05 * i,
-              }}
-            >
-              {char}
-            </MotionHeading>
-          ))}
-        </Flex>
-        <Flex justify="end">
-          {"Das".split("").map((char, i) => (
-            <MotionHeading
-              key={char}
-              fontSize="9rem"
-              color="gray"
-              {...revealFromBottom}
-              animate={{
-                ...revealFromBottom.animate,
-                opacity: 0.2,
-              }}
-              transition={{
-                delay: 0.25 + 0.05 * i,
-              }}
-            >
-              {char}
-            </MotionHeading>
-          ))}
-        </Flex>
+        <MotionBox
+          position="absolute"
+          bottom="8"
+          left="0"
+          right="0"
+          mx="auto"
+          w="fit"
+          zIndex="overlay"
+          {...revealFromBottom}
+          transition={{ delay: 0.2 }}
+        >
+          <IconButton
+            variant="outline"
+            rounded="full"
+            size="xl"
+            onClick={() => setShowIntro(!showIntro)}
+          >
+            {!showIntro ? <FaAngleDown /> : <FaAngleUp />}
+          </IconButton>
+        </MotionBox>
+        {!showIntro && <ProfileImage />}
+        {showIntro && <AboutIntro />}
       </Flex>
-      <Grid w="full" h="full" templateColumns="45% 1fr" gap="20">
-        <AboutIntro />
-        <ProfileImage />
-      </Grid>
-    </Box>
+    </>
   );
 };
 

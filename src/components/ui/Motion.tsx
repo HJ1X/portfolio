@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, chakra, Flex, Heading, Text } from "@chakra-ui/react";
 import { motion } from "motion/react";
 import FancyHeading from "./custom/FancyHeading";
 import FancyCard from "./custom/FancyCard";
@@ -13,5 +13,11 @@ export const MotionFancyHeading = motion.create(FancyHeading, {
   forwardMotionProps: true,
 });
 export const MotionFancyCard = motion.create(FancyCard, {
+  forwardMotionProps: true,
+});
+export const MotionSVG = motion.create(chakra.svg, {
+  forwardMotionProps: true,
+});
+export const MotionPath = motion.create(chakra.path, {
   forwardMotionProps: true,
 });

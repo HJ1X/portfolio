@@ -35,18 +35,24 @@ function Layout() {
               left: "100%",
               width: 0,
             }}
-          ></MotionBox>
+          />
         )}
       </AnimatePresence>
       {!loading && (
         <Container scrollBehavior="smooth" position="relative">
-          <Flex w="full" h={{ base: "24", lg: "20" }} align="center" px="4">
+          <Flex
+            w="full"
+            h={{ base: "24", lg: "20" }}
+            align="center"
+            px={{ base: "4", lg: "0" }}
+          >
             <Navbar
               onOutletOverflowHidden={(value) => setOutletOverflowHidden(value)}
             />
           </Flex>
           <Flex
             direction="column"
+            h={{ base: "auto", lg: "calc(100dvh - var(--navbar-height))" }}
             px={{ base: "4", lg: "0" }}
             overflow={outletOverflowHidden ? "hidden" : "auto"}
           >

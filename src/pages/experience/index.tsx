@@ -42,7 +42,12 @@ const ExperiencePage = () => {
           </Flex>
         </Grid>
       </Box>
-      <Flex h="full" w="full" justify="center" hideFrom="lg">
+      <Flex
+        h="calc(100dvh - var(--navbar-height))"
+        w="full"
+        justify="center"
+        hideFrom="lg"
+      >
         <ExperiencePageMobile
           selectedProfile={selectedProfile}
           onProfileChange={(companyNumber: number, profileNumber: number) => {
