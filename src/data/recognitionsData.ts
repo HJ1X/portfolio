@@ -1,12 +1,8 @@
 export const awards = [
-  "Recieved Star of the month award for contribution to building maintainable node based service adhering to clean code architecture",
-  "Recieved youngest innovator award from CTO for impactful POC",
-];
-
-export const achievements = [
-  "Recieved Star of the month award for contribution to building maintainable node based service adhering to clean code architecture",
-  "Recieved Star of the month award for contribution to building maintainable node based service adhering to clean code architecture. maintainable node based service adhering to clean code architecture",
-  "Recieved youngest innovator award from CTO for impactful POC",
+  "Recognized with the Young Innovator award by TCS CTO, Dr. Harrick Vin for building project POC’s on generative AI assistances",
+  "Won Startup Conclave 2021 - EDC Pune, by pitching the idea of Wisey",
+  "Awarded Star Performer of the Month, for 2 consecutive months and 3 times in total.",
+  "Recognized with Star Crew Award for team work excellence.",
 ];
 
 export const testimonials = [

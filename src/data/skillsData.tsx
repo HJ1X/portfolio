@@ -1,41 +1,50 @@
-import { ReactNode } from "react";
-import { SiTypescript } from "react-icons/si";
-
-export interface Skill {
-  name: string;
-  icon?: ReactNode;
-}
+import ReactLogo from "@/assets/images/skills/react.svg";
+import TSLogo from "@/assets/images/skills/ts.svg";
+import NextLogo from "@/assets/images/skills/next.svg";
+import JSLogo from "@/assets/images/skills/js.png";
+import PythonLogo from "@/assets/images/skills/python.png";
+import ExpressLogo from "@/assets/images/skills/express.svg";
+import NodeLogo from "@/assets/images/skills/node.svg";
+import SpringLogo from "@/assets/images/skills/spring.png";
+import GitLogo from "@/assets/images/skills/git.png";
+import JavaLogo from "@/assets/images/skills/java.svg";
 
 export const skillsData = {
   languages: {
-    description: "I have experience with the following languages",
+    description:
+      "I write clean and efficient code in multiple languages to develop scalable solutions across domains",
     skills: [
-      { name: "Typescript", icon: <SiTypescript /> },
-      { name: "JavaScript", icon: <SiTypescript /> },
-      { name: "Python", icon: <SiTypescript /> },
-      { name: "Java", icon: <SiTypescript /> },
+      { name: "Typescript", logo: TSLogo },
+      { name: "JavaScript", logo: JSLogo },
+      { name: "Java", logo: JavaLogo },
+      { name: "Python", logo: PythonLogo },
     ],
   },
   frameworks: {
-    description: "I have experience with the following frameworks",
+    description:
+      "Experienced with modern frameworks, tools, and platforms to build high-performance, user-centric applications.",
     skills: [
-      { name: "React", icon: <SiTypescript /> },
-      { name: "Next.js", icon: <SiTypescript /> },
-      { name: "Express", icon: <SiTypescript /> },
-      { name: "Express", icon: <SiTypescript /> },
-      { name: "Express", icon: <SiTypescript /> },
+      { name: "React.js", logo: ReactLogo },
+      { name: "Next.js", logo: NextLogo },
+      { name: "Express.js", logo: ExpressLogo },
+      { name: "Node.js", logo: NodeLogo },
+      { name: "Spring", logo: SpringLogo },
+      { name: "Git", logo: GitLogo },
     ],
   },
   concepts: {
     description:
-      "I have experience with the following concepts. I use these concepts to make the system more maintainable, scalable, and reliable.",
+      "Strong foundation in software design principles, performance optimization, and best practices for maintainable, reliable and scalable solutions.",
     skills: [
-      { name: "REST API", icon: <SiTypescript /> },
-      { name: "GraphQL", icon: <SiTypescript /> },
-      { name: "Microservices", icon: <SiTypescript /> },
-      { name: "Docker", icon: <SiTypescript /> },
-      { name: "Kubernetes", icon: <SiTypescript /> },
-      { name: "CI/CD", icon: <SiTypescript /> },
+      "Object Oriented Programming (OOP)",
+      "Design Patterns",
+      "REST API",
+      "Agile development",
+      "Micro service architecture",
+      "MVC",
+      "Flux",
+      "Component-based architecture",
+      "Root Cause analysis",
     ],
   },
 };

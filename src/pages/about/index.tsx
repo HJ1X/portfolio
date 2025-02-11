@@ -1,10 +1,10 @@
-import { Box, Flex, Grid, IconButton } from "@chakra-ui/react";
-import AboutIntro from "./AboutIntro";
-import ProfileImage from "./ProfileImage";
-import { MotionBox, MotionHeading } from "@/components/ui/Motion";
+import { MotionBox } from "@/components/ui/Motion";
 import { revealFromBottom } from "@/lib/animation";
+import { Box, Flex, Grid, IconButton } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
+import AboutIntro from "./AboutIntro";
+import ProfileImage from "./ProfileImage";
 
 const AboutPage = () => {
   const [showIntro, setShowIntro] = useState(false);
@@ -12,7 +12,7 @@ const AboutPage = () => {
   return (
     <>
       <Box h="full" overflow="hidden" hideBelow="lg">
-        <Flex
+        {/* <Flex
           direction="column"
           position="absolute"
           top="20%"
@@ -23,45 +23,51 @@ const AboutPage = () => {
           w="fit"
         >
           <Flex>
-            {"Arpit".split("").map((char, i) => (
-              <MotionHeading
-                key={char}
-                h="9rem"
-                fontSize="9rem"
-                color="gray"
-                {...revealFromBottom}
-                animate={{
-                  ...revealFromBottom.animate,
-                  opacity: 0.2,
-                }}
-                transition={{
-                  delay: 0.05 * i,
-                }}
-              >
-                {char}
-              </MotionHeading>
-            ))}
+            {intro.name
+              .split(" ")[0]
+              .split("")
+              .map((char, i) => (
+                <MotionHeading
+                  key={char}
+                  h="9rem"
+                  fontSize="9rem"
+                  color="gray"
+                  {...revealFromBottom}
+                  animate={{
+                    ...revealFromBottom.animate,
+                    opacity: 0.2,
+                  }}
+                  transition={{
+                    delay: 0.05 * i,
+                  }}
+                >
+                  {char}
+                </MotionHeading>
+              ))}
           </Flex>
           <Flex justify="end">
-            {"Das".split("").map((char, i) => (
-              <MotionHeading
-                key={char}
-                fontSize="9rem"
-                color="gray"
-                {...revealFromBottom}
-                animate={{
-                  ...revealFromBottom.animate,
-                  opacity: 0.2,
-                }}
-                transition={{
-                  delay: 0.25 + 0.05 * i,
-                }}
-              >
-                {char}
-              </MotionHeading>
-            ))}
+            {intro.name
+              .split(" ")[1]
+              .split("")
+              .map((char, i) => (
+                <MotionHeading
+                  key={char}
+                  fontSize="9rem"
+                  color="gray"
+                  {...revealFromBottom}
+                  animate={{
+                    ...revealFromBottom.animate,
+                    opacity: 0.2,
+                  }}
+                  transition={{
+                    delay: intro.name.split(" ")[0].length * 0.05 + 0.05 * i,
+                  }}
+                >
+                  {char}
+                </MotionHeading>
+              ))}
           </Flex>
-        </Flex>
+        </Flex> */}
         <Grid w="full" h="full" templateColumns="45% 1fr" gap="20">
           <AboutIntro />
           <ProfileImage />

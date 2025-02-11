@@ -1,5 +1,4 @@
 import { MotionBox, MotionHeading } from "@/components/ui/Motion";
-import { Skill as ISkill } from "@/data/skillsData";
 import { grow, revealFromBottom, revealFromLeft } from "@/lib/animation";
 import Skill from "@/pages/skills/Skill";
 import { Flex, Text } from "@chakra-ui/react";
@@ -7,14 +6,14 @@ import { Flex, Text } from "@chakra-ui/react";
 interface SkillSectionProps {
   title: string;
   description: string;
-  skills: ISkill[];
+  skills: { name: string; logo: string }[];
 }
 
 const SkillSection = ({ title, skills, description }: SkillSectionProps) => {
   return (
     <Flex direction="column" gap="4">
       <Flex direction="column" gap="2">
-        <MotionHeading size="4xl" {...revealFromLeft}>
+        <MotionHeading color="primary" size="4xl" {...revealFromLeft}>
           {title}
         </MotionHeading>
         <MotionBox h="1" bg="primary" rounded="sm" {...grow} />

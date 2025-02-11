@@ -54,7 +54,7 @@ function Layout() {
             direction="column"
             h={{ base: "auto", lg: "calc(100dvh - var(--navbar-height))" }}
             px={{ base: "4", lg: "0" }}
-            overflow={outletOverflowHidden ? "hidden" : "auto"}
+            overflow={outletOverflowHidden ? "hidden" : "visible"}
           >
             <Outlet />
           </Flex>

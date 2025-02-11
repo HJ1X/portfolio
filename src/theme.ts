@@ -1,8 +1,21 @@
 import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
 
 const config = defineConfig({
+  globalCss: {
+    html: {
+      fontVariationSettings: `"YOPQ" 200`,
+    },
+  },
   theme: {
     tokens: {
+      fonts: {
+        heading: {
+          value: `"Kumbh Sans", sans-serif`,
+        },
+        body: {
+          value: `"Kumbh Sans", sans-serif`,
+        },
+      },
       breakpoints: {
         "3xl": {
           value: "1920px",
@@ -58,14 +71,6 @@ const config = defineConfig({
           subtle: { value: "{colors.secondary.200}" },
           emphasized: { value: "{colors.secondary.300}" },
           focusRing: { value: "{colors.secondary.500}" },
-        },
-      },
-      fonts: {
-        heading: {
-          value: "Montserrat, sans-serif",
-        },
-        body: {
-          value: "Montserrat, sans-serif",
         },
       },
     },

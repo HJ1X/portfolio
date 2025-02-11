@@ -55,7 +55,11 @@ const NavbarMobile = ({
           <ThemeToggleButton />
           <IconButton
             onClick={() => {
-              showNav ? handleNavClose() : handleNavOpen();
+              if (showNav) {
+                handleNavClose();
+              } else {
+                handleNavOpen();
+              }
             }}
             variant="outline"
             size="sm"

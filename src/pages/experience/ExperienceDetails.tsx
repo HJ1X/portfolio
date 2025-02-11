@@ -5,7 +5,6 @@ import { revealFromBottom, revealFromLeft } from "@/lib/animation";
 import { getRandomKey } from "@/lib/utils";
 import { Em, Flex, Icon, List, Stack, Text } from "@chakra-ui/react";
 import { BsArrowRightCircle } from "react-icons/bs";
-import { FaReact } from "react-icons/fa6";
 
 interface ExperienceDetailsProps {
   details: IExperienceDetails | undefined;
@@ -20,8 +19,10 @@ const ExperienceDetails = ({ details }: ExperienceDetailsProps) => {
     <Stack direction="column">
       <MotionHeading
         key={getRandomKey()}
-        size={{ base: "4xl", lg: "5xl" }}
+        size={{ base: "3xl", lg: "5xl" }}
+        w={{ base: "5/6", lg: "full" }}
         {...revealFromBottom}
+        color="primary"
       >
         {details.profile}
       </MotionHeading>
@@ -71,14 +72,9 @@ const ExperienceDetails = ({ details }: ExperienceDetailsProps) => {
               }}
             >
               <Badge>
-                <Flex gap="2" align="center">
-                  <Icon fontWeight="bold">
-                    <FaReact />
-                  </Icon>
-                  <Text fontWeight="bold" fontSize="sm">
-                    {skill}
-                  </Text>
-                </Flex>
+                <Text fontWeight="bold" fontSize="sm">
+                  {skill.name}
+                </Text>
               </Badge>
             </MotionBox>
           ))}

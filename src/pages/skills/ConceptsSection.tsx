@@ -1,13 +1,12 @@
 import Badge from "@/components/ui/custom/Badge";
 import { MotionBox, MotionHeading, MotionText } from "@/components/ui/Motion";
-import { Skill } from "@/data/skillsData";
 import { grow, revealFromBottom, revealFromLeft } from "@/lib/animation";
 import { Flex, Text } from "@chakra-ui/react";
 
 interface ConceptsSectionProps {
   title: string;
   description: string;
-  skills: Skill[];
+  skills: string[];
 }
 
 const ConceptsSection = ({
@@ -18,7 +17,7 @@ const ConceptsSection = ({
   return (
     <Flex direction="column" gap="3">
       <Flex direction="column" gap="2">
-        <MotionHeading size="4xl" {...revealFromLeft}>
+        <MotionHeading size="4xl" color="primary" {...revealFromLeft}>
           {title}
         </MotionHeading>
         <MotionBox h="1" bg="primary" rounded="sm" {...grow} />
@@ -30,13 +29,13 @@ const ConceptsSection = ({
         <Flex wrap="wrap" gap="3">
           {skills.map((skill, i) => (
             <MotionBox
-              key={skill.name}
+              key={skill}
               {...revealFromBottom}
               transition={{ delay: 0.4 + 0.1 * i }}
             >
               <Badge>
                 <Text fontSize="sm" fontWeight="bold">
-                  {skill.name}
+                  {skill}
                 </Text>
               </Badge>
             </MotionBox>

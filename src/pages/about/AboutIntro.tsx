@@ -1,6 +1,7 @@
 import FancyButton from "@/components/ui/custom/FancyButton";
 import FancyHeading from "@/components/ui/custom/FancyHeading";
 import { MotionFlex, MotionText } from "@/components/ui/Motion";
+import { intro } from "@/data/aboutData";
 import { revealFromBottom, revealFromLeft } from "@/lib/animation";
 import { Flex, Heading } from "@chakra-ui/react";
 import { HiDownload } from "react-icons/hi";
@@ -22,7 +23,7 @@ const AboutIntro = () => {
           size={{ base: "5xl", lg: "6xl" }}
           textAlign={{ base: "center", lg: "inherit" }}
         >
-          Himanshu Jaroli
+          {intro.name}
         </FancyHeading>
       </MotionFlex>
       <MotionFlex
@@ -34,7 +35,7 @@ const AboutIntro = () => {
           className="select-none capitalize"
           theme="secondary"
         >
-          Full Stack Developer
+          {intro.profile}
         </FancyHeading>
       </MotionFlex>
       <MotionText
@@ -44,11 +45,7 @@ const AboutIntro = () => {
         transition={{ delay: 0.2 }}
         textAlign={{ base: "center", lg: "inherit" }}
       >
-        Software Engineer with 2+ years of experience in developing and
-        delivering industry standard web applications. I have a passion for
-        crafting scalable and user-centric softwares. My focus lies in writing
-        clean, maintainable code, optimizing performance, and delivering
-        exceptional user experiences.
+        {intro.description}
       </MotionText>
       <MotionFlex
         pt="8"

@@ -1,4 +1,4 @@
-import { achievements, awards } from "@/data/recognitionsData";
+import { awards } from "@/data/recognitionsData";
 import { Box, Flex } from "@chakra-ui/react";
 import ListSection from "./ListSection";
 import Testimonials from "./testimonials";
@@ -8,9 +8,8 @@ const RecognitionsPage = () => {
     <>
       <Flex h="full" w="full" align="center" hideBelow="lg" mt="-10">
         <Flex w="full" gap="16">
-          <Flex direction="column" w="1/2" gap="20">
-            <ListSection title="Awards" points={awards} />
-            <ListSection title="Achievements" points={achievements} />
+          <Flex direction="column" justify="center" w="1/2" gap="20">
+            <ListSection title="Awards and achievements" points={awards} />
           </Flex>
           <Box w="1/2" my="auto">
             <Testimonials />
@@ -18,8 +17,7 @@ const RecognitionsPage = () => {
         </Flex>
       </Flex>
       <Flex direction="column" h="fit" pb="10" w="full" hideFrom="lg" gap="8">
-        <ListSection title="Awards" points={awards} />
-        <ListSection title="Achievements" points={achievements} />
+        <ListSection title="Awards and achievements" points={awards} />
         <Testimonials />
       </Flex>
     </>

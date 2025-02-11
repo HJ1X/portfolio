@@ -12,7 +12,7 @@ const ListSection = ({ title, points }: ListSectionProps) => {
   return (
     <Flex direction="column" gap="4">
       <Flex direction="column" gap="2">
-        <MotionHeading size="4xl" {...revealFromLeft}>
+        <MotionHeading size="4xl" color="primary" {...revealFromLeft}>
           {title}
         </MotionHeading>
         <MotionBox h="1" bg="primary" rounded="sm" {...grow} />

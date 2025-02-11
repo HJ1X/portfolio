@@ -29,7 +29,7 @@ const ProjectCard = ({ id }: ProjectCardProps) => {
           h: "full",
           w: "full",
           rounded: "xl",
-          filter: "opacity(0.7)",
+          filter: "opacity(0.8)",
           transitionProperty: "all",
           transitionDuration: "fast",
           transitionTimingFunction: "ease-in",
@@ -79,7 +79,7 @@ const ProjectCard = ({ id }: ProjectCardProps) => {
           w="full"
           zIndex="docked"
           className="bg-gradient-to-b from-transparent from-80% to-[var(--chakra-colors-gray-700)] to-100%"
-        ></Box>
+        />
         <Image src={data.cover} h="full" w="auto" fit="cover" />
       </Box>
       <Card.Body>
