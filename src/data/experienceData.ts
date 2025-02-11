@@ -1,5 +1,5 @@
-import TCSLogo from "@/assets/images/tcs-logo.png";
-import HumapsLogo from "@/assets/images/humaps-logo.png";
+import TCSLogo from "@/assets/images/companies/tcs-logo.png";
+import HumapsLogo from "@/assets/images/companies/humaps-logo.png";
 import ReactLogo from "@/assets/images/skills/react.svg";
 import JavaLogo from "@/assets/images/skills/java.svg";
 import SpringLogo from "@/assets/images/skills/spring.png";
