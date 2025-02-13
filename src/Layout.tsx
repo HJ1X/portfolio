@@ -4,6 +4,7 @@ import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router";
 import { MotionBox } from "./components/ui/Motion";
+import { Toaster } from "./components/ui/chakra/toaster";
 
 function Layout() {
   const [loading, setLoading] = useState(true);
@@ -58,6 +59,7 @@ function Layout() {
           >
             <Outlet />
           </Flex>
+          <Toaster />
         </Container>
       )}
     </>

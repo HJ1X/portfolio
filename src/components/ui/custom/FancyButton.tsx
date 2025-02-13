@@ -1,8 +1,8 @@
+import { Icon } from "@chakra-ui/react";
 import {
   Button as ChakraButton,
   ButtonProps as ChakraButtonProps,
-  Icon,
-} from "@chakra-ui/react";
+} from "../chakra/button";
 import { ReactNode } from "react";
 import { RiArrowRightLine } from "react-icons/ri";
 

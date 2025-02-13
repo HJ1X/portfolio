@@ -4,10 +4,13 @@ import {
   MotionHeading,
   MotionText,
 } from "@/components/ui/Motion";
-import { revealFromBottom } from "@/lib/animation";
-import { Em, Flex, Icon, Text } from "@chakra-ui/react";
+import { revealFromBottom, revealFromLeft } from "@/lib/animation";
+import { Em, Flex, Icon, IconButton, Link, Text } from "@chakra-ui/react";
 import { FiMail, FiMapPin } from "react-icons/fi";
 import ContactForm from "./ContactForm";
+import { FaTelegramPlane } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaXTwitter } from "react-icons/fa6";
+import { socialLinks } from "@/data/contactData";
 
 const ContactPage = () => {
   return (
@@ -42,7 +45,7 @@ const ContactPage = () => {
             connect
           </MotionHeading>
           <MotionText
-            fontSize="sm"
+            fontSize="md"
             mt="3"
             ml="1"
             color="fg.muted"
@@ -86,6 +89,70 @@ const ContactPage = () => {
               </Text>
             </MotionFlex>
           </Em>
+          <MotionFlex
+            pt="6"
+            gap="4"
+            {...revealFromLeft}
+            transition={{ delay: 0.5 }}
+            justify={{ base: "center", lg: "start" }}
+          >
+            <Link
+              href={socialLinks.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconButton
+                rounded="full"
+                size="lg"
+                variant="outline"
+                borderColor="gray.emphasized"
+              >
+                <FaLinkedinIn />
+              </IconButton>
+            </Link>
+            <Link
+              href={socialLinks.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconButton
+                rounded="full"
+                size="lg"
+                variant="outline"
+                borderColor="gray.emphasized"
+              >
+                <FaGithub />
+              </IconButton>
+            </Link>
+            <Link
+              href={socialLinks.x}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconButton
+                rounded="full"
+                size="lg"
+                variant="outline"
+                borderColor="gray.emphasized"
+              >
+                <FaXTwitter />
+              </IconButton>
+            </Link>
+            <Link
+              href={socialLinks.telegram}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconButton
+                rounded="full"
+                size="lg"
+                variant="outline"
+                borderColor="gray.emphasized"
+              >
+                <FaTelegramPlane />
+              </IconButton>
+            </Link>
+          </MotionFlex>
         </Flex>
         <MotionBox
           rounded="full"
