@@ -3,8 +3,8 @@ import FancyHeading from "@/components/ui/custom/FancyHeading";
 import { MotionFlex, MotionText } from "@/components/ui/Motion";
 import { intro } from "@/data/aboutData";
 import { revealFromBottom, revealFromLeft } from "@/lib/animation";
-import { Flex, Heading } from "@chakra-ui/react";
-import { HiDownload } from "react-icons/hi";
+import { Flex, Heading, Link } from "@chakra-ui/react";
+import Resume from "@/assets/pdf/resume.pdf";
 
 const AboutIntro = () => {
   return (
@@ -40,7 +40,7 @@ const AboutIntro = () => {
       </MotionFlex>
       <MotionText
         className="pt-5 select-none"
-        fontSize="md"
+        fontSize={{ base: "md", lg: "lg" }}
         {...revealFromBottom}
         transition={{ delay: 0.2 }}
         textAlign={{ base: "center", lg: "inherit" }}
@@ -55,11 +55,14 @@ const AboutIntro = () => {
         justify={{ base: "center", lg: "start" }}
       >
         <FancyButton label="Contact Me" />
-        <FancyButton
-          theme="secondary"
-          label="Download Resume"
-          icon={<HiDownload />}
-        />
+        <Link
+          textDecoration="none"
+          href={Resume}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FancyButton theme="secondary" label="View Resume" />
+        </Link>
       </MotionFlex>
     </Flex>
   );
