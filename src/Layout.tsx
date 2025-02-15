@@ -7,7 +7,7 @@ import LoadingScreen from "./components/function/LoadingScreen";
 import { Toaster } from "./components/ui/chakra/toaster";
 
 function Layout() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [outletOverflowHidden, setOutletOverflowHidden] = useState(false);
 
   return (
