@@ -10,8 +10,9 @@ type Testimonial = {
   quote: string;
   name: string;
   designation: string;
-  src?: string;
+  avatar: string;
 };
+
 export const AnimatedTestimonials = ({
   testimonials,
   autoplay = false,
@@ -61,7 +62,6 @@ export const AnimatedTestimonials = ({
           <div
             className="relative h-72 w-full flex justify-center"
             {...swipeHandlers}
-            // touchAction="pan-y"
           >
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
@@ -116,7 +116,7 @@ export const AnimatedTestimonials = ({
 
                     <Card.Footer>
                       <HStack gap="4">
-                        <Avatar src="https://www.cleanpng.com/png-india-login-computer-icons-emoticon-medicine-user-607865/" />
+                        <Avatar src={testimonial.avatar} />
                         <Stack gap="0">
                           <Text color="gray.contrast">{testimonial.name}</Text>
                           <Text fontSize="xs" color="fg.inverted">
