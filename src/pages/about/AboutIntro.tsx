@@ -5,8 +5,10 @@ import { intro } from "@/data/aboutData";
 import { revealFromBottom, revealFromLeft } from "@/lib/animation";
 import { Flex, Heading, Link } from "@chakra-ui/react";
 import Resume from "@/assets/pdf/resume.pdf";
+import { useNavigate } from "react-router";
 
 const AboutIntro = () => {
+  const navigate = useNavigate();
   return (
     <Flex w="full" h="full" mt="-10" direction="column" justifyContent="center">
       <MotionFlex
@@ -54,7 +56,7 @@ const AboutIntro = () => {
         transition={{ delay: 0.4 }}
         justify={{ base: "center", lg: "start" }}
       >
-        <FancyButton label="Contact Me" />
+        <FancyButton label="Contact Me" onClick={() => navigate("/contact")} />
         <Link
           textDecoration="none"
           href={Resume}
