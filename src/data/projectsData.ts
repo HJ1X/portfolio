@@ -13,8 +13,8 @@ export const projectsDetails = [
     title: "Call Buddy.",
     description:
       "Connecting you seamlessly, Anytime, Anywhere - A Hassle free vieo calling service.",
-    liveLink: "/",
-    githubLink: "",
+    liveLink: "https://call-buddy-two.vercel.app",
+    githubLink: "https://github.com/HJ1X/call-buddy",
     logo: CallBuddyLogo,
     cover: CallBuddyCover,
   },
@@ -23,8 +23,8 @@ export const projectsDetails = [
     title: "Aurora",
     description:
       "Your Ultimate Game Library - Discover your new favorite game like never before.",
-    liveLink: "/",
-    githubLink: "",
+    liveLink: "https://aurora-ruddy-nine.vercel.app/",
+    githubLink: "https://github.com/HJ1X/aurora",
     logo: AuroraLogo,
     cover: AuroraCover,
   },
@@ -32,7 +32,7 @@ export const projectsDetails = [
     id: 3,
     title: "SupporTroops",
     description: "Crypto for people - Transforming crowdfunding with crypto",
-    githubLink: "",
+    githubLink: "https://github.com/SupporTroops/supporTroops-web",
     cover: SupporTroopsCover,
     logo: SupporTroopsLogo,
   },
@@ -41,8 +41,9 @@ export const projectsDetails = [
     title: "CinePlanet",
     description:
       "Book Your Movie, Skip the Queue – Your Ticket to a Seamless Cinema Experience",
-    liveLink: "/",
-    githubLink: "",
+    liveLink: "",
+    githubLink:
+      "https://github.com/Sahil2012/CinePlanet/tree/master/frontend/cineplanet",
     logo: CinePlanetLogo,
     cover: CinePlanetCover,
   },

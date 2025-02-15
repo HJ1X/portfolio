@@ -1,6 +1,6 @@
 import FancyButton from "@/components/ui/custom/FancyButton";
 import { projectsDetails } from "@/data/projectsData";
-import { Box, Card, Flex, Image } from "@chakra-ui/react";
+import { Box, Card, Flex, Image, Link } from "@chakra-ui/react";
 
 interface ProjectCardProps {
   id: number;
@@ -119,9 +119,23 @@ const ProjectCard = ({ id }: ProjectCardProps) => {
             </Flex>
             <Flex className="slide-left-to-right" gap="3" justify="end">
               {data.liveLink && (
-                <FancyButton label="See live" theme="primary" />
+                <Link
+                  href={data.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  textDecoration="none"
+                >
+                  <FancyButton label="See live" theme="primary" />
+                </Link>
               )}
-              <FancyButton label="Learn more" theme="secondary" />
+              <Link
+                href={data.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                textDecoration="none"
+              >
+                <FancyButton label="Learn more" theme="secondary" />
+              </Link>
             </Flex>
           </Flex>
         </Flex>
