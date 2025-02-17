@@ -1,6 +1,8 @@
-# 🌐 My Portfolio Website [🔗](https://himanshujaroli.netlify.app)
+# My Portfolio Website
 
 A modern, responsive portfolio showcasing my skills, projects, and experience. Built to highlight my work and connect with like-minded professionals. 🚀  
+
+Live preview - https://himanshujaroli.netlify.app
 
 <br/>
 
