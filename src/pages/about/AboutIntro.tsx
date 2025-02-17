@@ -4,7 +4,6 @@ import { MotionFlex, MotionText } from "@/components/ui/Motion";
 import { intro } from "@/data/aboutData";
 import { revealFromBottom, revealFromLeft } from "@/lib/animation";
 import { Flex, Heading, Link } from "@chakra-ui/react";
-import Resume from "@/assets/pdf/resume.pdf";
 import { useNavigate } from "react-router";
 
 const AboutIntro = () => {
@@ -59,7 +58,7 @@ const AboutIntro = () => {
         <FancyButton label="Contact Me" onClick={() => navigate("/contact")} />
         <Link
           textDecoration="none"
-          href={Resume}
+          href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
